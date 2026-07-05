@@ -60,26 +60,28 @@ export const Button = forwardRef<
   if ("href" in props && props.href) {
     const { href, ...rest } = props as LinkButtonProps;
     return (
-      <motion.a
-        ref={ref as React.Ref<HTMLAnchorElement>}
-        href={href}
-        className={classes}
-        {...motionProps}
-        {...rest}
-      >
-        {children}
-      </motion.a>
+      <motion.span className="inline-flex" {...motionProps}>
+        <a
+          ref={ref as React.Ref<HTMLAnchorElement>}
+          href={href}
+          className={classes}
+          {...rest}
+        >
+          {children}
+        </a>
+      </motion.span>
     );
   }
 
   return (
-    <motion.button
-      ref={ref as React.Ref<HTMLButtonElement>}
-      className={classes}
-      {...motionProps}
-      {...(props as ButtonProps)}
-    >
-      {children}
-    </motion.button>
+    <motion.span className="inline-flex" {...motionProps}>
+      <button
+        ref={ref as React.Ref<HTMLButtonElement>}
+        className={classes}
+        {...(props as ButtonProps)}
+      >
+        {children}
+      </button>
+    </motion.span>
   );
 });

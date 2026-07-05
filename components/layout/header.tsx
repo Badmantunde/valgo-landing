@@ -3,29 +3,29 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, type Variants } from "framer-motion";
 import { Menu, X, ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Logo } from "@/components/ui/logo";
 import { NAV_LINKS } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
-const menuVariants = {
+const menuVariants: Variants = {
   closed: { opacity: 0, x: "100%" },
   open: { opacity: 1, x: 0 },
 };
 
-const backdropVariants = {
+const backdropVariants: Variants = {
   closed: { opacity: 0 },
   open: { opacity: 1 },
 };
 
-const linkVariants = {
+const linkVariants: Variants = {
   closed: { opacity: 0, x: 16 },
   open: (i: number) => ({
     opacity: 1,
     x: 0,
-    transition: { delay: 0.05 + i * 0.05, duration: 0.3, ease: [0.22, 1, 0.36, 1] },
+    transition: { delay: 0.05 + i * 0.05, duration: 0.3, ease: [0.22, 1, 0.36, 1] as const },
   }),
 };
 
