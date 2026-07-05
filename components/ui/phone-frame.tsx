@@ -9,14 +9,15 @@ interface PhoneFrameProps {
   alt: string;
   className?: string;
   priority?: boolean;
-  size?: "sm" | "md" | "lg";
+  size?: "sm" | "md" | "lg" | "xl";
   interactive?: boolean;
 }
 
 const sizeMap = {
-  sm: "max-w-[200px]",
-  md: "max-w-[260px]",
+  sm: "max-w-[160px]",
+  md: "max-w-[220px]",
   lg: "max-w-[300px]",
+  xl: "max-w-[360px]",
 };
 
 export function PhoneFrame({

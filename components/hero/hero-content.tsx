@@ -36,7 +36,7 @@ export function HeroContent() {
           variant="blue"
           className="mb-6 bg-white/10 text-white/90 border-white/15 backdrop-blur-sm rounded-md"
         >
-          Nigerian platform · Launching first at {LAUNCH.universityShort}, {LAUNCH.year}
+          Launching first at {LAUNCH.universityShort}, {LAUNCH.year}
         </Badge>
       </motion.div>
 
