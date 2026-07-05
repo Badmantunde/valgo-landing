@@ -1,0 +1,12 @@
+RewriteEngine On
+
+# Force HTTPS
+RewriteCond %{HTTPS} off
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Redirect www to root domain
+RewriteCond %{HTTP_HOST} ^www\.usevalgo\.com [NC]
+RewriteRule ^ https://usevalgo.com%{REQUEST_URI} [L,R=301]
+
+# Serve index.html for directory requests
+DirectoryIndex index.html
