@@ -4,9 +4,10 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence, type Variants } from "framer-motion";
-import { Menu, X, ArrowUpRight } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Logo } from "@/components/ui/logo";
+import { MenuToggleIcon } from "@/components/ui/menu-toggle-icon";
 import { NAV_LINKS } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
@@ -59,9 +60,9 @@ export function Header() {
     <>
       <header
         className={cn(
-          "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-          useLightNav ? "glass shadow-sm py-3" : "bg-transparent py-5",
-          mobileOpen && "bg-white shadow-md py-3"
+          "fixed top-0 left-0 right-0 transition-all duration-300",
+          mobileOpen ? "z-[80] bg-white shadow-md py-3" : "z-50",
+          !mobileOpen && (useLightNav ? "glass shadow-sm py-3" : "bg-transparent py-5")
         )}
       >
         <div className="mx-auto flex max-w-7xl items-center justify-between px-5 sm:px-6 lg:px-8">
@@ -114,14 +115,15 @@ export function Header() {
           <button
             type="button"
             className={cn(
-              "lg:hidden p-2 rounded-lg transition-colors",
-              useLightNav ? "text-foreground hover:bg-blue-50" : "text-white hover:bg-white/10"
+              "lg:hidden relative z-[81] p-2 rounded-lg transition-colors",
+              useLightNav ? "text-foreground hover:bg-blue-50" : "text-white hover:bg-white/10",
+              mobileOpen && "text-foreground hover:bg-blue-50"
             )}
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label={mobileOpen ? "Close menu" : "Open menu"}
             aria-expanded={mobileOpen}
           >
-            {mobileOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            <MenuToggleIcon open={mobileOpen} />
           </button>
         </div>
       </header>
