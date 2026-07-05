@@ -1,14 +1,15 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { PageHero } from "@/components/layout/page-hero";
 import { FadeUp } from "@/components/ui/motion";
+import { createPageMetadata } from "@/lib/metadata";
 import { LAUNCH } from "@/lib/constants";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: "Blog",
-  description: `Updates, stories, and insights from the ValGo team as we launch at ${LAUNCH.university}.`,
-};
+  description: `Updates, stories, and insights from the ValGo team as we launch at ${LAUNCH.university} in ${LAUNCH.city}.`,
+  path: "/blog",
+});
 
 import { blogPosts } from "@/data/blog-posts";
 

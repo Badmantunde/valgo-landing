@@ -42,13 +42,13 @@ export function BlurReveal({ children, className, delay = 0 }: BlurRevealProps) 
   return (
     <motion.div
       ref={ref}
-      initial={{ opacity: 0, filter: "blur(12px)", y: 20 }}
+      initial={{ opacity: 0, filter: "blur(14px)", y: 24 }}
       animate={
         isInView
           ? { opacity: 1, filter: "blur(0px)", y: 0 }
-          : { opacity: 0, filter: "blur(12px)", y: 20 }
+          : { opacity: 0, filter: "blur(14px)", y: 24 }
       }
-      transition={{ duration: 0.7, delay, ease: [0.22, 1, 0.36, 1] }}
+      transition={{ duration: 0.75, delay, ease: [0.22, 1, 0.36, 1] }}
       className={className}
     >
       {children}
@@ -72,7 +72,7 @@ export function StaggerContainer({ children, className }: StaggerContainerProps)
       animate={isInView ? "visible" : "hidden"}
       variants={{
         hidden: {},
-        visible: { transition: { staggerChildren: 0.08, delayChildren: 0.1 } },
+        visible: { transition: { staggerChildren: 0.1, delayChildren: 0.08 } },
       }}
       className={className}
     >
@@ -90,6 +90,24 @@ export function StaggerItem({
 }) {
   return (
     <motion.div variants={fadeUp} className={cn(className)}>
+      {children}
+    </motion.div>
+  );
+}
+
+export function HoverLift({
+  children,
+  className,
+}: {
+  children: ReactNode;
+  className?: string;
+}) {
+  return (
+    <motion.div
+      whileHover={{ y: -6, scale: 1.01 }}
+      transition={{ type: "spring", stiffness: 360, damping: 24 }}
+      className={className}
+    >
       {children}
     </motion.div>
   );

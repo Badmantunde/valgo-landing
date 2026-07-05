@@ -1,15 +1,16 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowUpRight, MapPin, Clock } from "lucide-react";
 import { PageHero } from "@/components/layout/page-hero";
 import { Button } from "@/components/ui/button";
 import { FadeUp } from "@/components/ui/motion";
+import { createPageMetadata } from "@/lib/metadata";
 import { LAUNCH, SITE } from "@/lib/constants";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: "Careers",
   description: `Join the ValGo team building Nigeria's student-first delivery platform. Open roles in ${LAUNCH.city} and remote.`,
-};
+  path: "/careers",
+});
 
 const openRoles = [
   {

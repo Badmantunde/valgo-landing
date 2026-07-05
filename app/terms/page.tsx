@@ -1,11 +1,12 @@
-import type { Metadata } from "next";
 import { ContentPage } from "@/components/layout/content-page";
+import { createPageMetadata } from "@/lib/metadata";
 import { LAUNCH, SITE } from "@/lib/constants";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: "Terms of Service",
-  description: `Terms and conditions for using ValGo's platform and services.`,
-};
+  description: "Terms and conditions for using ValGo's delivery platform, customer app, vendor dashboard, and rider services in Nigeria.",
+  path: "/terms",
+});
 
 export default function TermsPage() {
   return (

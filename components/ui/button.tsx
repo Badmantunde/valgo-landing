@@ -1,3 +1,6 @@
+"use client";
+
+import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { forwardRef, type ButtonHTMLAttributes, type AnchorHTMLAttributes } from "react";
 
@@ -34,6 +37,12 @@ type ButtonProps = ButtonBaseProps &
 type LinkButtonProps = ButtonBaseProps &
   AnchorHTMLAttributes<HTMLAnchorElement> & { href: string };
 
+const motionProps = {
+  whileHover: { scale: 1.03, y: -1 },
+  whileTap: { scale: 0.97 },
+  transition: { type: "spring" as const, stiffness: 420, damping: 22 },
+};
+
 export const Button = forwardRef<
   HTMLButtonElement | HTMLAnchorElement,
   ButtonProps | LinkButtonProps
@@ -51,15 +60,26 @@ export const Button = forwardRef<
   if ("href" in props && props.href) {
     const { href, ...rest } = props as LinkButtonProps;
     return (
-      <a ref={ref as React.Ref<HTMLAnchorElement>} href={href} className={classes} {...rest}>
+      <motion.a
+        ref={ref as React.Ref<HTMLAnchorElement>}
+        href={href}
+        className={classes}
+        {...motionProps}
+        {...rest}
+      >
         {children}
-      </a>
+      </motion.a>
     );
   }
 
   return (
-    <button ref={ref as React.Ref<HTMLButtonElement>} className={classes} {...(props as ButtonProps)}>
+    <motion.button
+      ref={ref as React.Ref<HTMLButtonElement>}
+      className={classes}
+      {...motionProps}
+      {...(props as ButtonProps)}
+    >
       {children}
-    </button>
+    </motion.button>
   );
 });

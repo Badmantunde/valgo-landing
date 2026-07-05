@@ -1,13 +1,14 @@
-import type { Metadata } from "next";
 import { PageHero } from "@/components/layout/page-hero";
 import { WhyValGo } from "@/components/sections/why-valgo";
 import { BusinessGrowth } from "@/components/sections/business-growth";
+import { createPageMetadata } from "@/lib/metadata";
 import { LAUNCH } from "@/lib/constants";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: "Services",
   description: `Food delivery, groceries, pharmacy, parcels, and more. All the services ValGo brings to ${LAUNCH.university} in ${LAUNCH.city}.`,
-};
+  path: "/services",
+});
 
 export default function ServicesPage() {
   return (

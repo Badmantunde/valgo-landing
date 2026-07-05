@@ -1,4 +1,7 @@
+"use client";
+
 import Image from "next/image";
+import { motion } from "framer-motion";
 import { Bike, MapPin, Star, Tag } from "lucide-react";
 import { cn } from "@/lib/utils";
 import type { Restaurant } from "@/data/restaurants";
@@ -12,23 +15,26 @@ export function RestaurantCard({ restaurant, className }: RestaurantCardProps) {
   const isOpen = restaurant.open ?? true;
 
   return (
-    <article
+    <motion.article
+      whileHover={{ y: -8 }}
+      transition={{ type: "spring", stiffness: 340, damping: 22 }}
       className={cn(
-        "flex flex-col bg-white rounded-[20px] overflow-hidden",
+        "flex flex-col w-full min-w-0 bg-white rounded-[20px] overflow-hidden",
         "shadow-[0_4px_8px_rgba(15,23,42,0.08),0_12px_32px_rgba(15,23,42,0.16)]",
         "hover:shadow-[0_8px_16px_rgba(15,23,42,0.1),0_20px_48px_rgba(15,23,42,0.22)]",
-        "transition-shadow duration-200",
+        "transition-shadow duration-300",
         className
       )}
     >
-      <div className="m-1.5">
-        <div className="relative aspect-[2/1] overflow-hidden rounded-[12px]">
+      <div className="p-1.5">
+        <div className="relative w-full overflow-hidden rounded-[12px] bg-[#f1f5f9]">
           <Image
             src={restaurant.image}
             alt={restaurant.name}
-            fill
-            className="object-cover rounded-[12px]"
-            sizes="(max-width: 768px) 100vw, 33vw"
+            width={640}
+            height={320}
+            className="w-full aspect-[2/1] object-cover block"
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
           />
         </div>
       </div>
@@ -81,6 +87,6 @@ export function RestaurantCard({ restaurant, className }: RestaurantCardProps) {
           </p>
         </div>
       )}
-    </article>
+    </motion.article>
   );
 }

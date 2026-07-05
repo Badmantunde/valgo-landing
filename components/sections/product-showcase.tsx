@@ -46,29 +46,56 @@ export function ProductShowcase() {
         </div>
 
         <div className="mt-10 grid lg:grid-cols-[1fr_340px] gap-10 lg:gap-16 items-start">
-          {/* Screenshot */}
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={activeId}
-              initial={{ opacity: 0, x: -12 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: 12 }}
-              transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-              className="flex justify-center lg:justify-start"
-            >
-              <div className="w-full max-w-[320px] rounded-lg overflow-hidden border border-border bg-white shadow-float">
-                <Image
-                  src={current.image}
-                  alt={current.alt}
-                  width={390}
-                  height={844}
-                  className="w-full h-auto block"
-                  sizes="(max-width: 768px) 280px, 320px"
-                  priority={activeId === productScreens[0].id}
-                />
-              </div>
-            </motion.div>
-          </AnimatePresence>
+          <div>
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={activeId}
+                initial={{ opacity: 0, x: -12 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: 12 }}
+                transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+                className="flex justify-center lg:justify-start"
+              >
+                <div className="w-full max-w-[320px] rounded-lg overflow-hidden border border-border bg-white shadow-float">
+                  <Image
+                    src={current.image}
+                    alt={current.alt}
+                    width={390}
+                    height={844}
+                    className="w-full h-auto block"
+                    sizes="(max-width: 768px) 280px, 320px"
+                    priority={activeId === productScreens[0].id}
+                  />
+                </div>
+              </motion.div>
+            </AnimatePresence>
+
+            {/* Thumbnail strip — visible on mobile/tablet below the screenshot */}
+            <div className="mt-6 flex gap-2 overflow-x-auto pb-1 scrollbar-none lg:hidden">
+              {productScreens.map((screen) => (
+                <button
+                  key={screen.id}
+                  type="button"
+                  onClick={() => setActiveId(screen.id)}
+                  className={cn(
+                    "relative w-12 h-[86px] rounded overflow-hidden border-2 transition-all shrink-0",
+                    activeId === screen.id
+                      ? "border-blue-500 opacity-100"
+                      : "border-transparent opacity-40 hover:opacity-70"
+                  )}
+                  aria-label={screen.label}
+                >
+                  <Image
+                    src={screen.image}
+                    alt=""
+                    fill
+                    className="object-cover object-top"
+                    sizes="48px"
+                  />
+                </button>
+              ))}
+            </div>
+          </div>
 
           {/* Copy */}
           <AnimatePresence mode="wait">
@@ -90,15 +117,15 @@ export function ProductShowcase() {
                 {current.description}
               </p>
 
-              {/* Thumbnail strip */}
-              <div className="mt-8 flex gap-2">
+              {/* Thumbnail strip — desktop only */}
+              <div className="mt-8 hidden lg:flex gap-2">
                 {productScreens.map((screen) => (
                   <button
                     key={screen.id}
                     type="button"
                     onClick={() => setActiveId(screen.id)}
                     className={cn(
-                      "w-12 h-[86px] rounded overflow-hidden border-2 transition-all shrink-0",
+                      "relative w-12 h-[86px] rounded overflow-hidden border-2 transition-all shrink-0",
                       activeId === screen.id
                         ? "border-blue-500 opacity-100"
                         : "border-transparent opacity-40 hover:opacity-70"
@@ -108,9 +135,9 @@ export function ProductShowcase() {
                     <Image
                       src={screen.image}
                       alt=""
-                      width={48}
-                      height={86}
-                      className="w-full h-full object-cover object-top"
+                      fill
+                      className="object-cover object-top"
+                      sizes="48px"
                     />
                   </button>
                 ))}

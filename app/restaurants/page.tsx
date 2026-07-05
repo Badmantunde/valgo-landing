@@ -1,13 +1,15 @@
-import type { Metadata } from "next";
 import { PageHero } from "@/components/layout/page-hero";
 import { RestaurantShowcase } from "@/components/sections/restaurant-showcase";
 import { RestaurantPreview } from "@/components/sections/restaurant-preview";
+import { createPageMetadata } from "@/lib/metadata";
 import { LAUNCH } from "@/lib/constants";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: "Restaurants",
-  description: `Discover restaurant partners and trending meals coming to ${LAUNCH.university} in ${LAUNCH.city}.`,
-};
+  description: `Discover restaurant partners and trending meals coming to ${LAUNCH.university} in ${LAUNCH.city}. Order from local favorites like Mama T's Kitchen and Kaffy Bakery on ValGo.`,
+  path: "/restaurants",
+  keywords: ["OOU restaurants", "Ago Iwoye food delivery", "campus restaurants"],
+});
 
 export default function RestaurantsPage() {
   return (

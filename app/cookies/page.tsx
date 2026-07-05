@@ -1,11 +1,12 @@
-import type { Metadata } from "next";
 import { ContentPage } from "@/components/layout/content-page";
+import { createPageMetadata } from "@/lib/metadata";
 import { SITE } from "@/lib/constants";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: "Cookie Policy",
-  description: `How ValGo uses cookies and similar technologies on our website.`,
-};
+  description: "How ValGo uses cookies and similar technologies on usevalgo.com and our mobile applications.",
+  path: "/cookies",
+});
 
 export default function CookiesPage() {
   return (

@@ -7,10 +7,26 @@ import { Metrics } from "@/components/sections/metrics";
 import { Testimonials } from "@/components/sections/testimonials";
 import { FAQ } from "@/components/sections/faq";
 import { Waitlist } from "@/components/sections/waitlist";
+import { JsonLd } from "@/components/seo/json-ld";
+import { faqItems } from "@/data/faq";
+import { createPageMetadata, getFAQSchema, getLocalBusinessSchema } from "@/lib/metadata";
+import { LAUNCH } from "@/lib/constants";
+
+export const metadata = createPageMetadata({
+  title: "ValGo | Everything Students Need. Delivered.",
+  description: `Order food, groceries, pharmacy, and campus essentials with ValGo. Nigeria's student-first delivery platform launching at ${LAUNCH.university} in ${LAUNCH.city}, ${LAUNCH.year}.`,
+  path: "/",
+  keywords: [
+    "join ValGo waitlist",
+    "OOU food delivery app",
+    "student delivery Ago Iwoye",
+  ],
+});
 
 export default function Home() {
   return (
     <>
+      <JsonLd data={[getFAQSchema(faqItems), getLocalBusinessSchema()]} />
       <Hero />
       <TrustedBy />
       <FoodGallery />

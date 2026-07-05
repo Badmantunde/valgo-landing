@@ -1,18 +1,18 @@
 import type { Variants, Transition } from "framer-motion";
 
 export const fadeUp: Variants = {
-  hidden: { opacity: 0, y: 32 },
+  hidden: { opacity: 0, y: 36 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] },
+    transition: { duration: 0.65, ease: [0.22, 1, 0.36, 1] },
   },
 };
 
 export const fadeUpStagger: Variants = {
   hidden: {},
   visible: {
-    transition: { staggerChildren: 0.1, delayChildren: 0.1 },
+    transition: { staggerChildren: 0.12, delayChildren: 0.08 },
   },
 };
 
@@ -85,6 +85,12 @@ export const defaultTransition: Transition = {
 
 export const viewportOnce = {
   once: true,
-  margin: "-80px" as const,
-  amount: 0.2 as const,
+  margin: "-60px" as const,
+  amount: 0.15 as const,
+};
+
+export const springSnappy: Transition = {
+  type: "spring",
+  stiffness: 380,
+  damping: 28,
 };

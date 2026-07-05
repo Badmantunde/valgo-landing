@@ -18,11 +18,11 @@ export function RestaurantShowcase() {
 
         <StaggerContainer className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {restaurants.map((restaurant) => (
-            <StaggerItem key={restaurant.id}>
+            <StaggerItem key={restaurant.id} className="w-full min-w-0">
               <motion.div
                 whileHover={{ y: -2 }}
                 transition={{ duration: 0.2 }}
-                className="h-full"
+                className="h-full w-full"
               >
                 <RestaurantCard restaurant={restaurant} />
               </motion.div>

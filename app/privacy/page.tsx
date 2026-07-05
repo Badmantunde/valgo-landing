@@ -1,11 +1,12 @@
-import type { Metadata } from "next";
 import { ContentPage } from "@/components/layout/content-page";
+import { createPageMetadata } from "@/lib/metadata";
 import { LAUNCH, SITE } from "@/lib/constants";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: "Privacy Policy",
-  description: `How ValGo collects, uses, and protects your personal information.`,
-};
+  description: "How ValGo collects, uses, and protects your personal information when you use our website, apps, and delivery services in Nigeria.",
+  path: "/privacy",
+});
 
 export default function PrivacyPage() {
   return (

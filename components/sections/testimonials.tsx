@@ -30,9 +30,10 @@ export function Testimonials() {
               key={testimonial.id}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
+              whileHover={{ y: -6, scale: 1.01 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.5, delay: i * 0.08 }}
-              className="rounded-lg border border-border bg-white p-6 shadow-card hover:shadow-card-hover transition-shadow duration-200 flex flex-col"
+              className="rounded-lg border border-border bg-white p-6 shadow-card hover:shadow-card-hover transition-shadow duration-300 flex flex-col"
             >
               <Badge variant="default" className="self-start mb-4">
                 {typeLabels[testimonial.type]}

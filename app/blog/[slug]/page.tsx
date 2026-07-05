@@ -1,9 +1,9 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
 import { PageHero } from "@/components/layout/page-hero";
 import { blogPosts, getBlogPost } from "@/data/blog-posts";
+import { createPageMetadata } from "@/lib/metadata";
 
 interface BlogPostPageProps {
   params: Promise<{ slug: string }>;
@@ -13,11 +13,16 @@ export async function generateStaticParams() {
   return blogPosts.map((post) => ({ slug: post.slug }));
 }
 
-export async function generateMetadata({ params }: BlogPostPageProps): Promise<Metadata> {
+export async function generateMetadata({ params }: BlogPostPageProps) {
   const { slug } = await params;
   const post = getBlogPost(slug);
   if (!post) return { title: "Article not found" };
-  return { title: post.title, description: post.excerpt };
+  return createPageMetadata({
+    title: post.title,
+    description: post.excerpt,
+    path: `/blog/${post.slug}`,
+    keywords: [post.category, "ValGo blog"],
+  });
 }
 
 export default async function BlogPostPage({ params }: BlogPostPageProps) {

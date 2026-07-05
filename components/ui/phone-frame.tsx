@@ -1,4 +1,7 @@
+"use client";
+
 import Image from "next/image";
+import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 interface PhoneFrameProps {
@@ -7,6 +10,7 @@ interface PhoneFrameProps {
   className?: string;
   priority?: boolean;
   size?: "sm" | "md" | "lg";
+  interactive?: boolean;
 }
 
 const sizeMap = {
@@ -21,8 +25,9 @@ export function PhoneFrame({
   className,
   priority = false,
   size = "md",
+  interactive = false,
 }: PhoneFrameProps) {
-  return (
+  const frame = (
     <div
       className={cn(
         "relative mx-auto w-full",
@@ -30,8 +35,7 @@ export function PhoneFrame({
         className
       )}
     >
-      {/* Device bezel */}
-      <div className="rounded-[1.25rem] bg-[#0c0c0e] p-[3px] shadow-[0_24px_48px_-12px_rgba(0,0,0,0.35)]">
+      <div className="rounded-[1.25rem] bg-[#0c0c0e] p-[3px] shadow-[0_24px_48px_-12px_rgba(0,0,0,0.35)] transition-shadow duration-300 group-hover:shadow-[0_32px_64px_-12px_rgba(0,0,0,0.45)]">
         <div className="rounded-[1.1rem] overflow-hidden bg-black ring-1 ring-white/10">
           <Image
             src={src}
@@ -45,6 +49,18 @@ export function PhoneFrame({
         </div>
       </div>
     </div>
+  );
+
+  if (!interactive) return frame;
+
+  return (
+    <motion.div
+      whileHover={{ y: -6, scale: 1.02 }}
+      transition={{ type: "spring", stiffness: 320, damping: 22 }}
+      className="group"
+    >
+      {frame}
+    </motion.div>
   );
 }
 
