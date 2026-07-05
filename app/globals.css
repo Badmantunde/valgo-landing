@@ -2,25 +2,165 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #0f172a;
+  --muted: #64748b;
+  --muted-foreground: #94a3b8;
+  --border: #e2e8f0;
+  --card: #ffffff;
+  --card-foreground: #0f172a;
+
+  /* ValGo Royal Blue Scale */
+  --blue-50: #eff4fd;
+  --blue-100: #dce7fb;
+  --blue-200: #b9cff7;
+  --blue-300: #86adef;
+  --blue-400: #5288e8;
+  --blue-500: #2966e9;
+  --blue-600: #1f52c4;
+  --blue-700: #1a439f;
+  --blue-800: #163682;
+  --blue-900: #132d6b;
+
+  /* Amber: ratings and promotions only */
+  --amber-400: #fbbf24;
+  --amber-500: #f59e0b;
+
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --radius-xl: 10px;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+
+  --color-blue-50: var(--blue-50);
+  --color-blue-100: var(--blue-100);
+  --color-blue-200: var(--blue-200);
+  --color-blue-300: var(--blue-300);
+  --color-blue-400: var(--blue-400);
+  --color-blue-500: var(--blue-500);
+  --color-blue-600: var(--blue-600);
+  --color-blue-700: var(--blue-700);
+  --color-blue-800: var(--blue-800);
+  --color-blue-900: var(--blue-900);
+
+  --color-amber-400: var(--amber-400);
+  --color-amber-500: var(--amber-500);
+
+  --font-sans: var(--font-work-sans);
+
+  --radius-sm: var(--radius-sm);
+  --radius-md: var(--radius-md);
+  --radius-lg: var(--radius-lg);
+  --radius-xl: var(--radius-xl);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-work-sans), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background: var(--blue-200);
+  color: var(--blue-900);
+}
+
+/* Abstract hero background */
+.hero-abstract-mesh {
+  background:
+    radial-gradient(ellipse 50% 80% at 10% 20%, rgba(41, 102, 233, 0.45) 0%, transparent 55%),
+    radial-gradient(ellipse 40% 60% at 90% 80%, rgba(82, 136, 232, 0.25) 0%, transparent 50%),
+    radial-gradient(ellipse 30% 40% at 60% 10%, rgba(31, 82, 196, 0.3) 0%, transparent 45%),
+    linear-gradient(160deg, #0a1628 0%, #132d6b 45%, #1a439f 100%);
+}
+
+.hero-dot-field {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.15) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.gradient-dark {
+  background: linear-gradient(180deg, var(--blue-900) 0%, #0a1628 100%);
+}
+
+/* Subtle grid for landing sections only */
+.pattern-grid {
+  background-image:
+    linear-gradient(rgba(41, 102, 233, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(41, 102, 233, 0.035) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+.glass-dark {
+  background: rgba(10, 22, 40, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.shadow-card {
+  box-shadow:
+    0 1px 2px rgba(15, 23, 42, 0.05),
+    0 1px 3px rgba(15, 23, 42, 0.04);
+}
+
+.shadow-card-hover {
+  box-shadow:
+    0 4px 12px rgba(15, 23, 42, 0.06),
+    0 1px 3px rgba(41, 102, 233, 0.08);
+}
+
+.shadow-float {
+  box-shadow: 0 20px 40px -16px rgba(0, 0, 0, 0.35);
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--blue-50);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--blue-300);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--blue-400);
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee 40s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
 }
