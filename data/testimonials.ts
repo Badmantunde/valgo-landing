@@ -1,60 +1,51 @@
-export type TestimonialType = "student" | "restaurant" | "rider" | "university";
-
 export interface Testimonial {
   id: string;
   quote: string;
   author: string;
   role: string;
-  type: TestimonialType;
 }
 
 export const testimonials: Testimonial[] = [
   {
     id: "1",
     quote:
-      "Between 8am and 4pm lectures, I barely have time to walk to Ita-Merin. If ValGo actually delivers to Oloko, this will save my week.",
+      "I've already joined the waitlist. If ValGo launches before exams, ordering jollof without leaving Oloko would honestly make my semester.",
     author: "Adaeze O.",
     role: "Computer Science · OOU",
-    type: "student",
   },
   {
     id: "2",
     quote:
-      "Students already call to ask if we deliver. ValGo gives us one place to take orders without chasing people on WhatsApp all day.",
-    author: "Chioma T.",
-    role: "Owner, Mama T's Kitchen",
-    type: "restaurant",
+      "My friends and I keep asking when the app is dropping. We're tired of sending three different riders on WhatsApp for one order.",
+    author: "Tunde A.",
+    role: "Mass Communication · OOU",
   },
   {
     id: "3",
     quote:
-      "I ride between classes anyway. Daily payouts and choosing my own hours is exactly what I need as a student.",
-    author: "Tunde A.",
-    role: "Student rider · OOU",
-    type: "rider",
+      "Can't lie, I'm excited. Food, groceries, pharmacy in one app? That's the kind of thing we've needed on this campus for years.",
+    author: "Fatima B.",
+    role: "Medicine · OOU",
   },
   {
     id: "4",
     quote:
-      "Anything that reduces unnecessary movement off campus and supports local vendors is worth trying. We're watching the launch closely.",
-    author: "Dr. Ngozi E.",
-    role: "Student Affairs · OOU",
-    type: "university",
+      "I saw the screenshots and signed up the same day. Finally something that looks like it was actually built for students like us.",
+    author: "Emeka K.",
+    role: "Economics · OOU",
   },
   {
     id: "5",
     quote:
-      "Our study group orders together a lot. Split pay in one checkout would stop the 'who owes who' arguments every Friday.",
-    author: "Fatima B.",
-    role: "Medicine · OOU",
-    type: "student",
+      "Our hostel group chat has been buzzing about ValGo all week. Everyone's happy there's something proper coming, not another random delivery number.",
+    author: "Chioma T.",
+    role: "Nursing · OOU",
   },
   {
     id: "6",
     quote:
-      "Most of our morning sales are students. If they can order pastries from their hostel, that's more orders without extra staff.",
-    author: "Emeka K.",
-    role: "Manager, Kaffy Bakery",
-    type: "restaurant",
+      "I'm just glad it's almost here. Between lectures and lab hours, I don't have time to trek to Ita-Merin anymore. Really looking forward to launch day.",
+    author: "Ibrahim S.",
+    role: "Microbiology · OOU",
   },
 ];
