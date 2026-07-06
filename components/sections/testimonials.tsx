@@ -1,17 +1,49 @@
 "use client";
 
-import Image from "next/image";
 import { motion } from "framer-motion";
-import { testimonials } from "@/data/testimonials";
+import { testimonials, type TestimonialType } from "@/data/testimonials";
 import { SectionHeader } from "@/components/ui/section-header";
 import { Badge } from "@/components/ui/badge";
+import { cn } from "@/lib/utils";
 
-const typeLabels = {
+const typeLabels: Record<TestimonialType, string> = {
   student: "Student",
   restaurant: "Restaurant Owner",
   rider: "Rider",
   university: "University Leader",
 };
+
+const avatarStyles: Record<TestimonialType, string> = {
+  student: "bg-blue-100 text-blue-700 ring-blue-200/80",
+  restaurant: "bg-amber-100 text-amber-800 ring-amber-200/80",
+  rider: "bg-emerald-100 text-emerald-800 ring-emerald-200/80",
+  university: "bg-slate-100 text-slate-700 ring-slate-200/80",
+};
+
+function getInitial(name: string) {
+  const letter = name.replace(/^Dr\.\s+/i, "").trim().charAt(0);
+  return letter.toUpperCase();
+}
+
+function TestimonialAvatar({
+  author,
+  type,
+}: {
+  author: string;
+  type: TestimonialType;
+}) {
+  return (
+    <div
+      className={cn(
+        "flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-sm font-semibold ring-1",
+        avatarStyles[type]
+      )}
+      aria-hidden="true"
+    >
+      {getInitial(author)}
+    </div>
+  );
+}
 
 export function Testimonials() {
   return (
@@ -38,25 +70,22 @@ export function Testimonials() {
                 {typeLabels[testimonial.type]}
               </Badge>
 
-              <p className="text-foreground leading-relaxed flex-1">
+              <p className="text-foreground leading-relaxed flex-1 text-[15px]">
                 &ldquo;{testimonial.quote}&rdquo;
               </p>
 
               <footer className="flex items-center gap-3 mt-6 pt-5 border-t border-border">
-                <div className="relative h-10 w-10 rounded-full overflow-hidden shrink-0">
-                  <Image
-                    src={testimonial.avatar}
-                    alt={testimonial.author}
-                    fill
-                    className="object-cover"
-                    sizes="40px"
-                  />
-                </div>
-                <div>
-                  <cite className="text-sm font-semibold text-foreground not-italic">
+                <TestimonialAvatar
+                  author={testimonial.author}
+                  type={testimonial.type}
+                />
+                <div className="min-w-0">
+                  <cite className="text-sm font-semibold text-foreground not-italic block truncate">
                     {testimonial.author}
                   </cite>
-                  <p className="text-xs text-muted">{testimonial.role}</p>
+                  <p className="text-xs text-muted leading-snug mt-0.5">
+                    {testimonial.role}
+                  </p>
                 </div>
               </footer>
             </motion.blockquote>
