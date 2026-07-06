@@ -6,7 +6,7 @@ export const SEO = {
   ogImageWidth: 1024,
   ogImageHeight: 639,
   ogImageAlt:
-    "ValGo: Nigeria's student-first delivery platform launching at OOU in Ago Iwoye. Food, groceries, pharmacy, and campus services delivered.",
+    "ValGo: Nigeria's student-first platform for food, essentials, and campus life. Launching at OOU in Ago Iwoye, expanding to universities nationwide.",
   twitterHandle: "@usevalgo",
   locale: "en_NG",
   keywords: [
@@ -18,6 +18,8 @@ export const SEO = {
     "Olabisi Onabanjo University delivery",
     "Ago Iwoye food delivery",
     "university delivery app Nigeria",
+    "campus delivery nationwide",
+    "student earning platform Nigeria",
     "student logistics platform",
     "campus groceries delivery",
     "pharmacy delivery OOU",
@@ -196,7 +198,7 @@ export function getLocalBusinessSchema() {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     name: SITE.name,
-    description: `ValGo delivery platform serving ${LAUNCH.university} and ${LAUNCH.city}.`,
+    description: `ValGo delivery platform for Nigerian students, launching first at ${LAUNCH.university} in ${LAUNCH.city} and expanding nationwide.`,
     url: SITE.url,
     email: SITE.email,
     address: {

@@ -2,9 +2,9 @@ export const SITE = {
   name: "ValGo",
   tagline: "The operating system for student life.",
   description:
-    "ValGo is Nigeria's student-first logistics and lifestyle platform: food, groceries, pharmacy, parcels, and campus services. Launching first at Olabisi Onabanjo University in Ago Iwoye, then expanding nationwide.",
+    "ValGo is Nigeria's student-first platform for food, essentials, and campus services, with real earning paths for students. Launching first at Olabisi Onabanjo University in Ago Iwoye, then expanding to universities nationwide.",
   url: "https://usevalgo.com",
-  email: "hello@usevalgo.com",
+  email: "valgodelivery@outlook.com",
 } as const;
 
 export const LAUNCH = {
@@ -13,6 +13,15 @@ export const LAUNCH = {
   universityShort: "OOU",
   year: "2026",
   location: "Ago Iwoye, Ogun State",
+} as const;
+
+/** Shared positioning: nationwide vision, OOU/Ago Iwoye as first launch market */
+export const VISION = {
+  badge: `Launching first at ${LAUNCH.universityShort}, ${LAUNCH.year}`,
+  hero:
+    "ValGo is Nigeria's student-first platform for food, groceries, pharmacy, parcels, and campus essentials. Order with comfort, earn as a rider or ambassador, starting at OOU in Ago Iwoye and growing to universities across the country.",
+  launchNote: `We're launching first at ${LAUNCH.university} in ${LAUNCH.city}, then expanding to more campuses nationwide.`,
+  nationwide: "Built for Nigerian students on every campus, not just one city.",
 } as const;
 
 export const NAV_LINKS = [

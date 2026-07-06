@@ -3,15 +3,14 @@ import { ArrowUpRight } from "lucide-react";
 import { PageHero } from "@/components/layout/page-hero";
 import { FadeUp } from "@/components/ui/motion";
 import { createPageMetadata } from "@/lib/metadata";
-import { LAUNCH } from "@/lib/constants";
+import { blogPosts } from "@/data/blog-posts";
 
 export const metadata = createPageMetadata({
   title: "Blog",
-  description: `Updates, stories, and insights from the ValGo team as we launch at ${LAUNCH.university} in ${LAUNCH.city}.`,
+  description:
+    "Updates, stories, and insights from the ValGo team as we launch at OOU in Ago Iwoye and grow to more campuses.",
   path: "/blog",
 });
-
-import { blogPosts } from "@/data/blog-posts";
 
 export default function BlogPage() {
   return (
@@ -19,7 +18,7 @@ export default function BlogPage() {
       <PageHero
         eyebrow="Blog"
         title="Stories from the ValGo team"
-        description={`Launch updates, product thinking, and campus stories as we build ValGo in ${LAUNCH.city} and beyond.`}
+        description="Launch updates, product thinking, and campus stories as we build ValGo from our first campus to universities nationwide."
       />
 
       <section className="py-16 sm:py-20 bg-white">

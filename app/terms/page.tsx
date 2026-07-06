@@ -34,7 +34,7 @@ export default function TermsPage() {
           heading: "Our services",
           body: [
             "ValGo is a technology platform that connects customers with independent vendors and delivery riders. ValGo does not prepare food, sell products directly, or employ riders as delivery agents unless explicitly stated.",
-            `We are launching first in ${LAUNCH.city} at ${LAUNCH.university}. Service availability, delivery areas, and features may vary by location and are subject to change during our rollout.`,
+            `We are launching first at ${LAUNCH.university} in ${LAUNCH.city}, our first campus market. Service availability, delivery areas, and features may vary by location and are subject to change as we expand to more universities.`,
           ],
         },
         {

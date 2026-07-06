@@ -6,7 +6,7 @@ import { ArrowUpRight, CheckCircle2 } from "lucide-react";
 import { waitlistRoles, type WaitlistRole } from "@/data/faq";
 import { SectionHeader } from "@/components/ui/section-header";
 import { Button } from "@/components/ui/button";
-import { LAUNCH } from "@/lib/constants";
+import { VISION } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
 interface WaitlistProps {
@@ -32,8 +32,8 @@ export function Waitlist({ defaultRole = "customer", showHeader = true }: Waitli
         {showHeader && (
           <SectionHeader
             eyebrow="Join ValGo"
-            title={`Join the ${LAUNCH.city} launch`}
-            description={`ValGo is a Nigerian platform launching first at ${LAUNCH.university}. Join the waitlist and we'll expand to more universities soon.`}
+            title="Join the ValGo waitlist"
+            description={`${VISION.launchNote} Sign up as a customer, partner, rider, or ambassador.`}
           />
         )}
 

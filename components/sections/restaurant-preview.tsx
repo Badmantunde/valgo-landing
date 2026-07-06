@@ -1,7 +1,6 @@
 import Image from "next/image";
 import { SectionHeader } from "@/components/ui/section-header";
 import { FadeUp } from "@/components/ui/motion";
-import { LAUNCH } from "@/lib/constants";
 
 export function RestaurantPreview() {
   return (
@@ -10,7 +9,7 @@ export function RestaurantPreview() {
         <SectionHeader
           eyebrow="In the app"
           title="Mama T's Kitchen, exactly as you'll order it"
-          description={`The same menu, pricing, and checkout flow ${LAUNCH.universityShort} students will use on day one.`}
+          description={`The same menu, pricing, and checkout flow students will use on day one, starting at our OOU launch.`}
         />
 
         <FadeUp className="mt-12">

@@ -10,7 +10,6 @@ import {
 import { Button } from "@/components/ui/button";
 import { FadeUp } from "@/components/ui/motion";
 import { PARTNER_IMAGES } from "@/data/partner-images";
-import { LAUNCH } from "@/lib/constants";
 
 const riderBenefits = [
   {
@@ -21,7 +20,7 @@ const riderBenefits = [
   {
     icon: Route,
     title: "Smart routing",
-    description: "Optimized pickup and drop-off routes across Ago Iwoye and campus areas.",
+    description: "Optimized pickup and drop-off routes across campus and university towns.",
   },
   {
     icon: Banknote,
@@ -79,9 +78,9 @@ export function RiderExperience() {
               You&apos;re the last mile and the first smile
             </h2>
             <p className="mt-4 text-white/55 text-sm leading-relaxed">
-              ValGo riders deliver directly to customers at their hostel, home, or
-              office in {LAUNCH.city}. Bicycle, motorcycle, or on foot. Students,
-              graduates, and anyone seeking flexible income can apply.
+              ValGo riders deliver to hostels, homes, and offices near campus.
+              Bicycle, motorcycle, or on foot. Students, graduates, and anyone
+              seeking flexible income can apply and earn on their own schedule.
             </p>
 
             <div className="mt-6 relative aspect-[4/3] rounded-lg overflow-hidden border border-white/10 shadow-float">
@@ -94,7 +93,7 @@ export function RiderExperience() {
               />
             </div>
             <p className="mt-2 text-xs text-white/40">
-              Branded gear, daily payouts, and routes built for Ago Iwoye
+              Branded gear, daily payouts, and routes built for campus life
             </p>
 
             <Button href="#waitlist" variant="white" size="lg" className="mt-6">

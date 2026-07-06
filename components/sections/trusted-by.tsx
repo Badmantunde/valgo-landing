@@ -1,5 +1,4 @@
 import { trustedPartners } from "@/data/showcase";
-import { LAUNCH } from "@/lib/constants";
 import { FadeUp } from "@/components/ui/motion";
 
 export function TrustedBy() {
@@ -8,7 +7,7 @@ export function TrustedBy() {
       <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
         <FadeUp>
           <p className="text-center text-xs font-medium text-muted uppercase tracking-widest mb-8">
-            Launch partners in {LAUNCH.city}
+            Launch partners · Starting in Ago Iwoye
           </p>
         </FadeUp>
 

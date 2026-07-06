@@ -11,14 +11,13 @@ import {
 import { SectionHeader } from "@/components/ui/section-header";
 import { Button } from "@/components/ui/button";
 import { StaggerContainer, StaggerItem } from "@/components/ui/motion";
-import { LAUNCH } from "@/lib/constants";
 
 const vendorBenefits = [
   {
     icon: TrendingUp,
     title: "More orders, zero upfront cost",
     description:
-      "Reach customers across Ago Iwoye and OOU campus without paying for ads or setup fees.",
+      "Reach students on campus and in your university town without paying for ads or setup fees.",
   },
   {
     icon: BarChart3,
@@ -60,7 +59,7 @@ export function VendorExperience() {
           <SectionHeader
             eyebrow="For Vendors"
             title="Restaurants, bakeries, markets: we want you"
-            description={`Whether you're in Ita-Merin, Ago Market, or near campus, ValGo puts your business in front of hungry customers in ${LAUNCH.city}.`}
+            description="Whether you run a restaurant, bakery, or market stall near campus, ValGo puts your business in front of students who want to order with ease."
             align="left"
             className="mb-0"
           />
@@ -92,7 +91,7 @@ export function VendorExperience() {
         </StaggerContainer>
 
         <p className="mt-6 text-sm text-muted">
-          Already serving customers in Ago Iwoye?{" "}
+          Already serving students near campus?{" "}
           <Link href="#waitlist" className="text-blue-600 font-medium hover:underline">
             Join the vendor waitlist
           </Link>

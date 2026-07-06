@@ -2,7 +2,6 @@ import Image from "next/image";
 import { Package, Bike, Home, Wallet } from "lucide-react";
 import { FadeUp } from "@/components/ui/motion";
 import { PARTNER_IMAGES } from "@/data/partner-images";
-import { LAUNCH } from "@/lib/constants";
 
 const steps = [
   {
@@ -15,13 +14,13 @@ const steps = [
     icon: Bike,
     title: "Rider picks up and heads out",
     description:
-      "ValGo riders collect from Ita-Merin, Ago Market, and campus-area vendors with optimized routes across town.",
+      "ValGo riders collect from local vendors with optimized routes across town and campus.",
   },
   {
     icon: Home,
     title: "Delivered to the customer",
     description:
-      "Orders arrive at hostels, homes, and offices across Ago Iwoye. Customers track every step in the app.",
+      "Orders arrive at hostels, homes, and offices. Customers track every step in the app.",
   },
   {
     icon: Wallet,
@@ -44,8 +43,9 @@ export function PartnersFlow() {
               From kitchen to customer: the full ValGo journey
             </h2>
             <p className="mt-4 text-muted text-sm leading-relaxed">
-              Every order on ValGo connects local vendors, riders, and customers
-              in {LAUNCH.city}. We handle the tech, tracking, and payments.
+              Every order on ValGo connects local vendors, riders, and students.
+              We handle the tech, tracking, and payments, starting at our first
+              campus and scaling nationwide.
             </p>
 
             <div className="mt-8 space-y-5">

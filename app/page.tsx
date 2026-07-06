@@ -14,12 +14,12 @@ import { LAUNCH } from "@/lib/constants";
 
 export const metadata = createPageMetadata({
   title: "ValGo | Everything Students Need. Delivered.",
-  description: `Order food, groceries, pharmacy, and campus essentials with ValGo. Nigeria's student-first delivery platform launching at ${LAUNCH.university} in ${LAUNCH.city}, ${LAUNCH.year}.`,
+  description: `Order food, groceries, pharmacy, and campus essentials with ValGo. Nigeria's student-first platform launching at OOU in Ago Iwoye, ${LAUNCH.year}, expanding to universities nationwide.`,
   path: "/",
   keywords: [
     "join ValGo waitlist",
-    "OOU food delivery app",
-    "student delivery Ago Iwoye",
+    "university food delivery Nigeria",
+    "student delivery platform",
   ],
 });
 

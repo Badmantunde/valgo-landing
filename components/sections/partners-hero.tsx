@@ -1,7 +1,6 @@
 import { Store, Bike } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { AbstractHeroBg } from "@/components/ui/abstract-hero-bg";
-import { LAUNCH } from "@/lib/constants";
 
 export function PartnersHero() {
   return (
@@ -18,8 +17,8 @@ export function PartnersHero() {
             <span className="text-blue-300">Power local delivery.</span>
           </h1>
           <p className="mt-5 text-base text-white/55 leading-relaxed max-w-lg">
-            ValGo connects restaurants, shops, and riders across {LAUNCH.city}.
-            We&apos;re launching first at {LAUNCH.university}, then expanding to
+            ValGo connects restaurants, shops, and riders with students on campus.
+            We&apos;re launching first at OOU in Ago Iwoye, then expanding to
             universities nationwide. Join as a vendor or rider from day one.
           </p>
 

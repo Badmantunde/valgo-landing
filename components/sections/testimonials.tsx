@@ -3,7 +3,6 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { testimonials } from "@/data/testimonials";
-import { LAUNCH } from "@/lib/constants";
 import { SectionHeader } from "@/components/ui/section-header";
 import { Badge } from "@/components/ui/badge";
 
@@ -21,7 +20,7 @@ export function Testimonials() {
         <SectionHeader
           eyebrow="Testimonials"
           title="Loved by students, vendors & riders"
-          description={`Hear from OOU students, Ago Iwoye vendors, and riders building ValGo in ${LAUNCH.city}.`}
+          description="Hear from students, vendors, and riders helping build ValGo, starting at our first campus and growing nationwide."
         />
 
         <div className="mt-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6">

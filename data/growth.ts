@@ -1,27 +1,27 @@
 export const timeline = [
   {
     year: "2026",
-    title: "Launch at OOU",
+    title: "First campus launch",
     description:
-      "Pilot launch in Ago Iwoye with food delivery, groceries, pharmacy, and campus services. Our first step toward serving Nigerian universities nationwide.",
+      "Pilot launch at Olabisi Onabanjo University in Ago Iwoye: food delivery, groceries, pharmacy, and campus services. Our proof point before scaling to more universities.",
   },
   {
     year: "2027",
-    title: "Deepen Ago Iwoye",
+    title: "Deepen the first market",
     description:
-      "Onboard 100+ local restaurant and vendor partners, expand rider network, and launch laundry and printing services on campus.",
+      "Onboard 100+ local restaurant and vendor partners, expand the rider network, and launch laundry and printing services, while opening waitlists for the next campuses.",
   },
   {
     year: "2028",
-    title: "Ogun State Expansion",
+    title: "Expand to more universities",
     description:
-      "Expand to neighbouring university towns in Ogun State while strengthening the OOU ecosystem.",
+      "Roll out ValGo to additional university towns across Nigeria, bringing the same student-first experience to new campuses.",
   },
   {
     year: "2029",
-    title: "Student Super App",
+    title: "Student super app",
     description:
-      "Full ecosystem launch: marketplace, ticketing, accommodation, student jobs, and embedded financial services, starting from our OOU foundation.",
+      "Full ecosystem nationwide: marketplace, ticketing, accommodation, student jobs, and embedded financial services, built campus by campus.",
   },
 ];
 
@@ -36,5 +36,5 @@ export const metrics: {
   { id: "students", label: "People on Waitlist", value: 2000, suffix: "+" },
   { id: "orders", label: "Orders Projected (Year 1)", value: 15000, suffix: "+" },
   { id: "riders", label: "Rider Network", value: 50, suffix: "+" },
-  { id: "communities", label: "First Launch Campus", value: 1, suffix: "" },
+  { id: "communities", label: "Campuses on Roadmap", value: 10, suffix: "+" },
 ];

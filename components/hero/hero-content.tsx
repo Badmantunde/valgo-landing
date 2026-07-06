@@ -5,7 +5,7 @@ import { ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { AppStoreBadges } from "@/components/ui/app-store-badges";
-import { LAUNCH } from "@/lib/constants";
+import { VISION } from "@/lib/constants";
 
 const container: Variants = {
   hidden: {},
@@ -36,7 +36,7 @@ export function HeroContent() {
           variant="blue"
           className="mb-6 bg-white/10 text-white/90 border-white/15 backdrop-blur-sm rounded-md"
         >
-          Launching first at {LAUNCH.universityShort}, {LAUNCH.year}
+          {VISION.badge}
         </Badge>
       </motion.div>
 
@@ -52,10 +52,7 @@ export function HeroContent() {
         variants={item}
         className="mt-5 text-base sm:text-lg text-white/60 leading-relaxed max-w-lg mx-auto lg:mx-0"
       >
-        ValGo is building Nigeria&apos;s student-first delivery platform.
-        Food, groceries, pharmacy, parcels, and campus services. We&apos;re
-        starting in {LAUNCH.city} at {LAUNCH.university}, then expanding to
-        universities across the country.
+        {VISION.hero}
       </motion.p>
 
       <motion.div

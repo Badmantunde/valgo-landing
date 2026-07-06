@@ -2,13 +2,12 @@ import { PageHero } from "@/components/layout/page-hero";
 import { RestaurantShowcase } from "@/components/sections/restaurant-showcase";
 import { RestaurantPreview } from "@/components/sections/restaurant-preview";
 import { createPageMetadata } from "@/lib/metadata";
-import { LAUNCH } from "@/lib/constants";
 
 export const metadata = createPageMetadata({
   title: "Restaurants",
-  description: `Discover restaurant partners and trending meals coming to ${LAUNCH.university} in ${LAUNCH.city}. Order from local favorites like Mama T's Kitchen and Kaffy Bakery on ValGo.`,
+  description: `Discover restaurant partners and trending meals on ValGo. Local favorites from our Ago Iwoye launch, with more campuses coming soon.`,
   path: "/restaurants",
-  keywords: ["OOU restaurants", "Ago Iwoye food delivery", "campus restaurants"],
+  keywords: ["campus restaurants", "university food delivery", "student food ordering Nigeria"],
 });
 
 export default function RestaurantsPage() {
@@ -16,8 +15,8 @@ export default function RestaurantsPage() {
     <>
       <PageHero
         eyebrow="Restaurants"
-        title="Ago Iwoye favorites, delivered to OOU"
-        description={`Browse local restaurants, campus eateries, and trending meals from verified partners in ${LAUNCH.city}.`}
+        title="Campus favorites, delivered with ease"
+        description="Browse local restaurants, campus eateries, and trending meals from verified partners. Starting in Ago Iwoye at OOU, expanding to more universities."
       />
       <RestaurantShowcase />
       <RestaurantPreview />

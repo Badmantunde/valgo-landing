@@ -8,7 +8,7 @@ import { LAUNCH } from "@/lib/constants";
 
 export const metadata = createPageMetadata({
   title: "FAQ",
-  description: `Answers about ValGo: what it is, how to join as a customer, vendor, or rider, delivery pricing, and our ${LAUNCH.year} launch at ${LAUNCH.university} in ${LAUNCH.city}.`,
+  description: `Answers about ValGo: what it is, how to join as a customer, vendor, or rider, delivery pricing, and our nationwide campus expansion starting in Ago Iwoye in ${LAUNCH.year}.`,
   path: "/faq",
 });
 
@@ -18,8 +18,8 @@ export default function FAQPage() {
       <JsonLd data={getFAQSchema(faqItems)} />
       <PageHero
         eyebrow="FAQ"
-        title="Questions about ValGo at OOU"
-        description={`Everything you need to know about our ${LAUNCH.year} launch in ${LAUNCH.city} and how to get involved.`}
+        title="Questions about ValGo"
+        description={`Everything you need to know about our ${LAUNCH.year} launch, how to get involved, and our plan to grow to universities across Nigeria.`}
       />
       <FAQ />
       <Waitlist showHeader={false} />

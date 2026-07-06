@@ -22,7 +22,7 @@ export const productScreens: ProductScreen[] = [
     label: "Restaurants",
     title: "Local favorites, one tap away",
     description:
-      "Explore 100+ restaurants around OOU. Filter by delivery time, location, and ratings from students like you.",
+      "Explore restaurants near campus. Filter by delivery time, location, and ratings from students like you.",
     image: "/app-screens/restaurants.png",
     alt: "ValGo restaurant browse screen with Mama T's Kitchen and Kaffy Bakery",
   },

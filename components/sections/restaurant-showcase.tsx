@@ -13,7 +13,7 @@ export function RestaurantShowcase() {
         <SectionHeader
           eyebrow="Restaurants"
           title="From Ita-Merin to your hostel"
-          description="Real vendors on ValGo. The same restaurants you'll see when you open the app at OOU."
+          description="Real vendors on ValGo. Local restaurants and campus favorites, starting at our OOU launch and scaling to more universities."
         />
 
         <StaggerContainer className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">

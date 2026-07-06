@@ -4,21 +4,21 @@ import { PageHero } from "@/components/layout/page-hero";
 import { Button } from "@/components/ui/button";
 import { FadeUp } from "@/components/ui/motion";
 import { createPageMetadata } from "@/lib/metadata";
-import { LAUNCH, SITE } from "@/lib/constants";
+import { SITE } from "@/lib/constants";
 
 export const metadata = createPageMetadata({
   title: "Careers",
-  description: `Join the ValGo team building Nigeria's student-first delivery platform. Open roles in ${LAUNCH.city} and remote.`,
+  description: `Join the ValGo team building Nigeria's student-first platform. Open roles at our first campus in Ago Iwoye and remote across Nigeria.`,
   path: "/careers",
 });
 
 const openRoles = [
   {
     title: "Campus Operations Lead",
-    location: `${LAUNCH.city} (On-site)`,
+    location: "First launch campus (On-site)",
     type: "Full-time",
     description:
-      "Own vendor onboarding, rider recruitment, and day-to-day operations for our OOU launch. You'll work directly with restaurants, shops, and student riders across Ago Iwoye.",
+      "Own vendor onboarding, rider recruitment, and day-to-day operations for our first campus launch at OOU in Ago Iwoye, with a playbook to scale to more universities.",
   },
   {
     title: "Growth & Marketing Associate",
@@ -36,7 +36,7 @@ const openRoles = [
   },
   {
     title: "Student Ambassador",
-    location: `${LAUNCH.universityShort} Campus`,
+    location: "University campus",
     type: "Part-time",
     description:
       "Represent ValGo on campus, drive sign-ups, and organize student events. Earn commissions, merch, and a pathway to internships. See our ambassador program for details.",
@@ -67,7 +67,7 @@ export default function CareersPage() {
       <PageHero
         eyebrow="Careers"
         title="Help us build the future of campus life"
-        description={`ValGo is a small, ambitious team launching in ${LAUNCH.city}. We're looking for people who want to build something meaningful for Nigerian students.`}
+        description="ValGo is a small, ambitious team launching at our first campus in Ago Iwoye, with a vision to serve students at universities across Nigeria."
       />
 
       <section className="py-16 sm:py-20 bg-white border-b border-border">

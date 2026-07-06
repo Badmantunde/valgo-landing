@@ -23,7 +23,7 @@ export const faqItems: FAQItem[] = [
     id: "which-campuses",
     question: "Where is ValGo launching first?",
     answer:
-      "ValGo is a Nigerian delivery platform launching first at Olabisi Onabanjo University in Ago Iwoye in 2026. We're focused on getting the experience right at OOU before expanding to other universities across the country.",
+      "ValGo is a Nigerian delivery platform launching first at Olabisi Onabanjo University in Ago Iwoye in 2026. We're focused on getting the experience right at our first campus before expanding to universities across the country.",
   },
   {
     id: "become-partner",
@@ -79,7 +79,7 @@ export const waitlistRoles: WaitlistRoleConfig[] = [
   {
     id: "customer",
     label: "Customer",
-    description: "Get early access to order food, groceries, pharmacy, and more in Ago Iwoye.",
+    description: "Get early access to order food, groceries, pharmacy, and more on your campus.",
     fields: [
       { name: "fullName", label: "Full Name", type: "text", placeholder: "Your full name", required: true },
       { name: "email", label: "Email", type: "email", placeholder: "you@email.com", required: true },
@@ -89,20 +89,20 @@ export const waitlistRoles: WaitlistRoleConfig[] = [
   {
     id: "restaurant",
     label: "Restaurant",
-    description: "Partner with ValGo and reach customers across Ago Iwoye and OOU.",
+    description: "Partner with ValGo and reach students on campus and in your city.",
     fields: [
       { name: "businessName", label: "Business Name", type: "text", placeholder: "Your restaurant name", required: true },
       { name: "ownerName", label: "Owner Name", type: "text", placeholder: "Contact person", required: true },
       { name: "email", label: "Business Email", type: "email", placeholder: "orders@restaurant.com", required: true },
       { name: "phone", label: "Phone", type: "tel", placeholder: "+234 800 000 0000", required: true },
       { name: "cuisine", label: "Cuisine Type", type: "text", placeholder: "Nigerian, Fast Food, etc.", required: true },
-      { name: "location", label: "Location", type: "text", placeholder: "e.g. Ita-Merin, Ago Iwoye town", required: true },
+      { name: "location", label: "Location", type: "text", placeholder: "e.g. Campus area, city", required: true },
     ],
   },
   {
     id: "rider",
     label: "Rider",
-    description: "Earn flexibly delivering in Ago Iwoye and around OOU.",
+    description: "Earn flexibly delivering on campus and in your university town.",
     fields: [
       { name: "fullName", label: "Full Name", type: "text", placeholder: "Your full name", required: true },
       { name: "email", label: "Email", type: "email", placeholder: "you@email.com", required: true },
@@ -119,7 +119,7 @@ export const waitlistRoles: WaitlistRoleConfig[] = [
   {
     id: "ambassador",
     label: "Ambassador",
-    description: "Lead the ValGo community at OOU.",
+    description: "Lead the ValGo community on your campus and earn while you grow.",
     fields: [
       { name: "fullName", label: "Full Name", type: "text", placeholder: "Your full name", required: true },
       { name: "email", label: "University Email", type: "email", placeholder: "you@oouagoiwoye.edu.ng", required: true },
@@ -131,7 +131,7 @@ export const waitlistRoles: WaitlistRoleConfig[] = [
         required: true,
         options: [...OOU_OPTIONS],
       },
-      { name: "why", label: "Why do you want to be an ambassador?", type: "textarea", placeholder: "Tell us about your campus leadership experience at OOU...", required: true },
+      { name: "why", label: "Why do you want to be an ambassador?", type: "textarea", placeholder: "Tell us about your campus leadership experience...", required: true },
     ],
   },
 ];

@@ -17,7 +17,7 @@ export function ProductShowcase() {
         <SectionHeader
           eyebrow="Product"
           title="The app built for Nigerian campuses"
-          description="Real screens from ValGo. Browse restaurants, build your order, and track delivery. Launching first in Ago Iwoye."
+          description="Real screens from ValGo. Browse restaurants, build your order, and track delivery. Built for every campus, launching first in Ago Iwoye."
         />
 
         {/* Tab bar */}

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
-import { NAV_LINKS, LAUNCH } from "@/lib/constants";
+import { NAV_LINKS, VISION } from "@/lib/constants";
 import { FadeUp, StaggerContainer, StaggerItem } from "@/components/ui/motion";
 
 export function ExplorePages() {
@@ -12,10 +12,10 @@ export function ExplorePages() {
             Explore
           </p>
           <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-foreground">
-            Launching at {LAUNCH.universityShort}, built for Nigeria
+            Built for every campus, starting in Nigeria
           </h2>
           <p className="mt-3 text-muted text-sm leading-relaxed">
-            ValGo is a Nigerian platform starting in {LAUNCH.city}. Explore our
+            ValGo is a Nigerian student platform. {VISION.launchNote} Explore our
             services, partners, and how to get involved at launch.
           </p>
         </FadeUp>

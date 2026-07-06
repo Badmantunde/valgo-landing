@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Logo } from "@/components/ui/logo";
 import { InstagramIcon, XIcon } from "@/components/ui/social-icons";
 import { AppStoreBadges } from "@/components/ui/app-store-badges";
-import { SITE, SOCIAL_LINKS, LAUNCH } from "@/lib/constants";
+import { SITE, SOCIAL_LINKS, VISION } from "@/lib/constants";
 
 const footerLinks = {
   Product: [
@@ -36,8 +36,7 @@ export function Footer() {
           <div className="lg:col-span-4">
             <Logo variant="white" className="mb-5" />
             <p className="text-blue-100/70 text-sm leading-relaxed max-w-sm mb-6">
-              {SITE.tagline} A Nigerian platform launching first at{" "}
-              {LAUNCH.university} in {LAUNCH.city}, {LAUNCH.year}.
+              {SITE.tagline} {VISION.launchNote}
             </p>
             <div className="flex gap-2 mb-6">
               {SOCIAL_LINKS.map((link) => (
@@ -79,8 +78,8 @@ export function Footer() {
                 Stay in the loop
               </h4>
               <p className="text-sm text-blue-100/60 mb-4">
-                Launch updates from ValGo, starting in {LAUNCH.city}, expanding
-                across Nigeria.
+                Launch updates from ValGo as we grow from our first campus to
+                universities across Nigeria.
               </p>
               <form className="flex gap-2" onSubmit={(e) => e.preventDefault()}>
                 <input
