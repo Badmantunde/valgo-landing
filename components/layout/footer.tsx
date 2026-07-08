@@ -1,11 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import { Logo } from "@/components/ui/logo";
 import { InstagramIcon, XIcon } from "@/components/ui/social-icons";
 import { AppStoreBadges } from "@/components/ui/app-store-badges";
+import { NewsletterForm } from "@/components/layout/newsletter-form";
 import { SITE, SOCIAL_LINKS, VISION } from "@/lib/constants";
 
 const footerLinks = {
@@ -81,17 +80,7 @@ export function Footer() {
                 Launch updates from ValGo as we grow from our first campus to
                 universities across Nigeria.
               </p>
-              <form className="flex gap-2" onSubmit={(e) => e.preventDefault()}>
-                <input
-                  type="email"
-                  placeholder="you@email.com"
-                  className="flex-1 h-10 px-4 rounded-md bg-white/10 border border-white/10 text-white placeholder:text-white/40 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400"
-                  aria-label="Email for newsletter"
-                />
-                <Button variant="primary" size="md" type="submit">
-                  <ArrowUpRight className="h-4 w-4" />
-                </Button>
-              </form>
+              <NewsletterForm />
             </div>
 
             <AppStoreBadges variant="dark" className="lg:justify-end shrink-0" />

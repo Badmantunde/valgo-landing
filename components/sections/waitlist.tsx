@@ -6,7 +6,7 @@ import { ArrowUpRight, CheckCircle2 } from "lucide-react";
 import { waitlistRoles, type WaitlistRole } from "@/data/faq";
 import { SectionHeader } from "@/components/ui/section-header";
 import { Button } from "@/components/ui/button";
-import { VISION } from "@/lib/constants";
+import { SITE, VISION } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
 interface WaitlistProps {
@@ -17,12 +17,54 @@ interface WaitlistProps {
 export function Waitlist({ defaultRole = "customer", showHeader = true }: WaitlistProps) {
   const [role, setRole] = useState<WaitlistRole>(defaultRole);
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const config = waitlistRoles.find((r) => r.id === role)!;
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setSubmitted(true);
+    if (submitting) return;
+    setError(null);
+    setSubmitting(true);
+
+    const form = e.currentTarget;
+    const payload: Record<string, string> = {
+      _subject: `New ValGo ${config.label} waitlist signup`,
+      _template: "table",
+      _captcha: "false",
+      role: config.label,
+    };
+    new FormData(form).forEach((value, key) => {
+      payload[key] = value.toString();
+    });
+
+    try {
+      const res = await fetch(
+        `https://formsubmit.co/ajax/${encodeURIComponent(SITE.email)}`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify(payload),
+        }
+      );
+
+      if (!res.ok) throw new Error("Request failed");
+
+      form.reset();
+      setSubmitted(true);
+    } catch {
+      setError(
+        "Something went wrong. Please try again, or email us directly at " +
+          SITE.email +
+          "."
+      );
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -46,6 +88,7 @@ export function Waitlist({ defaultRole = "customer", showHeader = true }: Waitli
                 onClick={() => {
                   setRole(r.id);
                   setSubmitted(false);
+                  setError(null);
                 }}
                 className={cn(
                   "flex-1 py-2 px-2 sm:px-3 rounded text-xs sm:text-sm font-medium transition-colors",
@@ -137,9 +180,21 @@ export function Waitlist({ defaultRole = "customer", showHeader = true }: Waitli
                   </div>
                 ))}
 
-                <Button type="submit" variant="primary" size="lg" className="w-full mt-2">
-                  Join as {config.label}
-                  <ArrowUpRight className="h-4 w-4" />
+                {error && (
+                  <p className="text-sm text-red-600 text-center" role="alert">
+                    {error}
+                  </p>
+                )}
+
+                <Button
+                  type="submit"
+                  variant="primary"
+                  size="lg"
+                  className="w-full mt-2"
+                  disabled={submitting}
+                >
+                  {submitting ? "Submitting..." : `Join as ${config.label}`}
+                  {!submitting && <ArrowUpRight className="h-4 w-4" />}
                 </Button>
               </motion.form>
             )}
