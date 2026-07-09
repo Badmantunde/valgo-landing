@@ -30,7 +30,6 @@ export const NAV_LINKS = [
   { label: "Restaurants", href: "/restaurants" },
   { label: "For Partners", href: "/partners" },
   { label: "Ambassadors", href: "/ambassadors" },
-  { label: "FAQ", href: "/faq" },
 ] as const;
 
 export type SocialPlatform = "x" | "instagram";

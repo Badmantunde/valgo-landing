@@ -1,7 +1,7 @@
 import { PageHero } from "@/components/layout/page-hero";
 import { AmbassadorIntro } from "@/components/sections/ambassador-intro";
 import { AmbassadorBenefits } from "@/components/sections/ambassador-benefits";
-import { Waitlist } from "@/components/sections/waitlist";
+import { AmbassadorApplication } from "@/components/sections/ambassador-application";
 import { createPageMetadata } from "@/lib/metadata";
 
 export const metadata = createPageMetadata({
@@ -20,7 +20,7 @@ export default function AmbassadorsPage() {
       />
       <AmbassadorIntro />
       <AmbassadorBenefits />
-      <Waitlist defaultRole="ambassador" showHeader={false} />
+      <AmbassadorApplication />
     </>
   );
 }

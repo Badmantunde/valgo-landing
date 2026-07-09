@@ -1,5 +1,3 @@
-import { OOU_OPTIONS } from "@/lib/constants";
-
 export interface FAQItem {
   id: string;
   question: string;
@@ -57,7 +55,7 @@ export const faqItems: FAQItem[] = [
   },
 ];
 
-export type WaitlistRole = "customer" | "restaurant" | "rider" | "ambassador";
+export type WaitlistRole = "customer" | "restaurant" | "rider";
 
 export interface WaitlistRoleConfig {
   id: WaitlistRole;
@@ -71,6 +69,7 @@ export interface WaitlistField {
   label: string;
   type: "text" | "email" | "tel" | "select" | "textarea";
   placeholder?: string;
+  hint?: string;
   required?: boolean;
   options?: string[];
 }
@@ -114,24 +113,6 @@ export const waitlistRoles: WaitlistRoleConfig[] = [
         required: true,
         options: ["Bicycle", "Motorcycle", "Foot"],
       },
-    ],
-  },
-  {
-    id: "ambassador",
-    label: "Ambassador",
-    description: "Lead the ValGo community on your campus and earn while you grow.",
-    fields: [
-      { name: "fullName", label: "Full Name", type: "text", placeholder: "Your full name", required: true },
-      { name: "email", label: "University Email", type: "email", placeholder: "you@oouagoiwoye.edu.ng", required: true },
-      { name: "phone", label: "Phone", type: "tel", placeholder: "+234 800 000 0000", required: true },
-      {
-        name: "faculty",
-        label: "Faculty / Area",
-        type: "select",
-        required: true,
-        options: [...OOU_OPTIONS],
-      },
-      { name: "why", label: "Why do you want to be an ambassador?", type: "textarea", placeholder: "Tell us about your campus leadership experience...", required: true },
     ],
   },
 ];

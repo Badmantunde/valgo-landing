@@ -18,7 +18,7 @@ export function AmbassadorIntro() {
               align="left"
             />
 
-            <Button href="#waitlist" variant="primary" size="lg" className="mt-8">
+            <Button href="#apply" variant="primary" size="lg" className="mt-8">
               Apply Now
               <ArrowUpRight className="h-4 w-4" />
             </Button>

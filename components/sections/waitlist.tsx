@@ -75,7 +75,7 @@ export function Waitlist({ defaultRole = "customer", showHeader = true }: Waitli
           <SectionHeader
             eyebrow="Join ValGo"
             title="Join the ValGo waitlist"
-            description={`${VISION.launchNote} Sign up as a customer, partner, rider, or ambassador.`}
+            description={`${VISION.launchNote} Sign up as a customer, partner, or rider.`}
           />
         )}
 
