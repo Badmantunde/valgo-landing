@@ -1,23 +1,37 @@
 "use client";
 
-import { Suspense, useEffect, useState } from "react";
-import { usePathname, useSearchParams } from "next/navigation";
+import { useState } from "react";
 import { ArrowUpRight, Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { FORM_SUBMIT_ACTION, formSubmitNextUrl } from "@/lib/form-submit";
+import { formSubmitErrorMessage, submitForm } from "@/lib/form-submit";
 
-function NewsletterFormInner() {
-  const pathname = usePathname();
-  const searchParams = useSearchParams();
+export function NewsletterForm() {
+  const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
-  const nextUrl = formSubmitNextUrl(pathname, "newsletter=1");
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (submitting) return;
+    setError(null);
+    setSubmitting(true);
 
-  useEffect(() => {
-    if (searchParams.get("newsletter") === "1") {
+    const form = e.currentTarget;
+    const email = (form.elements.namedItem("email") as HTMLInputElement).value;
+
+    try {
+      await submitForm("New ValGo newsletter signup", {
+        email,
+        source: "Footer newsletter",
+      });
+      form.reset();
       setSubmitted(true);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : formSubmitErrorMessage());
+    } finally {
+      setSubmitting(false);
     }
-  }, [searchParams]);
+  };
 
   if (submitted) {
     return (
@@ -29,12 +43,15 @@ function NewsletterFormInner() {
   }
 
   return (
-    <form action={FORM_SUBMIT_ACTION} method="POST" className="flex flex-col gap-2">
-      <input type="hidden" name="_subject" value="New ValGo newsletter signup" />
-      <input type="hidden" name="_template" value="table" />
-      <input type="hidden" name="_captcha" value="false" />
-      <input type="hidden" name="_next" value={nextUrl} />
-      <input type="hidden" name="source" value="Footer newsletter" />
+    <form className="flex flex-col gap-2" onSubmit={handleSubmit}>
+      <input
+        type="checkbox"
+        name="botcheck"
+        className="hidden"
+        style={{ display: "none" }}
+        tabIndex={-1}
+        autoComplete="off"
+      />
 
       <div className="flex gap-2">
         <input
@@ -45,18 +62,15 @@ function NewsletterFormInner() {
           className="flex-1 h-10 px-4 rounded-md bg-white/10 border border-white/10 text-white placeholder:text-white/40 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400"
           aria-label="Email for newsletter"
         />
-        <Button variant="primary" size="md" type="submit">
+        <Button variant="primary" size="md" type="submit" disabled={submitting}>
           <ArrowUpRight className="h-4 w-4" />
         </Button>
       </div>
+      {error && (
+        <p className="text-xs text-red-300" role="alert">
+          {error}
+        </p>
+      )}
     </form>
-  );
-}
-
-export function NewsletterForm() {
-  return (
-    <Suspense fallback={null}>
-      <NewsletterFormInner />
-    </Suspense>
   );
 }

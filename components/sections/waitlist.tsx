@@ -1,14 +1,13 @@
 "use client";
 
-import { Suspense, useEffect, useState } from "react";
-import { usePathname, useSearchParams } from "next/navigation";
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowUpRight, CheckCircle2 } from "lucide-react";
 import { waitlistRoles, type WaitlistRole } from "@/data/faq";
 import { SectionHeader } from "@/components/ui/section-header";
 import { Button } from "@/components/ui/button";
 import { VISION } from "@/lib/constants";
-import { FORM_SUBMIT_ACTION, formSubmitNextUrl } from "@/lib/form-submit";
+import { formDataToObject, formSubmitErrorMessage, submitForm } from "@/lib/form-submit";
 import { cn } from "@/lib/utils";
 
 interface WaitlistProps {
@@ -16,20 +15,35 @@ interface WaitlistProps {
   showHeader?: boolean;
 }
 
-function WaitlistForm({ defaultRole = "customer", showHeader = true }: WaitlistProps) {
-  const pathname = usePathname();
-  const searchParams = useSearchParams();
+export function Waitlist({ defaultRole = "customer", showHeader = true }: WaitlistProps) {
   const [role, setRole] = useState<WaitlistRole>(defaultRole);
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const config = waitlistRoles.find((r) => r.id === role)!;
-  const nextUrl = formSubmitNextUrl(pathname, "waitlist=1#waitlist");
 
-  useEffect(() => {
-    if (searchParams.get("waitlist") === "1") {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (submitting) return;
+    setError(null);
+    setSubmitting(true);
+
+    const form = e.currentTarget;
+
+    try {
+      await submitForm(`New ValGo ${config.label} waitlist signup`, {
+        role: config.label,
+        ...formDataToObject(form),
+      });
+      form.reset();
       setSubmitted(true);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : formSubmitErrorMessage());
+    } finally {
+      setSubmitting(false);
     }
-  }, [searchParams]);
+  };
 
   return (
     <section id="waitlist" className="py-20 sm:py-24 bg-white border-t border-border">
@@ -51,6 +65,7 @@ function WaitlistForm({ defaultRole = "customer", showHeader = true }: WaitlistP
                 onClick={() => {
                   setRole(r.id);
                   setSubmitted(false);
+                  setError(null);
                 }}
                 className={cn(
                   "flex-1 py-2 px-2 sm:px-3 rounded text-xs sm:text-sm font-medium transition-colors",
@@ -85,8 +100,7 @@ function WaitlistForm({ defaultRole = "customer", showHeader = true }: WaitlistP
             ) : (
               <motion.form
                 key={role}
-                action={FORM_SUBMIT_ACTION}
-                method="POST"
+                onSubmit={handleSubmit}
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -10 }}
@@ -94,14 +108,13 @@ function WaitlistForm({ defaultRole = "customer", showHeader = true }: WaitlistP
                 className="mt-8 space-y-4"
               >
                 <input
-                  type="hidden"
-                  name="_subject"
-                  value={`New ValGo ${config.label} waitlist signup`}
+                  type="checkbox"
+                  name="botcheck"
+                  className="hidden"
+                  style={{ display: "none" }}
+                  tabIndex={-1}
+                  autoComplete="off"
                 />
-                <input type="hidden" name="_template" value="table" />
-                <input type="hidden" name="_captcha" value="false" />
-                <input type="hidden" name="_next" value={nextUrl} />
-                <input type="hidden" name="role" value={config.label} />
 
                 {config.fields.map((field) => (
                   <div key={field.name}>
@@ -153,9 +166,21 @@ function WaitlistForm({ defaultRole = "customer", showHeader = true }: WaitlistP
                   </div>
                 ))}
 
-                <Button type="submit" variant="primary" size="lg" className="w-full mt-2">
-                  Join as {config.label}
-                  <ArrowUpRight className="h-4 w-4" />
+                {error && (
+                  <p className="text-sm text-red-600 text-center" role="alert">
+                    {error}
+                  </p>
+                )}
+
+                <Button
+                  type="submit"
+                  variant="primary"
+                  size="lg"
+                  className="w-full mt-2"
+                  disabled={submitting}
+                >
+                  {submitting ? "Submitting..." : `Join as ${config.label}`}
+                  {!submitting && <ArrowUpRight className="h-4 w-4" />}
                 </Button>
               </motion.form>
             )}
@@ -163,13 +188,5 @@ function WaitlistForm({ defaultRole = "customer", showHeader = true }: WaitlistP
         </div>
       </div>
     </section>
-  );
-}
-
-export function Waitlist(props: WaitlistProps) {
-  return (
-    <Suspense fallback={null}>
-      <WaitlistForm {...props} />
-    </Suspense>
   );
 }

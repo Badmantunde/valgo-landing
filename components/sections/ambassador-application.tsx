@@ -1,14 +1,13 @@
 "use client";
 
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowUpRight, CheckCircle2 } from "lucide-react";
-import { useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
 import { ambassadorFormFields } from "@/data/ambassador-form";
 import type { WaitlistField } from "@/data/faq";
 import { SectionHeader } from "@/components/ui/section-header";
 import { Button } from "@/components/ui/button";
-import { FORM_SUBMIT_ACTION, formSubmitNextUrl } from "@/lib/form-submit";
+import { formDataToObject, formSubmitErrorMessage, submitForm } from "@/lib/form-submit";
 
 function FormField({ field }: { field: WaitlistField }) {
   return (
@@ -64,14 +63,31 @@ function FormField({ field }: { field: WaitlistField }) {
 }
 
 export function AmbassadorApplication() {
-  const searchParams = useSearchParams();
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
-  useEffect(() => {
-    if (searchParams.get("submitted") === "1") {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (submitting) return;
+    setError(null);
+    setSubmitting(true);
+
+    const form = e.currentTarget;
+
+    try {
+      await submitForm("New ValGo Ambassador application", {
+        role: "Ambassador",
+        ...formDataToObject(form),
+      });
+      form.reset();
       setSubmitted(true);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : formSubmitErrorMessage());
+    } finally {
+      setSubmitting(false);
     }
-  }, [searchParams]);
+  };
 
   return (
     <section id="apply" className="py-20 sm:py-24 bg-white border-t border-border">
@@ -102,30 +118,40 @@ export function AmbassadorApplication() {
           ) : (
             <motion.form
               key="form"
-              action={FORM_SUBMIT_ACTION}
-              method="POST"
+              onSubmit={handleSubmit}
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.3 }}
               className="mt-10 space-y-4"
             >
-              <input type="hidden" name="_subject" value="New ValGo Ambassador application" />
-              <input type="hidden" name="_template" value="table" />
-              <input type="hidden" name="_captcha" value="false" />
               <input
-                type="hidden"
-                name="_next"
-                value={formSubmitNextUrl("/ambassadors", "submitted=1#apply")}
+                type="checkbox"
+                name="botcheck"
+                className="hidden"
+                style={{ display: "none" }}
+                tabIndex={-1}
+                autoComplete="off"
               />
-              <input type="hidden" name="role" value="Ambassador" />
 
               {ambassadorFormFields.map((field) => (
                 <FormField key={field.name} field={field} />
               ))}
 
-              <Button type="submit" variant="primary" size="lg" className="w-full mt-2">
-                Submit application
-                <ArrowUpRight className="h-4 w-4" />
+              {error && (
+                <p className="text-sm text-red-600 text-center" role="alert">
+                  {error}
+                </p>
+              )}
+
+              <Button
+                type="submit"
+                variant="primary"
+                size="lg"
+                className="w-full mt-2"
+                disabled={submitting}
+              >
+                {submitting ? "Submitting..." : "Submit application"}
+                {!submitting && <ArrowUpRight className="h-4 w-4" />}
               </Button>
             </motion.form>
           )}

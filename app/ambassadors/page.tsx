@@ -1,4 +1,3 @@
-import { Suspense } from "react";
 import { PageHero } from "@/components/layout/page-hero";
 import { AmbassadorIntro } from "@/components/sections/ambassador-intro";
 import { AmbassadorBenefits } from "@/components/sections/ambassador-benefits";
@@ -21,9 +20,7 @@ export default function AmbassadorsPage() {
       />
       <AmbassadorIntro />
       <AmbassadorBenefits />
-      <Suspense fallback={null}>
-        <AmbassadorApplication />
-      </Suspense>
+      <AmbassadorApplication />
     </>
   );
 }
