@@ -1,55 +1,23 @@
 "use client";
 
-import { useState } from "react";
+import { Suspense, useEffect, useState } from "react";
+import { usePathname, useSearchParams } from "next/navigation";
 import { ArrowUpRight, Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { SITE } from "@/lib/constants";
+import { FORM_SUBMIT_ACTION, formSubmitNextUrl } from "@/lib/form-submit";
 
-export function NewsletterForm() {
-  const [submitting, setSubmitting] = useState(false);
+function NewsletterFormInner() {
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
   const [submitted, setSubmitted] = useState(false);
-  const [error, setError] = useState<string | null>(null);
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    if (submitting) return;
-    setError(null);
-    setSubmitting(true);
+  const nextUrl = formSubmitNextUrl(pathname, "newsletter=1");
 
-    const form = e.currentTarget;
-    const payload: Record<string, string> = {
-      _subject: "New ValGo newsletter signup",
-      _template: "table",
-      _captcha: "false",
-      source: "Footer newsletter",
-    };
-    new FormData(form).forEach((value, key) => {
-      payload[key] = value.toString();
-    });
-
-    try {
-      const res = await fetch(
-        `https://formsubmit.co/ajax/${encodeURIComponent(SITE.email)}`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Accept: "application/json",
-          },
-          body: JSON.stringify(payload),
-        }
-      );
-
-      if (!res.ok) throw new Error("Request failed");
-
-      form.reset();
+  useEffect(() => {
+    if (searchParams.get("newsletter") === "1") {
       setSubmitted(true);
-    } catch {
-      setError("Something went wrong. Please try again.");
-    } finally {
-      setSubmitting(false);
     }
-  };
+  }, [searchParams]);
 
   if (submitted) {
     return (
@@ -61,7 +29,13 @@ export function NewsletterForm() {
   }
 
   return (
-    <form className="flex flex-col gap-2" onSubmit={handleSubmit}>
+    <form action={FORM_SUBMIT_ACTION} method="POST" className="flex flex-col gap-2">
+      <input type="hidden" name="_subject" value="New ValGo newsletter signup" />
+      <input type="hidden" name="_template" value="table" />
+      <input type="hidden" name="_captcha" value="false" />
+      <input type="hidden" name="_next" value={nextUrl} />
+      <input type="hidden" name="source" value="Footer newsletter" />
+
       <div className="flex gap-2">
         <input
           type="email"
@@ -71,15 +45,18 @@ export function NewsletterForm() {
           className="flex-1 h-10 px-4 rounded-md bg-white/10 border border-white/10 text-white placeholder:text-white/40 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400"
           aria-label="Email for newsletter"
         />
-        <Button variant="primary" size="md" type="submit" disabled={submitting}>
+        <Button variant="primary" size="md" type="submit">
           <ArrowUpRight className="h-4 w-4" />
         </Button>
       </div>
-      {error && (
-        <p className="text-xs text-red-300" role="alert">
-          {error}
-        </p>
-      )}
     </form>
+  );
+}
+
+export function NewsletterForm() {
+  return (
+    <Suspense fallback={null}>
+      <NewsletterFormInner />
+    </Suspense>
   );
 }

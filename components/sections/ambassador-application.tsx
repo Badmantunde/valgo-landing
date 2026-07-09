@@ -1,13 +1,14 @@
 "use client";
 
-import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowUpRight, CheckCircle2 } from "lucide-react";
+import { useSearchParams } from "next/navigation";
+import { useEffect, useState } from "react";
 import { ambassadorFormFields } from "@/data/ambassador-form";
 import type { WaitlistField } from "@/data/faq";
 import { SectionHeader } from "@/components/ui/section-header";
 import { Button } from "@/components/ui/button";
-import { SITE } from "@/lib/constants";
+import { FORM_SUBMIT_ACTION, formSubmitNextUrl } from "@/lib/form-submit";
 
 function FormField({ field }: { field: WaitlistField }) {
   return (
@@ -63,54 +64,14 @@ function FormField({ field }: { field: WaitlistField }) {
 }
 
 export function AmbassadorApplication() {
+  const searchParams = useSearchParams();
   const [submitted, setSubmitted] = useState(false);
-  const [submitting, setSubmitting] = useState(false);
-  const [error, setError] = useState<string | null>(null);
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    if (submitting) return;
-    setError(null);
-    setSubmitting(true);
-
-    const form = e.currentTarget;
-    const payload: Record<string, string> = {
-      _subject: "New ValGo Ambassador application",
-      _template: "table",
-      _captcha: "false",
-      role: "Ambassador",
-    };
-    new FormData(form).forEach((value, key) => {
-      payload[key] = value.toString();
-    });
-
-    try {
-      const res = await fetch(
-        `https://formsubmit.co/ajax/${encodeURIComponent(SITE.email)}`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Accept: "application/json",
-          },
-          body: JSON.stringify(payload),
-        }
-      );
-
-      if (!res.ok) throw new Error("Request failed");
-
-      form.reset();
+  useEffect(() => {
+    if (searchParams.get("submitted") === "1") {
       setSubmitted(true);
-    } catch {
-      setError(
-        "Something went wrong. Please try again, or email us directly at " +
-          SITE.email +
-          "."
-      );
-    } finally {
-      setSubmitting(false);
     }
-  };
+  }, [searchParams]);
 
   return (
     <section id="apply" className="py-20 sm:py-24 bg-white border-t border-border">
@@ -141,31 +102,30 @@ export function AmbassadorApplication() {
           ) : (
             <motion.form
               key="form"
+              action={FORM_SUBMIT_ACTION}
+              method="POST"
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.3 }}
-              onSubmit={handleSubmit}
               className="mt-10 space-y-4"
             >
+              <input type="hidden" name="_subject" value="New ValGo Ambassador application" />
+              <input type="hidden" name="_template" value="table" />
+              <input type="hidden" name="_captcha" value="false" />
+              <input
+                type="hidden"
+                name="_next"
+                value={formSubmitNextUrl("/ambassadors", "submitted=1#apply")}
+              />
+              <input type="hidden" name="role" value="Ambassador" />
+
               {ambassadorFormFields.map((field) => (
                 <FormField key={field.name} field={field} />
               ))}
 
-              {error && (
-                <p className="text-sm text-red-600 text-center" role="alert">
-                  {error}
-                </p>
-              )}
-
-              <Button
-                type="submit"
-                variant="primary"
-                size="lg"
-                className="w-full mt-2"
-                disabled={submitting}
-              >
-                {submitting ? "Submitting..." : "Submit application"}
-                {!submitting && <ArrowUpRight className="h-4 w-4" />}
+              <Button type="submit" variant="primary" size="lg" className="w-full mt-2">
+                Submit application
+                <ArrowUpRight className="h-4 w-4" />
               </Button>
             </motion.form>
           )}

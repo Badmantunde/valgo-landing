@@ -1,12 +1,14 @@
 "use client";
 
-import { useState } from "react";
+import { Suspense, useEffect, useState } from "react";
+import { usePathname, useSearchParams } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowUpRight, CheckCircle2 } from "lucide-react";
 import { waitlistRoles, type WaitlistRole } from "@/data/faq";
 import { SectionHeader } from "@/components/ui/section-header";
 import { Button } from "@/components/ui/button";
-import { SITE, VISION } from "@/lib/constants";
+import { VISION } from "@/lib/constants";
+import { FORM_SUBMIT_ACTION, formSubmitNextUrl } from "@/lib/form-submit";
 import { cn } from "@/lib/utils";
 
 interface WaitlistProps {
@@ -14,62 +16,23 @@ interface WaitlistProps {
   showHeader?: boolean;
 }
 
-export function Waitlist({ defaultRole = "customer", showHeader = true }: WaitlistProps) {
+function WaitlistForm({ defaultRole = "customer", showHeader = true }: WaitlistProps) {
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
   const [role, setRole] = useState<WaitlistRole>(defaultRole);
   const [submitted, setSubmitted] = useState(false);
-  const [submitting, setSubmitting] = useState(false);
-  const [error, setError] = useState<string | null>(null);
 
   const config = waitlistRoles.find((r) => r.id === role)!;
+  const nextUrl = formSubmitNextUrl(pathname, "waitlist=1#waitlist");
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    if (submitting) return;
-    setError(null);
-    setSubmitting(true);
-
-    const form = e.currentTarget;
-    const payload: Record<string, string> = {
-      _subject: `New ValGo ${config.label} waitlist signup`,
-      _template: "table",
-      _captcha: "false",
-      role: config.label,
-    };
-    new FormData(form).forEach((value, key) => {
-      payload[key] = value.toString();
-    });
-
-    try {
-      const res = await fetch(
-        `https://formsubmit.co/ajax/${encodeURIComponent(SITE.email)}`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Accept: "application/json",
-          },
-          body: JSON.stringify(payload),
-        }
-      );
-
-      if (!res.ok) throw new Error("Request failed");
-
-      form.reset();
+  useEffect(() => {
+    if (searchParams.get("waitlist") === "1") {
       setSubmitted(true);
-    } catch {
-      setError(
-        "Something went wrong. Please try again, or email us directly at " +
-          SITE.email +
-          "."
-      );
-    } finally {
-      setSubmitting(false);
     }
-  };
+  }, [searchParams]);
 
   return (
     <section id="waitlist" className="py-20 sm:py-24 bg-white border-t border-border">
-
       <div className="relative mx-auto max-w-2xl px-5 sm:px-6 lg:px-8">
         {showHeader && (
           <SectionHeader
@@ -88,7 +51,6 @@ export function Waitlist({ defaultRole = "customer", showHeader = true }: Waitli
                 onClick={() => {
                   setRole(r.id);
                   setSubmitted(false);
-                  setError(null);
                 }}
                 className={cn(
                   "flex-1 py-2 px-2 sm:px-3 rounded text-xs sm:text-sm font-medium transition-colors",
@@ -123,17 +85,28 @@ export function Waitlist({ defaultRole = "customer", showHeader = true }: Waitli
             ) : (
               <motion.form
                 key={role}
+                action={FORM_SUBMIT_ACTION}
+                method="POST"
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -10 }}
                 transition={{ duration: 0.3 }}
-                onSubmit={handleSubmit}
                 className="mt-8 space-y-4"
               >
+                <input
+                  type="hidden"
+                  name="_subject"
+                  value={`New ValGo ${config.label} waitlist signup`}
+                />
+                <input type="hidden" name="_template" value="table" />
+                <input type="hidden" name="_captcha" value="false" />
+                <input type="hidden" name="_next" value={nextUrl} />
+                <input type="hidden" name="role" value={config.label} />
+
                 {config.fields.map((field) => (
                   <div key={field.name}>
                     <label
-                      htmlFor={field.name}
+                      htmlFor={`${role}-${field.name}`}
                       className="block text-sm font-medium text-foreground mb-1.5"
                     >
                       {field.label}
@@ -143,7 +116,7 @@ export function Waitlist({ defaultRole = "customer", showHeader = true }: Waitli
                     </label>
                     {field.type === "select" ? (
                       <select
-                        id={field.name}
+                        id={`${role}-${field.name}`}
                         name={field.name}
                         required={field.required}
                         className="w-full h-10 px-3 rounded-md border border-border bg-white text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
@@ -160,7 +133,7 @@ export function Waitlist({ defaultRole = "customer", showHeader = true }: Waitli
                       </select>
                     ) : field.type === "textarea" ? (
                       <textarea
-                        id={field.name}
+                        id={`${role}-${field.name}`}
                         name={field.name}
                         required={field.required}
                         placeholder={field.placeholder}
@@ -169,7 +142,7 @@ export function Waitlist({ defaultRole = "customer", showHeader = true }: Waitli
                       />
                     ) : (
                       <input
-                        id={field.name}
+                        id={`${role}-${field.name}`}
                         name={field.name}
                         type={field.type}
                         required={field.required}
@@ -180,21 +153,9 @@ export function Waitlist({ defaultRole = "customer", showHeader = true }: Waitli
                   </div>
                 ))}
 
-                {error && (
-                  <p className="text-sm text-red-600 text-center" role="alert">
-                    {error}
-                  </p>
-                )}
-
-                <Button
-                  type="submit"
-                  variant="primary"
-                  size="lg"
-                  className="w-full mt-2"
-                  disabled={submitting}
-                >
-                  {submitting ? "Submitting..." : `Join as ${config.label}`}
-                  {!submitting && <ArrowUpRight className="h-4 w-4" />}
+                <Button type="submit" variant="primary" size="lg" className="w-full mt-2">
+                  Join as {config.label}
+                  <ArrowUpRight className="h-4 w-4" />
                 </Button>
               </motion.form>
             )}
@@ -202,5 +163,13 @@ export function Waitlist({ defaultRole = "customer", showHeader = true }: Waitli
         </div>
       </div>
     </section>
+  );
+}
+
+export function Waitlist(props: WaitlistProps) {
+  return (
+    <Suspense fallback={null}>
+      <WaitlistForm {...props} />
+    </Suspense>
   );
 }
