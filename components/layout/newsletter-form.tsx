@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { ArrowUpRight, Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { formSubmitErrorMessage, submitForm } from "@/lib/form-submit";
+import { formSubmitErrorMessage, submitNewsletter } from "@/lib/form-submit";
 
 export function NewsletterForm() {
   const [submitting, setSubmitting] = useState(false);
@@ -20,10 +20,7 @@ export function NewsletterForm() {
     const email = (form.elements.namedItem("email") as HTMLInputElement).value;
 
     try {
-      await submitForm("New ValGo newsletter signup", {
-        email,
-        source: "Footer newsletter",
-      });
+      await submitNewsletter(email);
       form.reset();
       setSubmitted(true);
     } catch (err) {

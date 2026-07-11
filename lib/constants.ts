@@ -4,7 +4,7 @@ export const SITE = {
   description:
     "ValGo is Nigeria's student-first platform for food, essentials, and campus services, with real earning paths for students. Launching first at Olabisi Onabanjo University in Ago Iwoye, then expanding to universities nationwide.",
   url: "https://usevalgo.com",
-  email: "valgodelivery@outlook.com",
+  email: "hello@usevalgo.com",
 } as const;
 
 export const LAUNCH = {

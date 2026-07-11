@@ -7,7 +7,7 @@ import { ambassadorFormFields } from "@/data/ambassador-form";
 import type { WaitlistField } from "@/data/faq";
 import { SectionHeader } from "@/components/ui/section-header";
 import { Button } from "@/components/ui/button";
-import { formDataToObject, formSubmitErrorMessage, submitForm } from "@/lib/form-submit";
+import { formDataToObject, formSubmitErrorMessage, submitAmbassador } from "@/lib/form-submit";
 
 function FormField({ field }: { field: WaitlistField }) {
   return (
@@ -76,10 +76,7 @@ export function AmbassadorApplication() {
     const form = e.currentTarget;
 
     try {
-      await submitForm("New ValGo Ambassador application", {
-        role: "Ambassador",
-        ...formDataToObject(form),
-      });
+      await submitAmbassador(formDataToObject(form));
       form.reset();
       setSubmitted(true);
     } catch (err) {
@@ -111,8 +108,8 @@ export function AmbassadorApplication() {
                 Application received!
               </h3>
               <p className="text-muted mt-2">
-                Thanks for applying. We&apos;ll review your details and get back
-                to you with next steps.
+                Check your inbox for a confirmation email from ValGo. We&apos;ll
+                review your details and get back to you with next steps.
               </p>
             </motion.div>
           ) : (

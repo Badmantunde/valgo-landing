@@ -7,7 +7,7 @@ import { waitlistRoles, type WaitlistRole } from "@/data/faq";
 import { SectionHeader } from "@/components/ui/section-header";
 import { Button } from "@/components/ui/button";
 import { VISION } from "@/lib/constants";
-import { formDataToObject, formSubmitErrorMessage, submitForm } from "@/lib/form-submit";
+import { formDataToObject, formSubmitErrorMessage, submitWaitlist } from "@/lib/form-submit";
 import { cn } from "@/lib/utils";
 
 interface WaitlistProps {
@@ -32,10 +32,7 @@ export function Waitlist({ defaultRole = "customer", showHeader = true }: Waitli
     const form = e.currentTarget;
 
     try {
-      await submitForm(`New ValGo ${config.label} waitlist signup`, {
-        role: config.label,
-        ...formDataToObject(form),
-      });
+      await submitWaitlist(role, formDataToObject(form));
       form.reset();
       setSubmitted(true);
     } catch (err) {
@@ -94,7 +91,8 @@ export function Waitlist({ defaultRole = "customer", showHeader = true }: Waitli
                   You&apos;re on the list!
                 </h3>
                 <p className="text-muted mt-2">
-                  We&apos;ll reach out with launch updates from ValGo.
+                  Check your inbox for a confirmation email from ValGo. We&apos;ll
+                  reach out with launch updates soon.
                 </p>
               </motion.div>
             ) : (
