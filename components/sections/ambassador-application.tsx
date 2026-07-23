@@ -7,7 +7,10 @@ import { ambassadorFormFields } from "@/data/ambassador-form";
 import type { WaitlistField } from "@/data/faq";
 import { SectionHeader } from "@/components/ui/section-header";
 import { Button } from "@/components/ui/button";
+import { SOCIAL_LINKS } from "@/lib/constants";
 import { formDataToObject, formSubmitErrorMessage, submitAmbassador } from "@/lib/form-submit";
+
+const xLink = SOCIAL_LINKS.find((link) => link.platform === "x")!;
 
 function FormField({ field }: { field: WaitlistField }) {
   return (
@@ -95,6 +98,19 @@ export function AmbassadorApplication() {
           description="Tell us about yourself, your social presence, and the communities you're part of. We'll review applications and reach out before launch."
         />
 
+        <p className="mt-6 text-sm text-foreground leading-relaxed rounded-[var(--radius-lg)] border border-border bg-[#fafbfc] px-4 py-3">
+          Before you apply, you must follow us on X (Twitter) at{" "}
+          <a
+            href={xLink.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-medium text-blue-600 hover:underline"
+          >
+            @UseValgo
+          </a>
+          .
+        </p>
+
         <AnimatePresence mode="wait">
           {submitted ? (
             <motion.div
@@ -133,6 +149,29 @@ export function AmbassadorApplication() {
               {ambassadorFormFields.map((field) => (
                 <FormField key={field.name} field={field} />
               ))}
+
+              <label className="flex items-start gap-3 text-sm text-foreground leading-relaxed cursor-pointer">
+                <input
+                  type="checkbox"
+                  name="followsOnX"
+                  required
+                  className="mt-1 h-4 w-4 shrink-0 rounded border-border text-blue-600 focus:ring-blue-500"
+                />
+                <span>
+                  I confirm that I follow{" "}
+                  <a
+                    href={xLink.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-medium text-blue-600 hover:underline"
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    @UseValgo
+                  </a>{" "}
+                  on X (Twitter)
+                  <span className="text-blue-500 ml-0.5">*</span>
+                </span>
+              </label>
 
               {error && (
                 <p className="text-sm text-red-600 text-center" role="alert">
