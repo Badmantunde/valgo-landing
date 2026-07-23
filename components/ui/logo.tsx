@@ -22,8 +22,8 @@ export function Logo({
       <Image
         src={src}
         alt="ValGo"
-        width={131}
-        height={38}
+        width={163}
+        height={49}
         priority={priority}
         className={cn(
           "w-auto",

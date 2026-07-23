@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     template: "%s | ValGo",
   },
   icons: {
-    icon: "/icon.png",
+    icon: [{ url: "/favicon.svg", type: "image/svg+xml" }, { url: "/icon.png" }],
     apple: "/apple-icon.png",
   },
   ...getSharedMetadata(SITE.description),
