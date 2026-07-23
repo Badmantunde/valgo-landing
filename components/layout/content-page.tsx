@@ -1,10 +1,18 @@
 import { PageHero } from "@/components/layout/page-hero";
 import { cn } from "@/lib/utils";
 
+interface ContentSubsection {
+  heading: string;
+  body?: string[];
+  list?: string[];
+}
+
 interface ContentSection {
   heading: string;
   body: string[];
   list?: string[];
+  subsections?: ContentSubsection[];
+  footer?: string[];
 }
 
 interface ContentPageProps {
@@ -14,6 +22,22 @@ interface ContentPageProps {
   lastUpdated?: string;
   sections: ContentSection[];
   className?: string;
+}
+
+function ContentList({ items }: { items: string[] }) {
+  return (
+    <ul className="mt-4 space-y-2">
+      {items.map((item) => (
+        <li
+          key={item}
+          className="flex gap-2 text-muted text-sm leading-relaxed"
+        >
+          <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-blue-500" />
+          {item}
+        </li>
+      ))}
+    </ul>
+  );
 }
 
 export function ContentPage({
@@ -46,18 +70,42 @@ export function ContentPage({
                     </p>
                   ))}
                 </div>
-                {section.list && (
-                  <ul className="mt-4 space-y-2">
-                    {section.list.map((item) => (
-                      <li
-                        key={item}
-                        className="flex gap-2 text-muted text-sm leading-relaxed"
-                      >
-                        <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-blue-500" />
-                        {item}
-                      </li>
+                {section.list && <ContentList items={section.list} />}
+                {section.subsections && (
+                  <div className="mt-6 space-y-6">
+                    {section.subsections.map((subsection) => (
+                      <div key={subsection.heading}>
+                        <h3 className="text-base font-semibold text-foreground">
+                          {subsection.heading}
+                        </h3>
+                        {subsection.body && (
+                          <div className="mt-3 space-y-3">
+                            {subsection.body.map((paragraph) => (
+                              <p
+                                key={paragraph.slice(0, 40)}
+                                className="text-muted leading-relaxed"
+                              >
+                                {paragraph}
+                              </p>
+                            ))}
+                          </div>
+                        )}
+                        {subsection.list && <ContentList items={subsection.list} />}
+                      </div>
                     ))}
-                  </ul>
+                  </div>
+                )}
+                {section.footer && (
+                  <div className="mt-4 space-y-4">
+                    {section.footer.map((paragraph) => (
+                      <p
+                        key={paragraph.slice(0, 40)}
+                        className="text-muted leading-relaxed"
+                      >
+                        {paragraph}
+                      </p>
+                    ))}
+                  </div>
                 )}
               </article>
             ))}

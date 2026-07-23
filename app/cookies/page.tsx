@@ -4,7 +4,7 @@ import { SITE } from "@/lib/constants";
 
 export const metadata = createPageMetadata({
   title: "Cookie Policy",
-  description: "How ValGo uses cookies and similar technologies on usevalgo.com and our mobile applications.",
+  description: `How ${SITE.legalName} uses cookies and similar technologies on usevalgo.com and our mobile applications.`,
   path: "/cookies",
 });
 

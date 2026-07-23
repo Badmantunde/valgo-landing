@@ -1,10 +1,10 @@
 import { ContentPage } from "@/components/layout/content-page";
 import { createPageMetadata } from "@/lib/metadata";
-import { LAUNCH, SITE } from "@/lib/constants";
+import { SITE } from "@/lib/constants";
 
 export const metadata = createPageMetadata({
   title: "Privacy Policy",
-  description: "How ValGo collects, uses, and protects your personal information when you use our website, apps, and delivery services in Nigeria.",
+  description: `How ${SITE.legalName} collects, uses, discloses, stores, and protects your personal information when you use our Platform.`,
   path: "/privacy",
 });
 
@@ -13,85 +13,238 @@ export default function PrivacyPage() {
     <ContentPage
       eyebrow="Legal"
       title="Privacy Policy"
-      description="How we handle your data when you use ValGo's website, apps, and services."
-      lastUpdated="July 1, 2026"
+      description="How we collect, use, disclose, store, and protect your personal information when you use ValGo."
+      lastUpdated="July 23, 2026"
       sections={[
         {
-          heading: "Introduction",
+          heading: "1. Introduction",
           body: [
-            `ValGo Technologies Ltd ("ValGo", "we", "us") operates the ValGo platform, including our website at ${SITE.url}, mobile applications, and related services. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our services.`,
-            "By using ValGo, you agree to the collection and use of information in accordance with this policy. If you do not agree, please do not use our services.",
+            "Welcome to ValGo.",
+            'ValGo Innovations Limited ("ValGo", "we", "our", or "us") operates a digital marketplace that connects customers with independent vendors and delivery riders. This Privacy Policy explains how we collect, use, disclose, store, and protect your personal information when you use our website, mobile applications, and related services (collectively, the "Platform").',
+            "By accessing or using our Platform, you acknowledge that you have read and understood this Privacy Policy.",
+            "Effective Date: July 23, 2026.",
           ],
         },
         {
-          heading: "Information we collect",
+          heading: "2. Information We Collect",
           body: [
-            "We collect information you provide directly, information generated through your use of our services, and information from third parties where permitted by law.",
+            "Depending on how you use ValGo, we may collect the following information.",
+          ],
+          subsections: [
+            {
+              heading: "Personal Information",
+              list: [
+                "Full name",
+                "Email address",
+                "Phone number",
+                "Profile photo (optional)",
+                "Date of birth (where required)",
+                "Delivery addresses",
+                "Campus or institution information",
+                "Account credentials",
+              ],
+            },
+            {
+              heading: "Vendor Information",
+              body: ["To verify and onboard vendors, we may collect:"],
+              list: [
+                "Business name",
+                "Business address",
+                "Business registration documents (where applicable)",
+                "Government-issued identification",
+                "Bank account information",
+                "Tax or regulatory information where required",
+              ],
+            },
+            {
+              heading: "Rider Information",
+              body: ["For riders, we may collect:"],
+              list: [
+                "Identification documents",
+                "Contact information",
+                "Vehicle or bicycle information",
+                "Bank account details",
+                "Rider verification information",
+              ],
+            },
+            {
+              heading: "Order Information",
+              list: [
+                "Orders placed",
+                "Products purchased",
+                "Order history",
+                "Delivery instructions",
+                "Transaction history",
+              ],
+            },
+            {
+              heading: "Device Information",
+              body: ["We may automatically collect:"],
+              list: [
+                "IP address",
+                "Device model",
+                "Operating system",
+                "Browser type",
+                "App version",
+                "Device identifiers",
+                "Crash logs",
+                "Diagnostic information",
+              ],
+            },
+            {
+              heading: "Location Information",
+              body: [
+                "With your permission, ValGo may access your device's location to:",
+              ],
+              list: [
+                "Display nearby vendors",
+                "Calculate delivery fees",
+                "Assign riders",
+                "Provide live order tracking",
+                "Improve delivery accuracy",
+              ],
+            },
+          ],
+          footer: [
+            "You can disable location permissions through your device settings; however, some services may not function properly.",
+          ],
+        },
+        {
+          heading: "3. How We Use Your Information",
+          body: ["We use your information to:"],
+          list: [
+            "Create and manage your account",
+            "Process orders and payments",
+            "Deliver products and services",
+            "Verify vendor and rider identities",
+            "Detect fraud and unauthorized activities",
+            "Improve our products and services",
+            "Provide customer support",
+            "Communicate important service updates",
+            "Comply with legal and regulatory obligations",
+            "Enforce our Terms and Policies",
+          ],
+        },
+        {
+          heading: "4. Payments",
+          body: [
+            "Payments made on ValGo are processed through secure third-party payment providers.",
+            "ValGo does not store your debit or credit card details on its servers.",
+            "Payment processors may collect payment information in accordance with their own privacy policies.",
+          ],
+        },
+        {
+          heading: "5. Cookies and Similar Technologies",
+          body: ["Our website may use cookies and similar technologies to:"],
+          list: [
+            "Remember your preferences",
+            "Keep you signed in",
+            "Improve website performance",
+            "Analyze traffic and usage",
+            "Enhance security",
+          ],
+          footer: [
+            "You may disable cookies through your browser settings, although some features may become unavailable.",
+          ],
+        },
+        {
+          heading: "6. Sharing Your Information",
+          body: ["We may share your information only when necessary with:"],
+          list: [
+            "Vendors fulfilling your orders",
+            "Delivery riders delivering your orders",
+            "Payment processors",
+            "Identity verification providers",
+            "Cloud hosting providers",
+            "Customer support providers",
+            "Analytics providers",
+            "Government or regulatory authorities where legally required",
+          ],
+          footer: ["We do not sell your personal information to third parties."],
+        },
+        {
+          heading: "7. Data Security",
+          body: [
+            "We implement reasonable technical, administrative, and organizational safeguards designed to protect your information against unauthorized access, disclosure, alteration, or destruction.",
+            "These measures include:",
           ],
           list: [
-            "Account information: name, email address, phone number, and university affiliation when you register or join a waitlist.",
-            "Order and transaction data: delivery addresses, order history, payment method details (processed by secure payment partners), and communication with vendors or riders.",
-            "Location data: GPS and address information needed to fulfill deliveries, with your permission through the app.",
-            "Device and usage data: device type, operating system, app version, IP address, and how you interact with our platform.",
-            "Partner data: business name, menu details, and operational information from vendors and riders who join the platform.",
+            "Encrypted communications (HTTPS/TLS)",
+            "Secure authentication",
+            "Role-based access controls",
+            "Monitoring and logging",
+            "Regular security reviews",
+          ],
+          footer: [
+            "While we strive to protect your information, no method of electronic storage or internet transmission is completely secure.",
           ],
         },
         {
-          heading: "How we use your information",
-          body: [
-            "We use the information we collect to operate, improve, and secure the ValGo platform.",
-          ],
+          heading: "8. Data Retention",
+          body: ["We retain personal information only for as long as necessary to:"],
           list: [
-            "Process and deliver orders, including sharing necessary details with vendors and riders.",
-            "Communicate with you about orders, account updates, and launch announcements.",
-            "Improve our products, analyze usage patterns, and develop new features.",
-            "Prevent fraud, enforce our terms, and comply with applicable laws.",
-            "Send marketing communications where you have opted in. You can unsubscribe at any time.",
+            "Provide our services",
+            "Meet legal and regulatory obligations",
+            "Resolve disputes",
+            "Prevent fraud",
+            "Enforce our agreements",
+          ],
+          footer: [
+            "When information is no longer required, it will be securely deleted or anonymized where appropriate.",
           ],
         },
         {
-          heading: "Sharing your information",
-          body: [
-            "We do not sell your personal information. We share data only as needed to provide our services or as required by law.",
-          ],
+          heading: "9. Your Privacy Rights",
+          body: ["Subject to applicable law, you may have the right to:"],
           list: [
-            "Vendors and riders receive the information necessary to fulfill your order (name, phone, delivery address, order details).",
-            "Payment processors handle transaction data under their own privacy policies.",
-            "Service providers who assist with hosting, analytics, customer support, and communications, bound by confidentiality obligations.",
-            "Law enforcement or regulatory bodies when required by applicable Nigerian law.",
+            "Access your personal information",
+            "Correct inaccurate information",
+            "Request deletion of your information",
+            "Object to certain processing activities",
+            "Restrict processing",
+            "Withdraw consent where processing is based on consent",
+            "Request a copy of your information in a portable format",
+            "Lodge a complaint with the appropriate data protection authority",
+          ],
+          footer: ["Requests may be subject to identity verification."],
+        },
+        {
+          heading: "10. Children's Privacy",
+          body: [
+            "ValGo is not intended for children under the age of 13.",
+            "We do not knowingly collect personal information from children under this age. If we become aware that such information has been collected, we will take appropriate steps to delete it.",
           ],
         },
         {
-          heading: "Data retention and security",
+          heading: "11. Third-Party Services",
           body: [
-            "We retain your information for as long as your account is active or as needed to provide services, comply with legal obligations, and resolve disputes.",
-            "We implement appropriate technical and organizational measures to protect your data, including encryption in transit and access controls. No method of transmission over the internet is 100% secure.",
+            "Our Platform may contain links to third-party websites or integrate third-party services.",
+            "These third parties operate independently and are responsible for their own privacy practices. We encourage users to review their privacy policies before providing personal information.",
           ],
         },
         {
-          heading: "Your rights",
+          heading: "12. International Data Transfers",
           body: [
-            "Depending on applicable law, you may have the right to access, correct, or delete your personal information, withdraw consent for marketing, or request a copy of data we hold about you.",
-            `To exercise these rights, contact us at ${SITE.email}. We will respond within a reasonable timeframe.`,
+            "Your information may be processed or stored in jurisdictions outside Nigeria where our service providers operate.",
+            "Where such transfers occur, we take reasonable steps to ensure appropriate safeguards are in place in accordance with applicable data protection laws.",
           ],
         },
         {
-          heading: "Children's privacy",
+          heading: "13. Changes to This Privacy Policy",
           body: [
-            "ValGo is intended for users aged 16 and above. We do not knowingly collect personal information from children under 16. If you believe we have collected such information, please contact us immediately.",
+            "We may update this Privacy Policy from time to time.",
+            'When material changes are made, we will update the "Last Updated" date and, where appropriate, notify users through the Platform or other reasonable means.',
+            "Continued use of ValGo after changes become effective constitutes acceptance of the revised Privacy Policy.",
           ],
         },
         {
-          heading: "Changes to this policy",
+          heading: "14. Contact Us",
           body: [
-            "We may update this Privacy Policy from time to time. We will notify you of material changes by posting the updated policy on our website and updating the 'Last updated' date above.",
-          ],
-        },
-        {
-          heading: "Contact us",
-          body: [
-            `If you have questions about this Privacy Policy or our data practices, contact ValGo Technologies Ltd at ${SITE.email}.`,
-            `Registered address: ${LAUNCH.location}, Nigeria.`,
+            "If you have any questions about this Privacy Policy or how your personal information is handled, please contact us:",
+            SITE.legalName,
+            `Email: ${SITE.email}`,
+            `Website: ${SITE.url}`,
+            `Support: ${SITE.supportEmail}`,
           ],
         },
       ]}

@@ -93,9 +93,9 @@ export function createPageMetadata({
     },
     category: "technology",
     applicationName: SITE.name,
-    authors: [{ name: "ValGo Technologies Ltd", url: SITE.url }],
-    creator: "ValGo Technologies Ltd",
-    publisher: "ValGo Technologies Ltd",
+    authors: [{ name: SITE.legalName, url: SITE.url }],
+    creator: SITE.legalName,
+    publisher: SITE.legalName,
     formatDetection: {
       telephone: false,
     },
@@ -123,7 +123,7 @@ export function getOrganizationSchema() {
     "@context": "https://schema.org",
     "@type": "Organization",
     name: SITE.name,
-    legalName: "ValGo Technologies Ltd",
+    legalName: SITE.legalName,
     url: SITE.url,
     logo: `${SITE.url}/logo-blue.svg`,
     description: SITE.description,
@@ -156,7 +156,7 @@ export function getWebSiteSchema() {
     inLanguage: "en-NG",
     publisher: {
       "@type": "Organization",
-      name: SITE.name,
+      name: SITE.legalName,
       url: SITE.url,
     },
   };

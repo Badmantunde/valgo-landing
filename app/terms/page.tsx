@@ -1,10 +1,10 @@
 import { ContentPage } from "@/components/layout/content-page";
 import { createPageMetadata } from "@/lib/metadata";
-import { LAUNCH, SITE } from "@/lib/constants";
+import { SITE } from "@/lib/constants";
 
 export const metadata = createPageMetadata({
   title: "Terms of Service",
-  description: "Terms and conditions for using ValGo's delivery platform, customer app, vendor dashboard, and rider services in Nigeria.",
+  description: `Terms of Service for using ${SITE.legalName}'s website, mobile applications, and related Platform services.`,
   path: "/terms",
 });
 
@@ -14,95 +14,217 @@ export default function TermsPage() {
       eyebrow="Legal"
       title="Terms of Service"
       description="Please read these terms carefully before using ValGo."
-      lastUpdated="July 1, 2026"
+      lastUpdated="July 23, 2026"
       sections={[
         {
-          heading: "Agreement to terms",
+          heading: "1. Introduction",
           body: [
-            `These Terms of Service ("Terms") govern your access to and use of the ValGo platform operated by ValGo Technologies Ltd, including our website, mobile applications, and related services.`,
-            "By creating an account, placing an order, or otherwise using ValGo, you agree to be bound by these Terms. If you do not agree, you may not use our services.",
+            "Welcome to ValGo.",
+            'These Terms of Service ("Terms") govern your access to and use of the ValGo website, mobile applications, and related services (collectively, the "Platform"), operated by ValGo Innovations Limited ("ValGo", "we", "our", or "us").',
+            "By creating an account or using the Platform, you agree to be bound by these Terms. If you do not agree, please do not use ValGo.",
+            "Effective Date: July 23, 2026.",
           ],
         },
         {
-          heading: "Eligibility",
+          heading: "2. About ValGo",
           body: [
-            "You must be at least 16 years old to use ValGo. By using our services, you represent that you meet this requirement and have the legal capacity to enter into these Terms.",
-            "Vendor and rider partners must provide accurate business or personal information and maintain any licenses or permits required to operate in their jurisdiction.",
+            "ValGo is a technology marketplace that connects customers with independent vendors and delivery riders.",
+            "ValGo facilitates the ordering, payment, and delivery process but is not the manufacturer, producer, or owner of products sold by vendors unless expressly stated.",
           ],
         },
         {
-          heading: "Our services",
-          body: [
-            "ValGo is a technology platform that connects customers with independent vendors and delivery riders. ValGo does not prepare food, sell products directly, or employ riders as delivery agents unless explicitly stated.",
-            `We are launching first at ${LAUNCH.university} in ${LAUNCH.city}, our first campus market. Service availability, delivery areas, and features may vary by location and are subject to change as we expand to more universities.`,
+          heading: "3. Eligibility",
+          body: ["To use ValGo, you must:"],
+          list: [
+            "Be at least 16 years old, or have permission from a parent or legal guardian where permitted by law.",
+            "Provide accurate and complete information.",
+            "Maintain the confidentiality of your account credentials.",
+            "Comply with these Terms and all applicable laws.",
+          ],
+          footer: ["You are responsible for all activities carried out under your account."],
+        },
+        {
+          heading: "4. User Accounts",
+          body: ["Users agree to:"],
+          list: [
+            "Provide accurate registration information.",
+            "Keep account information up to date.",
+            "Protect login credentials.",
+            "Notify ValGo immediately of any unauthorized account access.",
+          ],
+          footer: [
+            "ValGo reserves the right to suspend or terminate accounts that violate these Terms.",
           ],
         },
         {
-          heading: "Accounts and registration",
+          heading: "5. Orders",
           body: [
-            "You are responsible for maintaining the confidentiality of your account credentials and for all activity under your account. Notify us immediately of any unauthorized use.",
-            "You agree to provide accurate, current, and complete information during registration and to update it as needed.",
-          ],
-        },
-        {
-          heading: "Orders and payments",
-          body: [
-            "When you place an order through ValGo, you enter into a direct transaction with the vendor for goods and services. ValGo facilitates the order, payment, and delivery coordination.",
+            "Orders placed through ValGo are offers to purchase products from independent vendors.",
+            "Orders are subject to:",
           ],
           list: [
-            "Prices displayed in the app are set by vendors and may change without notice.",
-            "Payment is processed at the time of order unless otherwise stated. Accepted methods include card, bank transfer, and other options shown in the app.",
-            "Delivery fees, service fees, and applicable taxes are shown before you confirm your order.",
-            "Refunds and cancellations are handled according to our refund policy and the vendor's preparation status at the time of cancellation.",
+            "Vendor acceptance",
+            "Product availability",
+            "Successful payment authorization",
+          ],
+          footer: [
+            "ValGo may cancel or decline an order where fraud, pricing errors, technical issues, or other legitimate concerns are identified.",
           ],
         },
         {
-          heading: "Vendor and rider obligations",
+          heading: "6. Payments",
           body: [
-            "Vendors must provide accurate menu information, maintain food safety standards, and fulfill orders in a timely manner. Riders must deliver orders safely and professionally.",
-            "ValGo reserves the right to suspend or remove partners who violate these Terms, receive consistently poor ratings, or engage in fraudulent activity.",
+            "Payments are processed through authorized third-party payment providers.",
+            "By making a payment, you authorize ValGo and its payment partners to process your transaction.",
+            "Applicable delivery fees, service fees, and taxes (where applicable) will be displayed before checkout.",
           ],
         },
         {
-          heading: "Prohibited conduct",
-          body: ["You agree not to:"],
+          heading: "7. Vendors",
+          body: ["Vendors using ValGo agree to:"],
           list: [
-            "Use ValGo for any unlawful purpose or in violation of any applicable regulations.",
-            "Submit false orders, abuse promotions, or attempt to defraud vendors, riders, or ValGo.",
-            "Harass, threaten, or discriminate against other users, vendors, or riders.",
-            "Reverse engineer, scrape, or interfere with the platform's operation or security.",
-            "Use ValGo to deliver prohibited items including illegal substances, weapons, or hazardous materials.",
+            "Provide accurate business information.",
+            "Sell only lawful products.",
+            "Maintain product quality.",
+            "Fulfil accepted orders promptly.",
+            "Comply with all applicable laws and regulations.",
+          ],
+          footer: ["ValGo may suspend or remove vendors who breach these Terms."],
+        },
+        {
+          heading: "8. Delivery Riders",
+          body: ["Delivery riders agree to:"],
+          list: [
+            "Handle orders with reasonable care.",
+            "Deliver to the correct customer.",
+            "Comply with applicable traffic and safety laws.",
+            "Conduct themselves professionally while using the Platform.",
           ],
         },
         {
-          heading: "Intellectual property",
+          heading: "9. Pricing",
           body: [
-            "All content, trademarks, logos, and software on the ValGo platform are owned by ValGo Technologies Ltd or its licensors. You may not copy, modify, or distribute our intellectual property without written permission.",
+            "Product prices are determined by vendors.",
+            "Delivery fees and applicable service charges are calculated by ValGo and displayed before payment.",
+            "Prices may change without prior notice until an order has been confirmed.",
           ],
         },
         {
-          heading: "Limitation of liability",
+          heading: "10. Cancellations and Refunds",
           body: [
-            "ValGo provides the platform on an 'as is' basis. To the fullest extent permitted by Nigerian law, ValGo is not liable for indirect, incidental, or consequential damages arising from your use of the platform.",
-            "ValGo's total liability for any claim related to our services is limited to the amount you paid to ValGo for the relevant order in the 30 days preceding the claim.",
+            "Refunds and cancellations are governed by ValGo's Refund & Returns Policy.",
+            "Eligibility for refunds depends on the circumstances of each order and will be assessed in accordance with that policy.",
           ],
         },
         {
-          heading: "Dispute resolution",
-          body: [
-            "These Terms are governed by the laws of the Federal Republic of Nigeria. Any disputes shall first be addressed through good-faith negotiation. If unresolved, disputes shall be submitted to the courts of Ogun State, Nigeria.",
+          heading: "11. Prohibited Conduct",
+          body: ["Users must not:"],
+          list: [
+            "Engage in fraudulent activity.",
+            "Use stolen payment methods.",
+            "Harass vendors, riders, or other users.",
+            "Attempt unauthorized access to the Platform.",
+            "Reverse engineer or interfere with the Platform.",
+            "Upload malicious software or harmful content.",
+            "Circumvent ValGo's payment system.",
+          ],
+          footer: [
+            "Violations may result in immediate suspension or termination.",
           ],
         },
         {
-          heading: "Changes to terms",
+          heading: "12. Intellectual Property",
           body: [
-            "We may modify these Terms at any time. Material changes will be communicated through the app or by email. Continued use of ValGo after changes take effect constitutes acceptance of the updated Terms.",
+            "All ValGo trademarks, logos, software, designs, graphics, content, and branding are owned by or licensed to ValGo Innovations Limited.",
+            "Users may not reproduce, copy, modify, distribute, or commercially exploit any part of the Platform without prior written permission.",
           ],
         },
         {
-          heading: "Contact",
+          heading: "13. Privacy",
           body: [
-            `Questions about these Terms? Contact us at ${SITE.email}.`,
+            "Your use of ValGo is subject to our Privacy Policy, which explains how we collect, use, and protect personal information.",
+          ],
+        },
+        {
+          heading: "14. Third-Party Services",
+          body: [
+            "The Platform may integrate third-party services, including payment providers, mapping services, communication tools, and analytics providers.",
+            "ValGo is not responsible for the independent policies or practices of third-party services.",
+          ],
+        },
+        {
+          heading: "15. Service Availability",
+          body: [
+            "While we strive to provide uninterrupted service, ValGo does not guarantee that the Platform will always be available or free from errors.",
+            "Maintenance, upgrades, technical issues, or circumstances beyond our control may temporarily affect availability.",
+          ],
+        },
+        {
+          heading: "16. Disclaimer",
+          body: [
+            "Products available on ValGo are supplied by independent vendors.",
+            "While ValGo facilitates transactions and delivery, we do not guarantee the quality, safety, legality, suitability, or availability of products offered by vendors.",
+            'To the extent permitted by applicable law, all services are provided on an "as is" and "as available" basis.',
+          ],
+        },
+        {
+          heading: "17. Limitation of Liability",
+          body: [
+            "To the fullest extent permitted by law, ValGo Innovations Limited, its directors, employees, affiliates, and partners shall not be liable for indirect, incidental, special, consequential, or punitive damages arising from:",
+          ],
+          list: [
+            "Use of the Platform.",
+            "Delayed deliveries.",
+            "Vendor conduct.",
+            "Product defects.",
+            "Service interruptions.",
+            "Loss of profits, revenue, or data.",
+          ],
+          footer: [
+            "Nothing in these Terms excludes liability that cannot legally be excluded under applicable law.",
+          ],
+        },
+        {
+          heading: "18. Indemnification",
+          body: [
+            "You agree to indemnify and hold harmless ValGo Innovations Limited, its directors, employees, and affiliates from claims, damages, liabilities, and expenses arising from:",
+          ],
+          list: [
+            "Your misuse of the Platform.",
+            "Your violation of these Terms.",
+            "Your violation of applicable law.",
+            "Your infringement of the rights of any third party.",
+          ],
+        },
+        {
+          heading: "19. Suspension and Termination",
+          body: [
+            "ValGo reserves the right to suspend or terminate accounts, remove listings, or restrict access where users violate these Terms or engage in fraudulent, unlawful, or abusive conduct.",
+          ],
+        },
+        {
+          heading: "20. Changes to These Terms",
+          body: [
+            "We may revise these Terms from time to time.",
+            'Material updates will be posted on our Platform with an updated "Last Updated" date.',
+            "Continued use of ValGo after changes take effect constitutes acceptance of the revised Terms.",
+          ],
+        },
+        {
+          heading: "21. Governing Law",
+          body: [
+            "These Terms shall be governed by and interpreted in accordance with the laws of the Federal Republic of Nigeria.",
+            "Any disputes arising from these Terms shall be subject to the jurisdiction of the competent courts of Nigeria, except where applicable law provides otherwise.",
+          ],
+        },
+        {
+          heading: "22. Contact Us",
+          body: [
+            "If you have any questions regarding these Terms, please contact us:",
+            SITE.legalName,
+            `Email: ${SITE.email}`,
+            `Support: ${SITE.supportEmail}`,
+            `Website: ${SITE.url}`,
           ],
         },
       ]}

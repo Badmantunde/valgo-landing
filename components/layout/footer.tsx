@@ -89,7 +89,7 @@ export function Footer() {
 
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-8">
           <p className="text-sm text-blue-100/50">
-            &copy; {new Date().getFullYear()} ValGo Technologies Ltd. All rights
+            &copy; {new Date().getFullYear()} {SITE.legalName}. All rights
             reserved.
           </p>
           <p className="text-sm text-blue-100/50">

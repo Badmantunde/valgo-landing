@@ -27,7 +27,7 @@ export function emailLayout(body: string): string {
           <tr>
             <td style="padding:20px 32px;background-color:#f9fafb;border-top:1px solid #e5e7eb;color:#6b7280;font-size:12px;line-height:1.5;">
               <p style="margin:0;">Questions? Reply to this email or reach us at <a href="mailto:${SITE.email}" style="color:#2563eb;text-decoration:none;">${SITE.email}</a>.</p>
-              <p style="margin:8px 0 0;">&copy; ${new Date().getFullYear()} ${SITE.name}. All rights reserved.</p>
+              <p style="margin:8px 0 0;">&copy; ${new Date().getFullYear()} ${SITE.legalName}. All rights reserved.</p>
             </td>
           </tr>
         </table>
