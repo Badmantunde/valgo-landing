@@ -223,6 +223,7 @@ export default function PrivacyPage() {
           ],
         },
         {
+        {
           heading: "12. International Data Transfers",
           body: [
             "Your information may be processed or stored in jurisdictions outside Nigeria where our service providers operate.",
@@ -230,7 +231,14 @@ export default function PrivacyPage() {
           ],
         },
         {
-          heading: "13. Changes to This Privacy Policy",
+          heading: "13. Account and Data Deletion",
+          body: [
+            "You can request account and data deletion at any time in-app via Account Settings -> Delete Account, or by emailing support@usevalgo.com or hello@usevalgo.com.",
+            `For full details on data deletion options, retention policies, and step-by-step instructions, visit our dedicated Account Deletion Request page at ${SITE.url}/delete-account.`,
+          ],
+        },
+        {
+          heading: "14. Changes to This Privacy Policy",
           body: [
             "We may update this Privacy Policy from time to time.",
             'When material changes are made, we will update the "Last Updated" date and, where appropriate, notify users through the Platform or other reasonable means.',
