@@ -223,7 +223,6 @@ export default function PrivacyPage() {
           ],
         },
         {
-        {
           heading: "12. International Data Transfers",
           body: [
             "Your information may be processed or stored in jurisdictions outside Nigeria where our service providers operate.",
