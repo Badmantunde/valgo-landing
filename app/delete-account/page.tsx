@@ -60,7 +60,8 @@ export default function DeleteAccountPage() {
         {
           heading: "Questions and support",
           body: [
-            `If you have any questions or require assistance with deleting your account, please contact our support team at support@usevalgo.com or ${SITE.email}.`,
+            `If you have any questions or require assistance with deleting your account, please contact our support team at support@usevalgo.com, ${SITE.email}, or phone at ${SITE.phoneDisplay}.`,
+            `Headquarters: ${SITE.headquarters}`,
           ],
         },
       ]}

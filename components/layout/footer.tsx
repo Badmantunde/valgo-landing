@@ -35,9 +35,13 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 pb-12 border-b border-white/10">
           <div className="lg:col-span-4">
             <Logo variant="white" className="mb-5" />
-            <p className="text-blue-100/70 text-sm leading-relaxed max-w-sm mb-6">
+            <p className="text-blue-100/70 text-sm leading-relaxed max-w-sm mb-4">
               {SITE.tagline} {VISION.launchNote}
             </p>
+            <div className="text-xs text-blue-100/60 space-y-1 mb-6">
+              <p><strong className="text-white/80">Headquarters:</strong> {SITE.address}</p>
+              <p><strong className="text-white/80">Phone:</strong> <a href={`tel:${SITE.phoneRaw}`} className="hover:text-white transition-colors">{SITE.phoneDisplay}</a> &bull; <a href={`mailto:${SITE.email}`} className="hover:text-white transition-colors">{SITE.email}</a></p>
+            </div>
             <div className="flex gap-2 mb-6">
               {SOCIAL_LINKS.map((link) => (
                 <a

@@ -7,6 +7,11 @@ export const SITE = {
   url: "https://usevalgo.com",
   email: "hello@usevalgo.com",
   supportEmail: "support@usevalgo.com",
+  phone: "+234 703 962 2479",
+  phoneRaw: "+2347039622479",
+  phoneDisplay: "07039622479",
+  address: "11, Adeyiga Street, Ikosi-Ketu, Kosofe, Lagos",
+  headquarters: "11, Adeyiga Street, Ikosi-Ketu, Kosofe, Lagos, Nigeria",
 } as const;
 
 export const LAUNCH = {

@@ -128,6 +128,14 @@ export function getOrganizationSchema() {
     logo: `${SITE.url}/logo-blue.svg`,
     description: SITE.description,
     email: SITE.email,
+    telephone: SITE.phone,
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "11, Adeyiga Street, Ikosi-Ketu",
+      addressLocality: "Kosofe",
+      addressRegion: "Lagos",
+      addressCountry: "NG",
+    },
     foundingLocation: {
       "@type": "Place",
       name: LAUNCH.location,
@@ -201,10 +209,12 @@ export function getLocalBusinessSchema() {
     description: `ValGo delivery platform for Nigerian students, launching first at ${LAUNCH.university} in ${LAUNCH.city} and expanding nationwide.`,
     url: SITE.url,
     email: SITE.email,
+    telephone: SITE.phone,
     address: {
       "@type": "PostalAddress",
-      addressLocality: LAUNCH.city,
-      addressRegion: "Ogun State",
+      streetAddress: "11, Adeyiga Street, Ikosi-Ketu",
+      addressLocality: "Kosofe",
+      addressRegion: "Lagos",
       addressCountry: "NG",
     },
     areaServed: {

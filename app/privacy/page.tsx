@@ -249,9 +249,11 @@ export default function PrivacyPage() {
           body: [
             "If you have any questions about this Privacy Policy or how your personal information is handled, please contact us:",
             SITE.legalName,
+            `Headquarters: ${SITE.headquarters}`,
+            `Phone: ${SITE.phoneDisplay}`,
             `Email: ${SITE.email}`,
-            `Website: ${SITE.url}`,
             `Support: ${SITE.supportEmail}`,
+            `Website: ${SITE.url}`,
           ],
         },
       ]}

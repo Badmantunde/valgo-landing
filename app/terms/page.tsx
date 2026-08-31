@@ -222,6 +222,8 @@ export default function TermsPage() {
           body: [
             "If you have any questions regarding these Terms, please contact us:",
             SITE.legalName,
+            `Headquarters: ${SITE.headquarters}`,
+            `Phone: ${SITE.phoneDisplay}`,
             `Email: ${SITE.email}`,
             `Support: ${SITE.supportEmail}`,
             `Website: ${SITE.url}`,
