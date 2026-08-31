@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowUpRight, CheckCircle2 } from "lucide-react";
 import { waitlistRoles, type WaitlistRole } from "@/data/faq";
@@ -20,6 +20,17 @@ export function Waitlist({ defaultRole = "customer", showHeader = true }: Waitli
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [initialReferralCode, setInitialReferralCode] = useState("");
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const params = new URLSearchParams(window.location.search);
+      const code = params.get("ref") || params.get("referral") || params.get("code");
+      if (code) {
+        setInitialReferralCode(code);
+      }
+    }
+  }, []);
 
   const config = waitlistRoles.find((r) => r.id === role)!;
 
@@ -153,11 +164,13 @@ export function Waitlist({ defaultRole = "customer", showHeader = true }: Waitli
                       />
                     ) : (
                       <input
+                        key={field.name === "referralCode" ? initialReferralCode : undefined}
                         id={`${role}-${field.name}`}
                         name={field.name}
                         type={field.type}
                         required={field.required}
                         placeholder={field.placeholder}
+                        defaultValue={field.name === "referralCode" && initialReferralCode ? initialReferralCode : undefined}
                         className="w-full h-10 px-3 rounded-md border border-border bg-white text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                       />
                     )}

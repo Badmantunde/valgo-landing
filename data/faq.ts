@@ -83,6 +83,7 @@ export const waitlistRoles: WaitlistRoleConfig[] = [
       { name: "fullName", label: "Full Name", type: "text", placeholder: "Your full name", required: true },
       { name: "email", label: "Email", type: "email", placeholder: "you@email.com", required: true },
       { name: "phone", label: "Phone", type: "tel", placeholder: "+234 800 000 0000", required: true },
+      { name: "referralCode", label: "Referral Code (Optional)", type: "text", placeholder: "e.g. VALGO2026 or Ambassador code", required: false },
     ],
   },
   {
@@ -96,6 +97,7 @@ export const waitlistRoles: WaitlistRoleConfig[] = [
       { name: "phone", label: "Phone", type: "tel", placeholder: "+234 800 000 0000", required: true },
       { name: "cuisine", label: "Cuisine Type", type: "text", placeholder: "Nigerian, Fast Food, etc.", required: true },
       { name: "location", label: "Location", type: "text", placeholder: "e.g. Campus area, city", required: true },
+      { name: "referralCode", label: "Referral Code (Optional)", type: "text", placeholder: "e.g. VALGO2026 or Ambassador code", required: false },
     ],
   },
   {
@@ -113,6 +115,7 @@ export const waitlistRoles: WaitlistRoleConfig[] = [
         required: true,
         options: ["Bicycle", "Motorcycle", "Foot"],
       },
+      { name: "referralCode", label: "Referral Code (Optional)", type: "text", placeholder: "e.g. VALGO2026 or Ambassador code", required: false },
     ],
   },
 ];
