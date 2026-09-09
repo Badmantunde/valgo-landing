@@ -166,17 +166,17 @@ export function Hero() {
             href={APP_LINKS.customer.web}
             target="_blank"
             rel="noopener noreferrer"
-            className="group shrink-0 inline-flex items-center justify-center gap-1.5 sm:gap-2.5 rounded-full bg-[#0c0c0e] px-3.5 xs:px-5 sm:px-8 py-3 sm:py-4 text-[11px] xs:text-xs sm:text-sm font-black tracking-wider sm:tracking-widest text-white uppercase shadow-[0_12px_32px_rgba(0,0,0,0.35)] hover:bg-black hover:scale-105 active:scale-95 transition-all duration-300 cursor-pointer border border-white/10 whitespace-nowrap"
+            className="group relative overflow-hidden shrink-0 inline-flex items-center justify-center gap-1.5 sm:gap-2.5 rounded-full bg-[#0c0c0e] px-3.5 xs:px-5 sm:px-8 py-3 sm:py-4 text-[11px] xs:text-xs sm:text-sm font-black tracking-wider sm:tracking-widest text-white uppercase shadow-[0_12px_32px_rgba(0,0,0,0.35)] hover:bg-[#1a1a1e] hover:shadow-[0_12px_40px_rgba(0,0,0,0.55)] hover:scale-105 active:scale-95 transition-all duration-300 cursor-pointer border border-white/10 whitespace-nowrap before:absolute before:inset-0 before:-translate-x-full before:bg-gradient-to-r before:from-transparent before:via-white/15 before:to-transparent hover:before:translate-x-full before:transition-transform before:duration-500 before:ease-in-out"
           >
-            <span className="whitespace-nowrap">START ORDERING NOW</span>
-            <ArrowUpRight className="h-3.5 w-3.5 sm:h-4 sm:w-4 shrink-0 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            <span className="relative z-10 whitespace-nowrap">START ORDERING NOW</span>
+            <ArrowUpRight className="relative z-10 h-3.5 w-3.5 sm:h-4 sm:w-4 shrink-0 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
           </Link>
 
           <Link
             href="#waitlist"
-            className="group shrink-0 inline-flex items-center justify-center rounded-full bg-white/25 px-4 xs:px-6 sm:px-8 py-3 sm:py-4 text-[11px] xs:text-xs sm:text-sm font-bold tracking-wider text-white uppercase backdrop-blur-md border border-white/50 shadow-lg hover:bg-white/35 hover:scale-105 active:scale-95 transition-all duration-300 whitespace-nowrap"
+            className="group relative overflow-hidden shrink-0 inline-flex items-center justify-center rounded-full bg-white/25 px-4 xs:px-6 sm:px-8 py-3 sm:py-4 text-[11px] xs:text-xs sm:text-sm font-bold tracking-wider text-white uppercase backdrop-blur-md border border-white/50 shadow-lg hover:bg-white/45 hover:border-white/80 hover:shadow-[0_8px_28px_rgba(255,255,255,0.25)] hover:scale-105 active:scale-95 transition-all duration-300 whitespace-nowrap before:absolute before:inset-0 before:-translate-x-full before:bg-gradient-to-r before:from-transparent before:via-white/20 before:to-transparent hover:before:translate-x-full before:transition-transform before:duration-500 before:ease-in-out"
           >
-            <span className="whitespace-nowrap">JOIN WAITLIST</span>
+            <span className="relative z-10 whitespace-nowrap">JOIN WAITLIST</span>
           </Link>
         </motion.div>
 
