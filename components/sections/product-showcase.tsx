@@ -287,7 +287,7 @@ export function ProductShowcase() {
           </div>
 
           {/* Right Column: Elevated Modern Smartphone Stage */}
-          <div className="lg:col-span-5 flex justify-center">
+          <div className="lg:col-span-5 flex justify-center pt-6 sm:pt-8">
             <div className="relative w-full max-w-[340px] sm:max-w-[370px]">
               {/* Radial Backdrop Glow */}
               <div
@@ -295,7 +295,7 @@ export function ProductShowcase() {
                 aria-hidden="true"
               />
 
-              {/* Dynamic Floating Badge 1 (Top-Right Orbit) */}
+              {/* Dynamic Floating Badge 1 (Topmost Orbit) */}
               <AnimatePresence mode="wait">
                 <motion.div
                   key={activeStep.id + "-float-top"}
@@ -303,7 +303,7 @@ export function ProductShowcase() {
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   exit={{ opacity: 0, y: 10, scale: 0.95 }}
                   transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-                  className="absolute -top-4 -right-2 sm:-right-6 z-20 rounded-xl border border-border bg-white/95 backdrop-blur-md p-3 shadow-float max-w-[210px]"
+                  className="absolute -top-7 sm:-top-9 -right-2 sm:-right-6 z-50 rounded-xl border border-border bg-white/95 backdrop-blur-md p-3 shadow-float max-w-[210px]"
                 >
                   <div className="flex items-center gap-2 mb-1">
                     <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-md bg-blue-50 text-blue-600">
