@@ -7,9 +7,7 @@ import { JsonLd } from "@/components/seo/json-ld";
 import { SITE } from "@/lib/constants";
 import {
   getSharedMetadata,
-  getOrganizationSchema,
-  getSoftwareApplicationSchema,
-  getWebSiteSchema,
+  getSiteSchemaGraph,
 } from "@/lib/metadata";
 import "./globals.css";
 
@@ -23,7 +21,7 @@ const workSans = Work_Sans({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
   title: {
-    default: "ValGo | Everything Students Need. Delivered.",
+    default: "ValGo | Hot Meals & Campus Essentials Delivered in 15 Minutes",
     template: "%s | ValGo",
   },
   icons: {
@@ -33,11 +31,7 @@ export const metadata: Metadata = {
   ...getSharedMetadata(SITE.description),
 };
 
-const siteSchema = [
-  getOrganizationSchema(),
-  getWebSiteSchema(),
-  getSoftwareApplicationSchema(),
-];
+const siteSchema = [getSiteSchemaGraph()];
 
 export default function RootLayout({
   children,
