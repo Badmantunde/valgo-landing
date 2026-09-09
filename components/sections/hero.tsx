@@ -15,6 +15,7 @@ import {
   MapPin,
 } from "lucide-react";
 import { APP_LINKS } from "@/lib/constants";
+import { AppStoreBadges } from "@/components/ui/app-store-badges";
 
 export function Hero() {
   const heroRef = useRef<HTMLElement>(null);
@@ -165,7 +166,7 @@ export function Hero() {
             href={APP_LINKS.customer.web}
             target="_blank"
             rel="noopener noreferrer"
-            className="group shrink-0 inline-flex items-center justify-center gap-1.5 sm:gap-2.5 rounded-full bg-[#0c0c0e] px-4 py-3 sm:px-8 sm:py-4 text-[11px] xs:text-xs sm:text-sm font-black tracking-wider sm:tracking-widest text-white uppercase shadow-[0_12px_32px_rgba(0,0,0,0.35)] hover:bg-black hover:scale-105 active:scale-95 transition-all duration-300 cursor-pointer border border-white/10 whitespace-nowrap"
+            className="group shrink-0 inline-flex items-center justify-center gap-1.5 sm:gap-2.5 rounded-full bg-[#0c0c0e] px-3.5 xs:px-5 sm:px-8 py-3 sm:py-4 text-[11px] xs:text-xs sm:text-sm font-black tracking-wider sm:tracking-widest text-white uppercase shadow-[0_12px_32px_rgba(0,0,0,0.35)] hover:bg-black hover:scale-105 active:scale-95 transition-all duration-300 cursor-pointer border border-white/10 whitespace-nowrap"
           >
             <span className="whitespace-nowrap">START ORDERING NOW</span>
             <ArrowUpRight className="h-3.5 w-3.5 sm:h-4 sm:w-4 shrink-0 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
@@ -173,10 +174,23 @@ export function Hero() {
 
           <Link
             href="#waitlist"
-            className="group shrink-0 inline-flex items-center justify-center rounded-full bg-white/25 px-5 py-3 sm:px-8 sm:py-4 text-[11px] xs:text-xs sm:text-sm font-bold tracking-wider text-white uppercase backdrop-blur-md border border-white/50 shadow-lg hover:bg-white/35 hover:scale-105 active:scale-95 transition-all duration-300 whitespace-nowrap"
+            className="group shrink-0 inline-flex items-center justify-center rounded-full bg-white/25 px-4 xs:px-6 sm:px-8 py-3 sm:py-4 text-[11px] xs:text-xs sm:text-sm font-bold tracking-wider text-white uppercase backdrop-blur-md border border-white/50 shadow-lg hover:bg-white/35 hover:scale-105 active:scale-95 transition-all duration-300 whitespace-nowrap"
           >
             <span className="whitespace-nowrap">JOIN WAITLIST</span>
           </Link>
+        </motion.div>
+
+        {/* App Store Download Badges with Logos */}
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="mt-5 sm:mt-6 flex flex-col items-center gap-1.5"
+        >
+          <p className="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-white/70">
+            Available On iOS &amp; Android
+          </p>
+          <AppStoreBadges role="customer" variant="dark" className="justify-center" />
         </motion.div>
 
         {/* Micro Trust Pills */}
@@ -184,17 +198,17 @@ export function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.35 }}
-          className="mt-5 sm:mt-6 flex flex-wrap items-center justify-center gap-2.5 sm:gap-4 text-xs font-semibold text-white/95"
+          className="mt-4 sm:mt-5 flex flex-wrap items-center justify-center gap-2 sm:gap-3.5 text-[11px] sm:text-xs font-semibold text-white/95"
         >
-          <span className="inline-flex items-center gap-1.5 rounded-full bg-white/20 px-3.5 py-1.5 backdrop-blur-md border border-white/30 shadow-xs">
+          <span className="inline-flex items-center gap-1.5 rounded-full bg-white/20 px-3 py-1.5 backdrop-blur-md border border-white/30 shadow-xs">
             <Clock className="h-3.5 w-3.5 text-amber-300" />
             15 to 20 Min Delivery
           </span>
-          <span className="inline-flex items-center gap-1.5 rounded-full bg-white/20 px-3.5 py-1.5 backdrop-blur-md border border-white/30 shadow-xs">
+          <span className="inline-flex items-center gap-1.5 rounded-full bg-white/20 px-3 py-1.5 backdrop-blur-md border border-white/30 shadow-xs">
             <ShieldCheck className="h-3.5 w-3.5 text-emerald-300" />
             40+ OOU Food Spots
           </span>
-          <span className="inline-flex items-center gap-1.5 rounded-full bg-white/20 px-3.5 py-1.5 backdrop-blur-md border border-white/30 shadow-xs">
+          <span className="inline-flex items-center gap-1.5 rounded-full bg-white/20 px-3 py-1.5 backdrop-blur-md border border-white/30 shadow-xs">
             <Sparkles className="h-3.5 w-3.5 text-blue-200" />
             ₦0 Hidden Fees
           </span>
@@ -220,19 +234,19 @@ export function Hero() {
               opacity: { duration: 0.8, delay: 0.5 },
               y: { duration: 5.5, repeat: Infinity, ease: "easeInOut" },
             }}
-            className="absolute -left-6 xs:-left-12 sm:-left-20 md:-left-28 top-8 sm:top-14 z-30 flex items-center gap-3 rounded-2xl border border-white/80 bg-white/90 p-2.5 sm:p-3 shadow-[0_16px_36px_rgba(15,35,80,0.18)] backdrop-blur-xl max-w-[210px] sm:max-w-[240px]"
+            className="absolute -left-2 xs:-left-8 sm:-left-20 md:-left-28 top-6 sm:top-14 z-30 flex items-center gap-2 sm:gap-3 rounded-xl sm:rounded-2xl border border-white/80 bg-white/90 p-2 sm:p-3 shadow-[0_16px_36px_rgba(15,35,80,0.18)] backdrop-blur-xl max-w-[165px] xs:max-w-[195px] sm:max-w-[240px]"
           >
-            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-amber-400 to-orange-500 text-white shadow-xs">
-              <Utensils className="h-5 w-5" />
+            <div className="flex h-8 w-8 sm:h-10 sm:w-10 shrink-0 items-center justify-center rounded-lg sm:rounded-xl bg-gradient-to-br from-amber-400 to-orange-500 text-white shadow-xs">
+              <Utensils className="h-4 w-4 sm:h-5 sm:w-5" />
             </div>
             <div className="min-w-0">
               <div className="flex items-center gap-1">
-                <span className="text-xs font-black text-neutral-900 truncate">Mama T&apos;s Kitchen</span>
-                <span className="inline-flex items-center text-[10px] font-bold text-amber-500">
+                <span className="text-[11px] sm:text-xs font-black text-neutral-900 truncate">Mama T&apos;s Kitchen</span>
+                <span className="inline-flex items-center text-[9px] sm:text-[10px] font-bold text-amber-500">
                   <Star className="h-2.5 w-2.5 fill-amber-400 text-amber-400 mr-0.5" /> 4.9
                 </span>
               </div>
-              <p className="text-[11px] font-medium text-neutral-500 truncate">Party Jollof &amp; Peppered Wings</p>
+              <p className="text-[10px] sm:text-[11px] font-medium text-neutral-500 truncate">Party Jollof &amp; Peppered Wings</p>
             </div>
           </motion.div>
 
@@ -248,24 +262,24 @@ export function Hero() {
               opacity: { duration: 0.8, delay: 0.6 },
               y: { duration: 6, repeat: Infinity, ease: "easeInOut" },
             }}
-            className="absolute -right-6 xs:-right-12 sm:-right-20 md:-right-28 top-28 sm:top-36 z-30 flex items-center gap-3 rounded-2xl border border-white/80 bg-white/90 p-2.5 sm:p-3 shadow-[0_16px_36px_rgba(15,35,80,0.18)] backdrop-blur-xl max-w-[210px] sm:max-w-[240px]"
+            className="absolute -right-2 xs:-right-8 sm:-right-20 md:-right-28 top-24 sm:top-36 z-30 flex items-center gap-2 sm:gap-3 rounded-xl sm:rounded-2xl border border-white/80 bg-white/90 p-2 sm:p-3 shadow-[0_16px_36px_rgba(15,35,80,0.18)] backdrop-blur-xl max-w-[165px] xs:max-w-[195px] sm:max-w-[240px]"
           >
-            <div className="relative flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-emerald-500 text-white shadow-xs">
-              <Bike className="h-5 w-5" />
-              <span className="absolute -top-1 -right-1 flex h-3 w-3">
+            <div className="relative flex h-8 w-8 sm:h-10 sm:w-10 shrink-0 items-center justify-center rounded-lg sm:rounded-xl bg-emerald-500 text-white shadow-xs">
+              <Bike className="h-4 w-4 sm:h-5 sm:w-5" />
+              <span className="absolute -top-1 -right-1 flex h-2.5 w-2.5 sm:h-3 sm:w-3">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-                <span className="relative inline-flex rounded-full h-3 w-3 bg-emerald-500 border-2 border-white" />
+                <span className="relative inline-flex rounded-full h-2.5 w-2.5 sm:h-3 sm:w-3 bg-emerald-500 border-2 border-white" />
               </span>
             </div>
             <div className="min-w-0">
               <div className="flex items-center gap-1.5">
-                <span className="text-xs font-black text-neutral-900 truncate">Rider En Route</span>
-                <span className="rounded-md bg-emerald-100 px-1.5 py-0.5 text-[9px] font-bold text-emerald-800">
+                <span className="text-[11px] sm:text-xs font-black text-neutral-900 truncate">Rider En Route</span>
+                <span className="rounded-md bg-emerald-100 px-1 py-0.2 text-[8px] sm:text-[9px] font-bold text-emerald-800">
                   12 Min
                 </span>
               </div>
-              <div className="flex items-center gap-1 text-[11px] font-medium text-neutral-500 truncate">
-                <MapPin className="h-3 w-3 text-neutral-400 shrink-0" />
+              <div className="flex items-center gap-1 text-[10px] sm:text-[11px] font-medium text-neutral-500 truncate">
+                <MapPin className="h-2.5 w-2.5 sm:h-3 sm:w-3 text-neutral-400 shrink-0" />
                 <span>Oloko Hall Dropoff</span>
               </div>
             </div>

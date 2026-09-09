@@ -106,7 +106,12 @@ export function Footer() {
               <NewsletterForm />
             </div>
 
-            <AppStoreBadges variant="dark" className="lg:justify-end shrink-0" />
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 lg:justify-end">
+              <span className="text-[11px] font-bold uppercase tracking-wider text-blue-200/60 lg:hidden">
+                Download ValGo
+              </span>
+              <AppStoreBadges variant="dark" className="shrink-0" />
+            </div>
           </div>
         </div>
 

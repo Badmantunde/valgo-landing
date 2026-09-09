@@ -11,6 +11,7 @@ import { Button } from "@/components/ui/button";
 import { FadeUp } from "@/components/ui/motion";
 import { PARTNER_IMAGES } from "@/data/partner-images";
 import { APP_LINKS } from "@/lib/constants";
+import { GooglePlayIcon } from "@/components/ui/app-store-badges";
 
 const riderBenefits = [
   {
@@ -104,8 +105,9 @@ export function RiderExperience() {
                 size="lg"
                 className="font-bold text-blue-700"
               >
+                <GooglePlayIcon className="h-5 w-5 mr-2" />
                 Get Rider App (Google Play)
-                <ArrowUpRight className="h-4 w-4" />
+                <ArrowUpRight className="h-4 w-4 ml-1" />
               </Button>
               <Button
                 href="#waitlist"

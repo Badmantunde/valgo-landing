@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { SectionHeader } from "@/components/ui/section-header";
 import { FadeUp } from "@/components/ui/motion";
+import { GooglePlayIcon } from "@/components/ui/app-store-badges";
 
 export function RestaurantPreview() {
   return (
@@ -94,9 +95,10 @@ export function RestaurantPreview() {
                     href="https://play.google.com/store/apps/details?id=com.valgo.customer"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-xs text-muted hover:text-blue-600 font-medium"
+                    className="inline-flex items-center gap-1.5 text-xs text-muted hover:text-blue-600 font-medium"
                   >
-                    Or get the Android App on Google Play
+                    <GooglePlayIcon className="h-3.5 w-3.5" />
+                    <span>Or get the Android App on Google Play</span>
                   </a>
                 </div>
               </div>

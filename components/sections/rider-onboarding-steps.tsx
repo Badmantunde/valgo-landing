@@ -13,6 +13,7 @@ import {
   ArrowUpRight,
 } from "lucide-react";
 import { APP_LINKS } from "@/lib/constants";
+import { GooglePlayIcon } from "@/components/ui/app-store-badges";
 import { cn } from "@/lib/utils";
 
 const RIDER_STEPS = [
@@ -152,6 +153,7 @@ export function RiderOnboardingSteps() {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 rounded-lg bg-white px-5 py-2.5 text-xs sm:text-sm font-bold text-blue-900 shadow-md hover:bg-blue-50 transition-colors"
             >
+              <GooglePlayIcon className="h-4 w-4" />
               Get App on Google Play
               <ArrowUpRight className="h-4 w-4" />
             </Link>

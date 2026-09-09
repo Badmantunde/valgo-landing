@@ -303,7 +303,7 @@ export function ProductShowcase() {
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   exit={{ opacity: 0, y: 10, scale: 0.95 }}
                   transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-                  className="absolute -top-7 sm:-top-9 -right-2 sm:-right-6 z-50 rounded-xl border border-border bg-white/95 backdrop-blur-md p-3 shadow-float max-w-[210px]"
+                  className="absolute -top-7 sm:-top-9 -right-1 sm:-right-6 z-50 rounded-xl border border-border bg-white/95 backdrop-blur-md p-2.5 sm:p-3 shadow-float max-w-[175px] xs:max-w-[195px] sm:max-w-[210px]"
                 >
                   <div className="flex items-center gap-2 mb-1">
                     <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-md bg-blue-50 text-blue-600">
@@ -365,7 +365,7 @@ export function ProductShowcase() {
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   exit={{ opacity: 0, y: -10, scale: 0.95 }}
                   transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-                  className="absolute -bottom-4 -left-2 sm:-left-6 z-20 rounded-xl border border-border bg-white/95 backdrop-blur-md px-3.5 py-2.5 shadow-float flex items-center gap-3"
+                  className="absolute -bottom-4 -left-1 sm:-left-6 z-20 rounded-xl border border-border bg-white/95 backdrop-blur-md px-3 py-2 sm:px-3.5 sm:py-2.5 shadow-float flex items-center gap-2.5 sm:gap-3"
                 >
                   <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-emerald-50 text-emerald-600 border border-emerald-100">
                     <BottomStatusIcon className="h-4 w-4" />

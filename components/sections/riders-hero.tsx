@@ -8,6 +8,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { PARTNER_IMAGES } from "@/data/partner-images";
 import { APP_LINKS } from "@/lib/constants";
+import { GooglePlayIcon } from "@/components/ui/app-store-badges";
 
 export function RidersHero() {
   return (
@@ -52,7 +53,7 @@ export function RidersHero() {
                 size="lg"
                 className="font-extrabold text-blue-700 shadow-md"
               >
-                <Bike className="h-4 w-4 mr-2 text-blue-600" />
+                <GooglePlayIcon className="h-5 w-5 mr-2" />
                 Get Rider App (Google Play)
                 <ArrowRight className="h-4 w-4 ml-1.5" />
               </Button>

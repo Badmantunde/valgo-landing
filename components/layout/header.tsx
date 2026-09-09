@@ -17,6 +17,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Logo } from "@/components/ui/logo";
 import { MenuToggleIcon } from "@/components/ui/menu-toggle-icon";
+import { AppStoreBadges } from "@/components/ui/app-store-badges";
 import { NAV_LINKS, APP_LINKS } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
@@ -421,14 +422,14 @@ export function Header() {
                   variants={linkVariants}
                   initial="closed"
                   animate="open"
-                  className="flex flex-col gap-3 mt-8"
+                  className="flex flex-col gap-3 mt-6 pt-5 border-t border-border/80"
                 >
                   <Button
                     href={APP_LINKS.customer.web}
                     target="_blank"
                     rel="noopener noreferrer"
                     variant="primary"
-                    className="w-full justify-center font-bold shadow-sm"
+                    className="w-full justify-center font-bold shadow-sm py-3 text-sm"
                     onClick={() => setMobileOpen(false)}
                   >
                     <ShoppingBag className="h-4 w-4 mr-2" />
@@ -438,21 +439,23 @@ export function Header() {
                   <Button
                     href="/#waitlist"
                     variant="secondary"
-                    className="w-full justify-center font-semibold"
+                    className="w-full justify-center font-semibold py-3 text-sm"
                     onClick={() => setMobileOpen(false)}
                   >
                     Join Waitlist
                   </Button>
 
-                  <a
-                    href={APP_LINKS.customer.playStore}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-2 rounded-md border border-border bg-slate-50 py-2.5 px-4 text-xs font-semibold text-foreground hover:bg-blue-50 transition-colors"
-                    onClick={() => setMobileOpen(false)}
-                  >
-                    Get App on Google Play &rarr;
-                  </a>
+                  <div className="pt-2">
+                    <p className="text-[10px] font-bold uppercase tracking-wider text-muted mb-2.5 text-center">
+                      Get the ValGo Mobile App
+                    </p>
+                    <AppStoreBadges
+                      role="customer"
+                      variant="light"
+                      className="justify-center w-full"
+                      onItemClick={() => setMobileOpen(false)}
+                    />
+                  </div>
                 </motion.div>
               </nav>
             </motion.div>

@@ -7,6 +7,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Flame, Clock, ShoppingBag, Sparkles, ArrowUpRight } from "lucide-react";
 import { featuredMenuItems } from "@/data/restaurants";
 import { APP_LINKS } from "@/lib/constants";
+import { AppStoreBadges } from "@/components/ui/app-store-badges";
 import { ScrollReveal } from "@/components/ui/motion";
 import { cn } from "@/lib/utils";
 
@@ -189,24 +190,21 @@ export function CraveShowcase() {
             </p>
           </div>
 
-          <div className="flex flex-col sm:flex-row items-center gap-3 w-full md:w-auto">
+          <div className="flex flex-col lg:flex-row items-center gap-3.5 w-full md:w-auto">
             <Link
               href={APP_LINKS.customer.web}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-lg bg-white px-5 py-3 text-sm font-black text-blue-700 hover:bg-blue-50 transition-colors shadow-md"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl bg-white px-5 py-3 text-sm font-black text-blue-700 hover:bg-blue-50 transition-colors shadow-md shrink-0"
             >
               <ShoppingBag className="h-4 w-4" />
               Order on Web
             </Link>
-            <a
-              href={APP_LINKS.customer.playStore}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-lg bg-white/10 border border-white/20 px-4 py-3 text-sm font-semibold text-white hover:bg-white/20 transition-colors"
-            >
-              Get on Google Play
-            </a>
+            <AppStoreBadges
+              role="customer"
+              variant="dark"
+              className="w-full sm:w-auto justify-center"
+            />
           </div>
         </div>
       </div>

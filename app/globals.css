@@ -60,6 +60,8 @@
   --radius-md: var(--radius-md);
   --radius-lg: var(--radius-lg);
   --radius-xl: var(--radius-xl);
+
+  --breakpoint-xs: 400px;
 }
 
 html {

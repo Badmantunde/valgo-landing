@@ -11,7 +11,7 @@ export function Metrics() {
       <div className="relative mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
         <StaggerContainer className="grid grid-cols-2 lg:grid-cols-5 gap-8 sm:gap-10">
           {metrics.map((metric) => (
-            <StaggerItem key={metric.id}>
+            <StaggerItem key={metric.id} className="last:col-span-2 sm:last:col-span-1 lg:last:col-span-1">
               <div className="text-center">
                 <div className="text-3xl sm:text-4xl font-semibold text-white tracking-tight tabular-nums">
                   <AnimatedCounter
