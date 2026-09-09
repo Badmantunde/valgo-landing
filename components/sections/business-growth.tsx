@@ -29,7 +29,7 @@ export function BusinessGrowth() {
                         i % 2 === 0 ? "sm:text-right" : "sm:text-left sm:ml-auto"
                       }`}
                     >
-                      <span className="inline-block text-4xl sm:text-5xl font-bold text-blue-500/20">
+                      <span className="inline-block text-4xl sm:text-5xl font-bold text-blue-600/20">
                         {event.year}
                       </span>
                       <h3 className="text-xl sm:text-2xl font-bold text-foreground mt-1">
@@ -41,7 +41,7 @@ export function BusinessGrowth() {
                     </div>
                   </div>
 
-                  <div className="absolute left-4 sm:left-1/2 -translate-x-1/2 flex h-8 w-8 items-center justify-center rounded-full bg-blue-500 text-white text-xs font-bold shadow-lg shadow-blue-500/30 z-10">
+                  <div className="absolute left-4 sm:left-1/2 -translate-x-1/2 flex h-8 w-8 items-center justify-center rounded-full bg-blue-600 text-white text-xs font-bold shadow-lg shadow-blue-500/30 z-10">
                     {i + 1}
                   </div>
 

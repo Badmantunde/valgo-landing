@@ -47,8 +47,8 @@ export function RestaurantCard({ restaurant, className }: RestaurantCardProps) {
           {restaurant.open !== undefined && (
             <span
               className={cn(
-                "shrink-0 text-xs font-medium px-3 py-1 rounded-full",
-                isOpen ? "bg-emerald-500 text-white" : "bg-red-500 text-white"
+                "shrink-0 text-xs font-semibold px-2.5 py-0.5 rounded-md",
+                isOpen ? "bg-emerald-600 text-white" : "bg-red-500 text-white"
               )}
             >
               {isOpen ? "Open" : "Closed"}
@@ -62,17 +62,17 @@ export function RestaurantCard({ restaurant, className }: RestaurantCardProps) {
 
         <div className="flex items-center justify-between gap-2">
           <div className="flex flex-wrap items-center gap-2">
-            <span className="inline-flex items-center gap-1.5 rounded-full bg-[#f1f5f9] px-3 py-1.5 text-xs font-medium text-foreground">
-              <Bike className="h-3.5 w-3.5 text-amber-500" />
+            <span className="inline-flex items-center gap-1.5 rounded-md bg-[#f1f5f9] px-2.5 py-1 text-xs font-medium text-foreground">
+              <Bike className="h-3.5 w-3.5 text-blue-600" />
               {restaurant.deliveryTime}
             </span>
-            <span className="inline-flex items-center gap-1.5 rounded-full bg-[#f1f5f9] px-3 py-1.5 text-xs font-medium text-foreground">
-              <MapPin className="h-3.5 w-3.5 text-amber-500" />
+            <span className="inline-flex items-center gap-1.5 rounded-md bg-[#f1f5f9] px-2.5 py-1 text-xs font-medium text-foreground">
+              <MapPin className="h-3.5 w-3.5 text-blue-600" />
               {restaurant.location}
             </span>
           </div>
 
-          <span className="inline-flex shrink-0 items-center gap-1 rounded-full bg-[#1e293b] px-3 py-1.5 text-xs font-medium text-white">
+          <span className="inline-flex shrink-0 items-center gap-1 rounded-md bg-[#1e293b] px-2.5 py-1 text-xs font-medium text-white">
             <Star className="h-3.5 w-3.5 fill-white text-white" />
             {restaurant.rating}
           </span>

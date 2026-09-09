@@ -5,4 +5,28 @@ export const FOOD_IMAGES = {
   groceries: "/food/groceries.png",
   market: "/food/market.png",
   fastFood: "/food/fast-food.png",
+  // Custom AI-Generated ValGo Branded Assets
+  heroFeast: "/images/food/valgo-hero-feast.jpg",
+  valgoSignature: "/images/food/valgo-signature-feast.jpg",
+  signatureFeast: "/images/food/valgo-signature-feast.jpg",
+  // High-res appetizing shots for crave appeal
+  burgerHero: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=900&q=80",
+  wingsCrispy: "/images/food/valgo-peppered-wings.jpg",
+  pepperedWings: "/images/food/valgo-peppered-wings.jpg",
+  spicyGlazedWings: "/images/food/valgo-peppered-wings.jpg",
+  jollofPlatter: "/images/food/valgo-hero-feast.jpg",
+  shawarmaWrap: "https://images.unsplash.com/photo-1529006557810-274b9b2fc783?auto=format&fit=crop&w=900&q=80",
+  pastaBowl: "https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=900&q=80",
+  grilledChicken: "https://images.unsplash.com/photo-1598515214211-89d3c73ae83b?auto=format&fit=crop&w=900&q=80",
+  pizzaSlice: "https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=900&q=80",
+  smoothieDrink: "https://images.unsplash.com/photo-1553530666-ba11a7da3888?auto=format&fit=crop&w=900&q=80",
+  pastryCroissant: "https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=900&q=80",
+  amalaBowl: "https://images.unsplash.com/photo-1604382354936-07c5d9983bd3?auto=format&fit=crop&w=900&q=80",
+  // Additional mouth-watering street food & restaurant staples
+  suyaSkewer: "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=900&q=80",
+  pepperSoupBowl: "https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=900&q=80",
+  loadedFriesPlate: "https://images.unsplash.com/photo-1585109649139-366815a0d713?auto=format&fit=crop&w=900&q=80",
+  crispyFriedRice: "https://images.unsplash.com/photo-1603133872878-684f208fb84b?auto=format&fit=crop&w=900&q=80",
+  glazedChicken: "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=900&q=80",
+  bbqBurgerDouble: "https://images.unsplash.com/photo-1572802419224-296b0aeee0d9?auto=format&fit=crop&w=900&q=80",
 } as const;

@@ -1,8 +1,9 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, ExternalLink } from "lucide-react";
 import { platforms } from "@/data/platform";
 import { SectionHeader } from "@/components/ui/section-header";
 import { StaggerContainer, StaggerItem } from "@/components/ui/motion";
@@ -15,9 +16,9 @@ export function PlatformOverview() {
     <section id="platform" className="py-20 sm:py-28 bg-white pattern-grid">
       <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
         <SectionHeader
-          eyebrow="The ecosystem"
-          title="Tools built for every role on campus"
-          description="Each product is designed for a specific part of the ValGo network, customers ordering, vendors selling, riders delivering, and ambassadors growing the community."
+          eyebrow="One Campus Ecosystem"
+          title="Tools built for hungry students, riders &amp; vendors"
+          description="Whether you're ordering dinner, running a busy kitchen, or earning between classes, ValGo gives you the exact tools you need."
         />
 
         <StaggerContainer className="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-5">
@@ -30,61 +31,140 @@ export function PlatformOverview() {
                 <motion.div
                   onHoverStart={() => setActiveId(platform.id)}
                   className={cn(
-                    "group relative rounded-[var(--radius-lg)] border p-6 cursor-default transition-all duration-500 h-full",
+                    "group relative rounded-xl border p-6 flex flex-col justify-between transition-all duration-300 h-full",
                     isActive
-                      ? "bg-blue-500 border-blue-500 text-white shadow-float scale-[1.02]"
+                      ? "bg-blue-600 border-blue-600 text-white shadow-float scale-[1.02]"
                       : "bg-white border-border shadow-card hover:shadow-card-hover"
                   )}
-                  layout
                 >
-                  <div
-                    className={cn(
-                      "inline-flex h-10 w-10 items-center justify-center rounded mb-4 transition-colors",
-                      isActive ? "bg-white/20" : "bg-blue-50 text-blue-500"
-                    )}
-                  >
-                    <Icon className="h-6 w-6" />
-                  </div>
+                  <div>
+                    <div className="flex items-center justify-between mb-4">
+                      <div
+                        className={cn(
+                          "inline-flex h-11 w-11 items-center justify-center rounded-lg transition-colors",
+                          isActive ? "bg-white/20 text-white" : "bg-blue-50 text-blue-600"
+                        )}
+                      >
+                        <Icon className="h-5 w-5" />
+                      </div>
 
-                  <h3 className="text-lg font-bold tracking-tight">{platform.title}</h3>
-                  <p
-                    className={cn(
-                      "text-sm mt-1 font-medium",
-                      isActive ? "text-blue-100" : "text-blue-500"
-                    )}
-                  >
-                    {platform.subtitle}
-                  </p>
+                      {platform.comingSoonApple && (
+                        <span
+                          className={cn(
+                            "rounded px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider",
+                            isActive
+                              ? "bg-white/15 text-blue-100"
+                              : "bg-slate-100 text-muted"
+                          )}
+                        >
+                          iOS Soon
+                        </span>
+                      )}
+                    </div>
 
-                  <motion.div
-                    initial={false}
-                    animate={{ height: isActive ? "auto" : 0, opacity: isActive ? 1 : 0 }}
-                    transition={{ duration: 0.3 }}
-                    className="overflow-hidden"
-                  >
-                    <p className="text-sm mt-4 leading-relaxed text-blue-100/90">
+                    <h3 className="text-lg font-black tracking-tight">{platform.title}</h3>
+                    <p
+                      className={cn(
+                        "text-xs mt-1 font-semibold",
+                        isActive ? "text-blue-100" : "text-blue-600"
+                      )}
+                    >
+                      {platform.subtitle}
+                    </p>
+
+                    <p
+                      className={cn(
+                        "text-xs mt-3 leading-relaxed",
+                        isActive ? "text-blue-100/90" : "text-muted"
+                      )}
+                    >
                       {platform.description}
                     </p>
-                    <ul className="mt-4 space-y-2">
+
+                    <ul className="mt-4 space-y-1.5">
                       {platform.features.map((feature) => (
                         <li
                           key={feature}
-                          className="text-xs flex items-center gap-2 text-blue-100/80"
+                          className={cn(
+                            "text-xs flex items-center gap-2",
+                            isActive ? "text-blue-100/90" : "text-slate-600"
+                          )}
                         >
-                          <span className="h-1 w-1 rounded-full bg-blue-200 shrink-0" />
+                          <span
+                            className={cn(
+                              "h-1.5 w-1.5 rounded-full shrink-0",
+                              isActive ? "bg-amber-300" : "bg-blue-600"
+                            )}
+                          />
                           {feature}
                         </li>
                       ))}
                     </ul>
-                  </motion.div>
+                  </div>
 
-                  <div
-                    className={cn(
-                      "mt-5 flex items-center gap-1 text-sm font-medium transition-opacity",
-                      isActive ? "opacity-100" : "opacity-0 group-hover:opacity-60"
+                  {/* Actions */}
+                  <div className="mt-6 pt-5 border-t border-border/40 flex flex-col gap-2">
+                    {platform.primaryLink.external ? (
+                      <a
+                        href={platform.primaryLink.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={cn(
+                          "inline-flex items-center justify-center gap-1.5 rounded-lg py-2.5 px-3 text-xs font-bold transition-colors",
+                          isActive
+                            ? "bg-white text-blue-700 hover:bg-blue-50 shadow-sm"
+                            : "bg-blue-600 text-white hover:bg-blue-700 shadow-sm"
+                        )}
+                      >
+                        {platform.primaryLink.label}
+                        <ArrowUpRight className="h-3.5 w-3.5" />
+                      </a>
+                    ) : (
+                      <Link
+                        href={platform.primaryLink.href}
+                        className={cn(
+                          "inline-flex items-center justify-center gap-1.5 rounded-lg py-2.5 px-3 text-xs font-bold transition-colors",
+                          isActive
+                            ? "bg-white text-blue-700 hover:bg-blue-50 shadow-sm"
+                            : "bg-blue-600 text-white hover:bg-blue-700 shadow-sm"
+                        )}
+                      >
+                        {platform.primaryLink.label}
+                        <ArrowUpRight className="h-3.5 w-3.5" />
+                      </Link>
                     )}
-                  >
-                    Learn more <ArrowUpRight className="h-4 w-4" />
+
+                    {platform.secondaryLink && (
+                      platform.secondaryLink.external ? (
+                        <a
+                          href={platform.secondaryLink.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className={cn(
+                            "inline-flex items-center justify-center gap-1 text-[11px] font-semibold py-1 transition-colors",
+                            isActive
+                              ? "text-white/80 hover:text-white"
+                              : "text-muted hover:text-blue-600"
+                          )}
+                        >
+                          {platform.secondaryLink.label}
+                          <ExternalLink className="h-3 w-3" />
+                        </a>
+                      ) : (
+                        <Link
+                          href={platform.secondaryLink.href}
+                          className={cn(
+                            "inline-flex items-center justify-center gap-1 text-[11px] font-semibold py-1 transition-colors",
+                            isActive
+                              ? "text-white/80 hover:text-white"
+                              : "text-muted hover:text-blue-600"
+                          )}
+                        >
+                          {platform.secondaryLink.label}
+                          <ArrowUpRight className="h-3 w-3" />
+                        </Link>
+                      )
+                    )}
                   </div>
                 </motion.div>
               </StaggerItem>

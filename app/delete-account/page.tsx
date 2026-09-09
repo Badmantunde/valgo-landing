@@ -1,3 +1,4 @@
+import { UserX } from "lucide-react";
 import { ContentPage } from "@/components/layout/content-page";
 import { createPageMetadata } from "@/lib/metadata";
 import { SITE } from "@/lib/constants";
@@ -11,9 +12,11 @@ export const metadata = createPageMetadata({
 export default function DeleteAccountPage() {
   return (
     <ContentPage
-      eyebrow="Legal & Privacy"
-      title="Account Deletion Request"
-      description="Information on how to delete your ValGo account and manage your data."
+      eyebrow="Account Control & Privacy"
+      icon={UserX}
+      title="ACCOUNT DELETION."
+      accentTitle="REQUEST & POLICIES."
+      description="Learn how to request deletion of your ValGo account, what data is permanently purged, and processing timelines."
       lastUpdated="August 11, 2026"
       sections={[
         {

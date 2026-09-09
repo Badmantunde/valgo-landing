@@ -110,12 +110,13 @@ export function getSharedMetadata(
   description: string,
   path: string = "/"
 ): Omit<Metadata, "title"> {
-  const { title: _title, ...shared } = createPageMetadata({
+  const metadata = createPageMetadata({
     title: SITE.name,
     description,
     path,
   });
-  return shared;
+  delete (metadata as Record<string, unknown>).title;
+  return metadata;
 }
 
 export function getOrganizationSchema() {

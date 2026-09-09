@@ -76,7 +76,7 @@ export function PartnersFlow() {
           </FadeUp>
 
           <FadeUp delay={0.1}>
-            <div className="relative aspect-[4/3] rounded-lg overflow-hidden border border-border shadow-card">
+            <div className="relative aspect-[4/3] rounded-xl overflow-hidden border border-border shadow-card">
               <Image
                 src={PARTNER_IMAGES.vendorHandoff}
                 alt="ValGo vendor handing order to rider at pickup"

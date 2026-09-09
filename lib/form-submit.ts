@@ -43,7 +43,7 @@ export async function submitAmbassador(
 
 const WEB3FORMS_ENDPOINT = "https://api.web3forms.com/submit";
 
-/** Footer newsletter — still uses Web3Forms until migrated */
+/** Footer newsletter: uses Web3Forms until migrated */
 export async function submitNewsletter(email: string): Promise<void> {
   const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY;
 

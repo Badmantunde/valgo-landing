@@ -1,3 +1,4 @@
+import { FileText } from "lucide-react";
 import { ContentPage } from "@/components/layout/content-page";
 import { createPageMetadata } from "@/lib/metadata";
 import { SITE } from "@/lib/constants";
@@ -11,9 +12,11 @@ export const metadata = createPageMetadata({
 export default function TermsPage() {
   return (
     <ContentPage
-      eyebrow="Legal"
-      title="Terms of Service"
-      description="Please read these terms carefully before using ValGo."
+      eyebrow="Platform Guidelines"
+      icon={FileText}
+      title="TERMS OF SERVICE."
+      accentTitle="CLEAR & FAIR."
+      description="Please read these terms carefully before using ValGo websites, applications, and campus services."
       lastUpdated="July 23, 2026"
       sections={[
         {

@@ -5,18 +5,25 @@ import { Logo } from "@/components/ui/logo";
 import { InstagramIcon, XIcon } from "@/components/ui/social-icons";
 import { AppStoreBadges } from "@/components/ui/app-store-badges";
 import { NewsletterForm } from "@/components/layout/newsletter-form";
-import { SITE, SOCIAL_LINKS, VISION } from "@/lib/constants";
+import { SITE, SOCIAL_LINKS, VISION, APP_LINKS } from "@/lib/constants";
 
 const footerLinks = {
-  Product: [
-    { label: "Platform", href: "/platform" },
-    { label: "Services", href: "/services" },
-    { label: "Restaurants", href: "/restaurants" },
-    { label: "For Partners", href: "/partners" },
+  Order: [
+    { label: "Order on Web", href: APP_LINKS.customer.web, external: true },
+    { label: "Vendors & Menus", href: "/vendors" },
+    { label: "Campus Services", href: "/services" },
+    { label: "Platform Overview", href: "/platform" },
+  ],
+  Partners: [
+    { label: "Vendors & Kitchens", href: "/vendors" },
+    { label: "Campus Riders", href: "/riders" },
+    { label: "Vendor Portal (Web)", href: APP_LINKS.vendor.web, external: true },
+    { label: "Rider App (Google Play)", href: APP_LINKS.rider.playStore, external: true },
   ],
   Company: [
+    { label: "Leadership", href: "/#team" },
     { label: "Ambassadors", href: "/ambassadors" },
-    { label: "FAQ", href: "/faq" },
+    { label: "FAQs", href: "/faq" },
     { label: "Careers", href: "/careers" },
     { label: "Blog", href: "/blog" },
   ],
@@ -64,12 +71,23 @@ export function Footer() {
               <ul className="space-y-3">
                 {links.map((link) => (
                   <li key={link.label}>
-                    <Link
-                      href={link.href}
-                      className="text-sm text-blue-100/60 hover:text-white transition-colors"
-                    >
-                      {link.label}
-                    </Link>
+                    {"external" in link && link.external ? (
+                      <a
+                        href={link.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-sm text-blue-100/60 hover:text-white transition-colors inline-flex items-center gap-1"
+                      >
+                        {link.label}
+                      </a>
+                    ) : (
+                      <Link
+                        href={link.href}
+                        className="text-sm text-blue-100/60 hover:text-white transition-colors"
+                      >
+                        {link.label}
+                      </Link>
+                    )}
                   </li>
                 ))}
               </ul>

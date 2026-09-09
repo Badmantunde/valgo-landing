@@ -1,4 +1,6 @@
 export const PARTNER_IMAGES = {
-  vendorHandoff: "/partners/vendor-rider-handoff.png",
-  riderDelivery: "/partners/rider-delivery.png",
+  vendorHandoff: "/images/vendors/valgo-buka-vendor.jpg",
+  bukaVendor: "/images/vendors/valgo-buka-vendor.jpg",
+  riderDelivery: "/images/riders/valgo-campus-rider.jpg",
+  campusRider: "/images/riders/valgo-campus-rider.jpg",
 } as const;

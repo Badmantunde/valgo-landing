@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowUpRight, CheckCircle2 } from "lucide-react";
 import { waitlistRoles, type WaitlistRole } from "@/data/faq";
@@ -20,17 +20,13 @@ export function Waitlist({ defaultRole = "customer", showHeader = true }: Waitli
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [initialReferralCode, setInitialReferralCode] = useState("");
-
-  useEffect(() => {
+  const [initialReferralCode] = useState(() => {
     if (typeof window !== "undefined") {
       const params = new URLSearchParams(window.location.search);
-      const code = params.get("ref") || params.get("referral") || params.get("code");
-      if (code) {
-        setInitialReferralCode(code);
-      }
+      return params.get("ref") || params.get("referral") || params.get("code") || "";
     }
-  }, []);
+    return "";
+  });
 
   const config = waitlistRoles.find((r) => r.id === role)!;
 

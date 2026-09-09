@@ -1,3 +1,4 @@
+import { ShieldCheck } from "lucide-react";
 import { ContentPage } from "@/components/layout/content-page";
 import { createPageMetadata } from "@/lib/metadata";
 import { SITE } from "@/lib/constants";
@@ -11,9 +12,11 @@ export const metadata = createPageMetadata({
 export default function PrivacyPage() {
   return (
     <ContentPage
-      eyebrow="Legal"
-      title="Privacy Policy"
-      description="How we collect, use, disclose, store, and protect your personal information when you use ValGo."
+      eyebrow="Legal & Data Protection"
+      icon={ShieldCheck}
+      title="VALGO PRIVACY POLICY."
+      accentTitle="TRANSPARENT & SECURE."
+      description="How ValGo collects, uses, discloses, stores, and protects your personal information across our platforms."
       lastUpdated="July 23, 2026"
       sections={[
         {

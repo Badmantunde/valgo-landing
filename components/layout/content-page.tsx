@@ -1,4 +1,6 @@
+import { type LucideIcon } from "lucide-react";
 import { PageHero } from "@/components/layout/page-hero";
+import { CheckeredStrip } from "@/components/ui/checkered-strip";
 import { cn } from "@/lib/utils";
 
 interface ContentSubsection {
@@ -17,7 +19,9 @@ interface ContentSection {
 
 interface ContentPageProps {
   eyebrow?: string;
+  icon?: LucideIcon;
   title: string;
+  accentTitle?: string;
   description?: string;
   lastUpdated?: string;
   sections: ContentSection[];
@@ -42,7 +46,9 @@ function ContentList({ items }: { items: string[] }) {
 
 export function ContentPage({
   eyebrow,
+  icon,
   title,
+  accentTitle,
   description,
   lastUpdated,
   sections,
@@ -50,7 +56,14 @@ export function ContentPage({
 }: ContentPageProps) {
   return (
     <>
-      <PageHero eyebrow={eyebrow} title={title} description={description} />
+      <PageHero
+        eyebrow={eyebrow}
+        icon={icon}
+        title={title}
+        accentTitle={accentTitle}
+        description={description}
+      />
+      <CheckeredStrip size="sm" variant="blue-white" />
       <section className={cn("py-16 sm:py-20 bg-white", className)}>
         <div className="mx-auto max-w-3xl px-5 sm:px-6 lg:px-8">
           {lastUpdated && (
@@ -112,6 +125,7 @@ export function ContentPage({
           </div>
         </div>
       </section>
+      <CheckeredStrip size="sm" variant="dark-blue" />
     </>
   );
 }

@@ -1,63 +1,77 @@
-import Link from "next/link";
-import { ArrowUpRight, MapPin, Clock } from "lucide-react";
+import { ArrowUpRight, MapPin, Clock, Briefcase, Zap, Compass, Target, Mail } from "lucide-react";
 import { PageHero } from "@/components/layout/page-hero";
+import { CheckeredStrip } from "@/components/ui/checkered-strip";
 import { Button } from "@/components/ui/button";
 import { FadeUp } from "@/components/ui/motion";
 import { createPageMetadata } from "@/lib/metadata";
-import { SITE } from "@/lib/constants";
+import { SITE, LAUNCH } from "@/lib/constants";
 
 export const metadata = createPageMetadata({
-  title: "Careers",
-  description: `Join the ValGo team building Nigeria's student-first platform. Open roles at our first campus in Ago Iwoye and remote across Nigeria.`,
+  title: "Careers & Open Roles | Join ValGo",
+  description: `Join the ValGo team building Nigeria's student-first platform. Open roles at our launch campus at ${LAUNCH.university} in ${LAUNCH.city} and remote nationwide.`,
   path: "/careers",
+  keywords: [
+    "ValGo careers",
+    "startup jobs Nigeria",
+    "tech jobs Ago Iwoye",
+    "campus operations jobs",
+    "student internships Nigeria",
+  ],
 });
 
 const openRoles = [
   {
     title: "Campus Operations Lead",
-    location: "First launch campus (On-site)",
+    location: "Ago Iwoye (On-site)",
+    department: "Operations",
     type: "Full-time",
     description:
-      "Own vendor onboarding, rider recruitment, and day-to-day operations for our first campus launch at OOU in Ago Iwoye, with a playbook to scale to more universities.",
+      "Own vendor onboarding, rider dispatch efficiency, and day-to-day ground logistics for our first campus launch at OOU in Ago Iwoye, creating the execution playbook for nationwide expansion.",
   },
   {
-    title: "Growth & Marketing Associate",
+    title: "Growth & Campus Marketing Associate",
+    location: "Hybrid (Ago Iwoye / Lagos)",
+    department: "Growth",
+    type: "Full-time",
+    description:
+      "Drive student user acquisition across faculties, student lodges, and campus events through grassroots campaigns, ambassador network leadership, and digital content.",
+  },
+  {
+    title: "Mobile & Full-Stack Software Engineer",
     location: "Remote (Nigeria)",
+    department: "Engineering",
     type: "Full-time",
     description:
-      "Drive user acquisition across campus through digital campaigns, ambassador programs, and on-ground activations. Experience with student communities is a strong plus.",
+      "Architect and ship core features for the ValGo customer, vendor, and rider applications. Build resilient offline-first systems, real-time GPS dispatch, and seamless payment flows.",
   },
   {
-    title: "Software Engineer (Mobile)",
-    location: "Remote (Nigeria)",
-    type: "Full-time",
-    description:
-      "Build and ship features for the ValGo customer and rider apps. React Native experience preferred. You'll work on ordering, tracking, payments, and real-time logistics.",
-  },
-  {
-    title: "Student Ambassador",
-    location: "University campus",
+    title: "Student Campus Ambassador",
+    location: "OOU Campus & Student Lodges",
+    department: "Community",
     type: "Part-time",
     description:
-      "Represent ValGo on campus, drive sign-ups, and organize student events. Earn commissions, merch, and a pathway to internships. See our ambassador program for details.",
+      "Lead ValGo activations in your faculty or hall of residence. Earn dining rewards, referral bonuses, and fast-track consideration for post-graduation tech roles.",
   },
 ];
 
 const values = [
   {
+    icon: Zap,
     title: "Move fast, stay grounded",
     description:
-      "We ship quickly but never at the expense of the communities we serve. Every decision starts with the student experience.",
+      "We ship quickly but never at the expense of our campus communities. Every feature starts with solving a real student or vendor pain point.",
   },
   {
-    title: "Build for Nigeria",
+    icon: Compass,
+    title: "Built for Nigerian reality",
     description:
-      "Local context matters. We design for unreliable networks, cash-first habits, and the realities of campus life in Nigerian universities.",
+      "Local context is our moat. We optimize for spotty campus connectivity, hostel gate curfews, and the unique tempo of university semesters.",
   },
   {
-    title: "Own your impact",
+    icon: Target,
+    title: "Ownership & high impact",
     description:
-      "Small team, big responsibility. Everyone at ValGo touches product, operations, and growth. Your work shows up in the app within days, not quarters.",
+      "Small team, high autonomy. Everyone at ValGo touches the live product. Your code, marketing copy, or logistics strategy touches thousands of students within days.",
   },
 ];
 
@@ -65,92 +79,155 @@ export default function CareersPage() {
   return (
     <>
       <PageHero
-        eyebrow="Careers"
-        title="Help us build the future of campus life"
-        description="ValGo is a small, ambitious team launching at our first campus in Ago Iwoye, with a vision to serve students at universities across Nigeria."
+        eyebrow="Join The ValGo Team"
+        icon={Briefcase}
+        title="Help Us Build the Future"
+        accentTitle="Of Campus Life & Commerce."
+        description="ValGo is an ambitious, product-focused team launching at our first university in Ago Iwoye, on a mission to power commerce and fast delivery for students nationwide."
       />
 
-      <section className="py-16 sm:py-20 bg-white border-b border-border">
+      <CheckeredStrip size="md" variant="blue-white" />
+
+      {/* Values Section */}
+      <section className="py-16 sm:py-24 bg-white border-b border-border">
         <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold text-foreground tracking-tight mb-10">
-            Why work at ValGo
-          </h2>
-          <div className="grid sm:grid-cols-3 gap-6">
-            {values.map((value, i) => (
-              <FadeUp key={value.title} delay={i * 0.05}>
-                <div className="rounded-lg border border-border p-6 h-full">
-                  <h3 className="text-sm font-semibold text-foreground">
-                    {value.title}
-                  </h3>
-                  <p className="text-sm text-muted mt-2 leading-relaxed">
-                    {value.description}
-                  </p>
-                </div>
-              </FadeUp>
-            ))}
+          <div className="max-w-2xl mb-12">
+            <span className="text-xs font-bold uppercase tracking-wider text-blue-600 block mb-1">
+              Our Culture &amp; Operating Principles
+            </span>
+            <h2 className="text-2xl sm:text-3xl font-black uppercase tracking-tight text-foreground">
+              Why Build With ValGo?
+            </h2>
+            <p className="mt-2 text-sm text-muted leading-relaxed">
+              We are tackling the unaddressed infrastructure of university towns by building high-utility tools for students, kitchens, and couriers.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {values.map((value, i) => {
+              const Icon = value.icon;
+              return (
+                <FadeUp key={value.title} delay={i * 0.08}>
+                  <div className="rounded-xl border border-border bg-slate-50/50 p-6 sm:p-7 h-full hover:border-blue-300 hover:bg-white hover:shadow-card transition-all duration-300">
+                    <div className="h-10 w-10 rounded-lg bg-blue-600 text-white flex items-center justify-center mb-4 shadow-sm">
+                      <Icon className="h-5 w-5" />
+                    </div>
+                    <h3 className="text-base font-bold text-foreground mb-2">
+                      {value.title}
+                    </h3>
+                    <p className="text-xs sm:text-sm text-muted leading-relaxed">
+                      {value.description}
+                    </p>
+                  </div>
+                </FadeUp>
+              );
+            })}
           </div>
         </div>
       </section>
 
-      <section className="py-16 sm:py-20 bg-[#fafbfc]">
+      {/* Open Roles Section */}
+      <section className="py-16 sm:py-24 bg-[#fafbfc]">
         <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold text-foreground tracking-tight mb-2">
-            Open roles
-          </h2>
-          <p className="text-muted text-sm mb-10">
-            Don't see a fit? Email us at{" "}
-            <a href={`mailto:${SITE.email}`} className="text-blue-600 hover:underline">
-              {SITE.email}
-            </a>{" "}
-            with your CV and what you'd like to work on.
-          </p>
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-12">
+            <div>
+              <span className="text-xs font-bold uppercase tracking-wider text-blue-600 block mb-1">
+                Current Opportunities
+              </span>
+              <h2 className="text-2xl sm:text-3xl font-black uppercase tracking-tight text-foreground">
+                Open Positions
+              </h2>
+            </div>
+            <p className="text-xs sm:text-sm text-muted max-w-md">
+              Don&apos;t see a role that fits? Reach out to us at{" "}
+              <a href={`mailto:${SITE.email}`} className="text-blue-600 font-semibold hover:underline">
+                {SITE.email}
+              </a>{" "}
+              with your portfolio and how you can help.
+            </p>
+          </div>
 
           <div className="space-y-4">
             {openRoles.map((role, i) => (
               <FadeUp key={role.title} delay={i * 0.05}>
-                <div className="rounded-lg bg-white border border-border p-6 hover:shadow-card transition-shadow">
-                  <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
-                    <div className="flex-1">
-                      <h3 className="text-base font-semibold text-foreground">
-                        {role.title}
-                      </h3>
-                      <div className="flex flex-wrap gap-4 mt-2 text-xs text-muted">
-                        <span className="flex items-center gap-1">
-                          <MapPin className="h-3.5 w-3.5" />
+                <div className="rounded-xl bg-white border border-border p-6 sm:p-7 shadow-xs hover:border-blue-300 hover:shadow-card transition-all duration-300">
+                  <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+                    <div className="flex-1 min-w-0">
+                      <div className="flex flex-wrap items-center gap-2 mb-2">
+                        <span className="rounded-md bg-blue-50 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-blue-700 border border-blue-100">
+                          {role.department}
+                        </span>
+                        <span className="inline-flex items-center gap-1 text-xs text-muted font-medium">
+                          <MapPin className="h-3 w-3 text-muted" />
                           {role.location}
                         </span>
-                        <span className="flex items-center gap-1">
-                          <Clock className="h-3.5 w-3.5" />
+                        <span className="inline-flex items-center gap-1 text-xs text-muted font-medium">
+                          <Clock className="h-3 w-3 text-muted" />
                           {role.type}
                         </span>
                       </div>
-                      <p className="text-sm text-muted mt-3 leading-relaxed max-w-2xl">
+
+                      <h3 className="text-lg sm:text-xl font-bold text-foreground tracking-tight">
+                        {role.title}
+                      </h3>
+
+                      <p className="text-xs sm:text-sm text-muted mt-2 leading-relaxed max-w-3xl">
                         {role.description}
                       </p>
                     </div>
-                    {role.title === "Student Ambassador" ? (
-                      <Button href="/ambassadors" variant="outline" size="sm" className="shrink-0">
-                        Learn more
-                        <ArrowUpRight className="h-4 w-4" />
-                      </Button>
-                    ) : (
-                      <Button
-                        href={`mailto:${SITE.email}?subject=Application: ${role.title}`}
-                        variant="primary"
-                        size="sm"
-                        className="shrink-0"
-                      >
-                        Apply
-                        <ArrowUpRight className="h-4 w-4" />
-                      </Button>
-                    )}
+
+                    <div className="shrink-0">
+                      {role.title === "Student Campus Ambassador" ? (
+                        <Button href="/ambassadors" variant="primary" size="md" className="font-bold">
+                          View Program
+                          <ArrowUpRight className="h-4 w-4" />
+                        </Button>
+                      ) : (
+                        <Button
+                          href={`mailto:${SITE.email}?subject=Application: ${encodeURIComponent(role.title)}`}
+                          variant="primary"
+                          size="md"
+                          className="font-bold"
+                        >
+                          Apply for Role
+                          <ArrowUpRight className="h-4 w-4" />
+                        </Button>
+                      )}
+                    </div>
                   </div>
                 </div>
               </FadeUp>
             ))}
           </div>
+
+          {/* General Application Banner */}
+          <div className="mt-14 rounded-xl border border-blue-100 bg-blue-50/60 p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div className="flex items-center gap-4">
+              <div className="h-12 w-12 rounded-lg bg-blue-600 text-white flex items-center justify-center shrink-0 shadow-sm">
+                <Mail className="h-6 w-6" />
+              </div>
+              <div>
+                <h4 className="text-base font-bold text-foreground">
+                  Build the future of campus tech with us
+                </h4>
+                <p className="text-xs sm:text-sm text-muted mt-0.5">
+                  Send your resume, GitHub, or portfolio directly to the founding team at {SITE.email}.
+                </p>
+              </div>
+            </div>
+
+            <a
+              href={`mailto:${SITE.email}?subject=General Application`}
+              className="shrink-0 inline-flex items-center gap-2 rounded-lg bg-blue-600 px-5 py-2.5 text-xs sm:text-sm font-bold text-white shadow-sm hover:bg-blue-700 transition-colors"
+            >
+              Send Open Application
+              <ArrowUpRight className="h-4 w-4" />
+            </a>
+          </div>
         </div>
       </section>
+
+      <CheckeredStrip size="md" variant="dark-blue" />
     </>
   );
 }

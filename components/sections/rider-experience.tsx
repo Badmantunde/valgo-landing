@@ -10,6 +10,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { FadeUp } from "@/components/ui/motion";
 import { PARTNER_IMAGES } from "@/data/partner-images";
+import { APP_LINKS } from "@/lib/constants";
 
 const riderBenefits = [
   {
@@ -47,7 +48,7 @@ export function RiderExperience() {
       <div className="relative mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           <div className="order-2 lg:order-1 space-y-3">
-            {riderBenefits.map((benefit, i) => {
+            {riderBenefits.map((benefit) => {
               const Icon = benefit.icon;
               return (
                 <div
@@ -96,10 +97,28 @@ export function RiderExperience() {
               Branded gear, daily payouts, and routes built for campus life
             </p>
 
-            <Button href="#waitlist" variant="white" size="lg" className="mt-6">
-              Apply as rider
-              <ArrowUpRight className="h-4 w-4" />
-            </Button>
+            <div className="mt-6 flex flex-col sm:flex-row gap-3">
+              <Button
+                href={APP_LINKS.rider.playStore}
+                variant="white"
+                size="lg"
+                className="font-bold text-blue-700"
+              >
+                Get Rider App (Google Play)
+                <ArrowUpRight className="h-4 w-4" />
+              </Button>
+              <Button
+                href="#waitlist"
+                variant="outline"
+                size="lg"
+                className="border-white/20 text-white hover:bg-white/10"
+              >
+                Apply via Form
+              </Button>
+            </div>
+            <p className="mt-3 text-xs text-white/50">
+              Android available now on Google Play &bull; iOS version coming soon
+            </p>
           </FadeUp>
         </div>
       </div>

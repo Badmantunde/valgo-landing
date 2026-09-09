@@ -59,24 +59,45 @@ export function RestaurantPreview() {
                 </div>
               ))}
 
-              <div className="pt-4 flex gap-3">
-                <div className="w-full max-w-[120px] rounded overflow-hidden border border-border">
-                  <Image
-                    src="/app-screens/cart.png"
-                    alt="ValGo cart"
-                    width={120}
-                    height={216}
-                    className="w-full h-auto"
-                  />
+              <div className="pt-4 flex flex-col sm:flex-row items-start sm:items-center gap-4">
+                <div className="flex gap-3">
+                  <div className="w-full max-w-[110px] rounded-lg overflow-hidden border border-border shadow-sm">
+                    <Image
+                      src="/app-screens/cart.png"
+                      alt="ValGo cart"
+                      width={120}
+                      height={216}
+                      className="w-full h-auto"
+                    />
+                  </div>
+                  <div className="w-full max-w-[110px] rounded-lg overflow-hidden border border-border shadow-sm">
+                    <Image
+                      src="/app-screens/order-details.png"
+                      alt="ValGo order tracking"
+                      width={120}
+                      height={216}
+                      className="w-full h-auto"
+                    />
+                  </div>
                 </div>
-                <div className="w-full max-w-[120px] rounded overflow-hidden border border-border">
-                  <Image
-                    src="/app-screens/order-details.png"
-                    alt="ValGo order tracking"
-                    width={120}
-                    height={216}
-                    className="w-full h-auto"
-                  />
+
+                <div className="flex flex-col gap-2">
+                  <a
+                    href="https://usevalgo.com/store"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 rounded-lg bg-blue-600 px-4 py-2.5 text-xs font-bold text-white shadow-sm hover:bg-blue-700 transition-colors"
+                  >
+                    Order from Campus Spots &rarr;
+                  </a>
+                  <a
+                    href="https://play.google.com/store/apps/details?id=com.valgo.customer"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-xs text-muted hover:text-blue-600 font-medium"
+                  >
+                    Or get the Android App on Google Play
+                  </a>
                 </div>
               </div>
             </div>

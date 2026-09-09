@@ -38,7 +38,7 @@ function roleMessage(role: WaitlistRole, name: string): { subject: string; body:
           <p style="margin:0 0 16px;">Hi ${greeting},</p>
           <p style="margin:0 0 16px;">Thanks for applying to join ValGo as a <strong>rider</strong>. Flexible campus delivery is a great way to earn around your class schedule.</p>
           <p style="margin:0 0 16px;">We'll review your application and reach out with onboarding details, training, and gear info before we launch at ${LAUNCH.university}.</p>
-          <p style="margin:0;">Thanks for putting yourself forward — we'll be in touch soon.</p>
+          <p style="margin:0;">Thanks for putting yourself forward. We'll be in touch soon.</p>
         `,
       };
   }

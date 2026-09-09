@@ -1,3 +1,4 @@
+import { Cookie } from "lucide-react";
 import { ContentPage } from "@/components/layout/content-page";
 import { createPageMetadata } from "@/lib/metadata";
 import { SITE } from "@/lib/constants";
@@ -11,9 +12,11 @@ export const metadata = createPageMetadata({
 export default function CookiesPage() {
   return (
     <ContentPage
-      eyebrow="Legal"
-      title="Cookie Policy"
-      description="This policy explains how ValGo uses cookies and similar tracking technologies."
+      eyebrow="Privacy & Preferences"
+      icon={Cookie}
+      title="COOKIE POLICY."
+      accentTitle="TRANSPARENT CONTROL."
+      description="This policy explains how ValGo uses cookies and similar tracking technologies to improve your experience."
       lastUpdated="July 1, 2026"
       sections={[
         {
