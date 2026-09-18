@@ -1,12 +1,12 @@
 "use client";
 
 import { motion, type Variants } from "framer-motion";
-import { ArrowRight, Sparkles } from "lucide-react";
+import { ArrowRight, Sparkles, ShoppingBag } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { AppStoreBadges } from "@/components/ui/app-store-badges";
+import { AppStoreBadges, GooglePlayIcon } from "@/components/ui/app-store-badges";
 import { PulseDot } from "@/components/ui/motion";
-import { VISION } from "@/lib/constants";
+import { VISION, APP_LINKS } from "@/lib/constants";
 
 const container: Variants = {
   hidden: {},
@@ -63,28 +63,42 @@ export function HeroContent() {
         Craving sizzling party jollof, juicy smash burgers, fiery wings, or late-night shawarma? ValGo connects you to your campus&apos;s best food spots with rapid delivery straight to your hostel or doorstep.
       </motion.p>
 
-      {/* Main Call to Action: Join Waitlist */}
+      {/* Dual CTAs: Web Access & Google Play App */}
       <motion.div
         variants={item}
-        className="mt-8 flex items-center justify-center lg:justify-start"
+        className="mt-8 flex flex-wrap items-center justify-center lg:justify-start gap-3.5"
       >
         <motion.div
-          whileHover={{ scale: 1.03 }}
-          whileTap={{ scale: 0.97 }}
+          whileHover={{ scale: 1.02 }}
+          whileTap={{ scale: 0.98 }}
           transition={{ type: "spring", stiffness: 400, damping: 20 }}
-          className="relative group inline-block w-full sm:w-auto"
+          className="w-full sm:w-auto"
         >
-          <div className="absolute -inset-0.5 rounded-xl bg-gradient-to-r from-blue-400 to-amber-300 opacity-40 blur-sm group-hover:opacity-100 transition duration-300" />
           <Button
-            href="#waitlist"
+            href={APP_LINKS.customer.web}
+            target="_blank"
+            rel="noopener noreferrer"
             variant="white"
             size="lg"
-            className="relative w-full sm:w-auto font-extrabold text-blue-700 shadow-xl hover:bg-blue-50 px-8 py-3.5 text-base tracking-wide"
+            className="w-full sm:w-auto font-extrabold text-blue-700 shadow-xl hover:bg-blue-50 px-7 py-3.5 text-sm sm:text-base tracking-wide"
           >
-            Join Waitlist
-            <ArrowRight className="h-4 w-4 ml-2 text-blue-600 transition-transform group-hover:translate-x-1" />
+            <ShoppingBag className="h-4 w-4 mr-2 text-blue-600" />
+            Order on Web
+            <ArrowRight className="h-4 w-4 ml-1.5 text-blue-600 transition-transform group-hover:translate-x-1" />
           </Button>
         </motion.div>
+
+        <Button
+          href={APP_LINKS.customer.playStore}
+          target="_blank"
+          rel="noopener noreferrer"
+          variant="outline"
+          size="lg"
+          className="w-full sm:w-auto border-white/30 text-white hover:bg-white/10 px-6 py-3.5 text-sm sm:text-base font-bold"
+        >
+          <GooglePlayIcon className="h-4 w-4 mr-2" />
+          Google Play App
+        </Button>
       </motion.div>
 
       {/* App Store Download Badges */}

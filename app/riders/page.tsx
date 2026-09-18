@@ -3,7 +3,7 @@ import { CheckeredStrip } from "@/components/ui/checkered-strip";
 import { RiderEarningsBreakdown } from "@/components/sections/rider-earnings-breakdown";
 import { RiderExperience } from "@/components/sections/rider-experience";
 import { RiderOnboardingSteps } from "@/components/sections/rider-onboarding-steps";
-import { Waitlist } from "@/components/sections/waitlist";
+import { RiderAccessCta } from "@/components/sections/rider-access-cta";
 import { createPageMetadata } from "@/lib/metadata";
 
 export const metadata = createPageMetadata({
@@ -27,9 +27,7 @@ export default function RidersPage() {
       <RiderEarningsBreakdown />
       <RiderExperience />
       <RiderOnboardingSteps />
-      <div id="register-rider">
-        <Waitlist defaultRole="rider" />
-      </div>
+      <RiderAccessCta />
       <CheckeredStrip size="md" variant="dark-blue" />
     </>
   );

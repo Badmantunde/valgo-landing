@@ -14,10 +14,12 @@ import {
   Users,
   CheckCircle2,
   ArrowRight,
+  ShoppingBag,
 } from "lucide-react";
 import { testimonials, type Testimonial } from "@/data/testimonials";
 import { ScrollReveal } from "@/components/ui/motion";
 import { APP_LINKS } from "@/lib/constants";
+import { GooglePlayIcon } from "@/components/ui/app-store-badges";
 import { cn } from "@/lib/utils";
 
 function getInitial(name: string) {
@@ -136,7 +138,7 @@ export function Testimonials() {
               </div>
               <div className="inline-flex items-center gap-1.5 rounded-lg bg-slate-50 border border-border px-3 py-1.5 font-semibold text-foreground">
                 <Sparkles className="h-3.5 w-3.5 text-blue-600" />
-                <span className="text-xs font-bold">1,200+ Waitlist Students</span>
+                <span className="text-xs font-bold">1,200+ Campus Foodies</span>
               </div>
               <div className="inline-flex items-center gap-1.5 rounded-lg bg-slate-50 border border-border px-3 py-1.5 font-semibold text-foreground">
                 <CheckCircle2 className="h-3.5 w-3.5 text-emerald-600" />
@@ -297,22 +299,41 @@ export function Testimonials() {
           </div>
 
           {/* Quick CTA banner */}
-          <div className="mt-10 rounded-xl bg-slate-50 border border-border p-5 sm:p-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+          <div className="mt-10 rounded-xl bg-slate-50 border border-border p-5 sm:p-6 flex flex-col lg:flex-row items-center justify-between gap-4 text-center lg:text-left">
             <div>
               <p className="text-sm font-bold text-foreground">
-                Want to see ValGo launch at your hostel?
+                Craving your favorite campus meals right now?
               </p>
               <p className="text-xs text-muted mt-0.5">
-                Join our campus waitlist to receive launch day discount vouchers and priority delivery.
+                Order via instant Web Access or download the Android app on Google Play.
               </p>
             </div>
-            <Link
-              href="#waitlist"
-              className="inline-flex items-center justify-center gap-2 rounded-lg bg-blue-600 px-5 py-2.5 text-xs sm:text-sm font-bold text-white shadow-sm hover:bg-blue-700 transition-colors shrink-0 group w-full sm:w-auto"
-            >
-              <span>Join 1,200+ Students</span>
-              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-            </Link>
+            <div className="flex flex-wrap items-center justify-center lg:justify-end gap-2.5 shrink-0 w-full sm:w-auto">
+              <a
+                href={APP_LINKS.customer.web}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-1.5 rounded-lg bg-blue-600 px-4 py-2 text-xs sm:text-sm font-bold text-white shadow-sm hover:bg-blue-700 transition-colors"
+              >
+                <ShoppingBag className="h-3.5 w-3.5" />
+                <span>Order on Web</span>
+              </a>
+              <a
+                href={APP_LINKS.customer.playStore}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-1.5 rounded-lg bg-slate-900 px-4 py-2 text-xs sm:text-sm font-bold text-white shadow-sm hover:bg-slate-800 transition-colors"
+              >
+                <GooglePlayIcon className="h-3.5 w-3.5" />
+                <span>Google Play App</span>
+              </a>
+              <Link
+                href="/ambassadors#apply"
+                className="inline-flex items-center justify-center gap-1 rounded-lg border border-border bg-white px-3.5 py-2 text-xs font-semibold text-blue-600 hover:bg-blue-50 transition-colors"
+              >
+                <span>Ambassador Waitlist &rarr;</span>
+              </Link>
+            </div>
           </div>
         </div>
       </div>

@@ -8,7 +8,7 @@ import { PlatformOverview } from "@/components/sections/platform-overview";
 import { Metrics } from "@/components/sections/metrics";
 import { Testimonials } from "@/components/sections/testimonials";
 import { FAQ } from "@/components/sections/faq";
-import { Waitlist } from "@/components/sections/waitlist";
+import { AppAccessCta } from "@/components/sections/app-access-cta";
 import { JsonLd } from "@/components/seo/json-ld";
 import { homeFaqItems } from "@/data/faq";
 import { createPageMetadata, getFAQSchema, getLocalBusinessSchema } from "@/lib/metadata";
@@ -44,7 +44,7 @@ export default function Home() {
       <Metrics />
       <Testimonials />
       <FAQ />
-      <Waitlist />
+      <AppAccessCta />
       <CheckeredStrip size="md" variant="dark-blue" />
     </>
   );

@@ -3,7 +3,7 @@ import { CheckeredStrip } from "@/components/ui/checkered-strip";
 import { AboutStory } from "@/components/sections/about-story";
 import { AboutRoadmap } from "@/components/sections/about-roadmap";
 import { Team } from "@/components/sections/team";
-import { Waitlist } from "@/components/sections/waitlist";
+import { AppAccessCta } from "@/components/sections/app-access-cta";
 import { createPageMetadata } from "@/lib/metadata";
 import { LAUNCH } from "@/lib/constants";
 
@@ -31,7 +31,7 @@ export default function AboutPage() {
       <AboutStory />
       <AboutRoadmap />
       <Team />
-      <Waitlist />
+      <AppAccessCta />
       <CheckeredStrip size="md" variant="dark-blue" />
     </>
   );

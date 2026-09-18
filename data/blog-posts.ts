@@ -54,7 +54,7 @@ export const blogPosts: BlogPost[] = [
       "We're starting with restaurants and food vendors along the Ita-Merin corridor, where student foot traffic is highest. These are kitchens that already serve hundreds of students daily but have no way to reach the hostels and off-campus rooms where most orders originate.",
       "Beyond food, we're onboarding grocery sellers from Ago Market, bakeries near campus gates, and shops that stock student essentials. Each vendor gets a dashboard to manage menus, track orders, and see what's selling, without needing technical skills or upfront fees.",
       "Our vendor team works on the ground in Ago Iwoye, visiting businesses in person, setting up menus, and training staff on the dashboard. We believe the best partnerships start with face-to-face conversations, not cold emails.",
-      "If you run a restaurant, shop, or market stall in Ago Iwoye and want to reach more OOU students, join our vendor waitlist. Onboarding takes less than 48 hours, and there are no upfront costs to get started.",
+      "If you run a restaurant, shop, or market stall in Ago Iwoye and want to reach more OOU students, register on our vendor portal at vendor.usevalgo.com or download the vendor app on Google Play. Onboarding takes less than 48 hours, and there are no upfront costs to get started.",
     ],
   },
   {
@@ -70,7 +70,7 @@ export const blogPosts: BlogPost[] = [
       "Ambassadors are the face of ValGo on campus. They talk to students at hostels, organize sign-up drives, help recruit vendors, and represent the brand at campus events. It's part marketing, part community building, and part leadership development.",
       "What do ambassadors get in return? Referral commissions for every student, vendor, and rider they bring to the platform. Exclusive ValGo merch including branded t-shirts and promotional materials. Priority consideration for internships at ValGo as the team grows. And real experience building a startup from the ground up, something that looks great on any CV.",
       "We're looking for students who are active on campus, comfortable talking to people, and excited about what ValGo is building. You don't need prior experience in marketing or tech. You need energy, reliability, and a genuine connection to the OOU community.",
-      "Applications are open through our ambassador waitlist. Select 'Ambassador' when you sign up, tell us your faculty, and we'll be in touch with next steps as we approach launch.",
+      "Applications are open through our ambassador waitlist. Apply at usevalgo.com/ambassadors, tell us your faculty, and we'll be in touch with next steps as we review candidates.",
     ],
   },
 ];

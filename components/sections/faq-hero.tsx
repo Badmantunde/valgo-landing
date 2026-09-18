@@ -9,10 +9,12 @@ import {
   Store,
   Bike,
   GraduationCap,
+  ShoppingBag,
 } from "lucide-react";
 import { AbstractHeroBg } from "@/components/ui/abstract-hero-bg";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { APP_LINKS } from "@/lib/constants";
 
 const quickStats = [
   { label: "Stakeholder Tracks", value: "4" },
@@ -64,12 +66,15 @@ export function FAQHero() {
                 <ArrowDown className="h-4 w-4 ml-1.5" />
               </Button>
               <Button
-                href="#waitlist"
+                href={APP_LINKS.customer.web}
+                target="_blank"
+                rel="noopener noreferrer"
                 variant="outline"
                 size="lg"
                 className="border-white/25 text-white hover:bg-white/10"
               >
-                Join Waitlist
+                <ShoppingBag className="h-4 w-4 mr-2" />
+                Order on Web
               </Button>
             </div>
           </motion.div>

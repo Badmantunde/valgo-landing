@@ -9,7 +9,7 @@ export const timeline = [
     year: "2027",
     title: "Deepen the first market",
     description:
-      "Onboard 100+ local restaurant and vendor partners, expand the rider network, and launch laundry and printing services, while opening waitlists for the next campuses.",
+      "Onboard 100+ local restaurant and vendor partners, expand the rider network, and launch laundry and printing services, while expanding to next campuses.",
   },
   {
     year: "2028",
@@ -33,7 +33,7 @@ export const metrics: {
   prefix?: string;
 }[] = [
   { id: "restaurants", label: "Restaurant Partners", value: 40, suffix: "+" },
-  { id: "students", label: "People on Waitlist", value: 2000, suffix: "+" },
+  { id: "students", label: "Active Campus Foodies", value: 2000, suffix: "+" },
   { id: "orders", label: "Orders Projected (Year 1)", value: 15000, suffix: "+" },
   { id: "riders", label: "Rider Network", value: 50, suffix: "+" },
   { id: "communities", label: "Campuses on Roadmap", value: 10, suffix: "+" },

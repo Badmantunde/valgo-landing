@@ -69,7 +69,7 @@ export function RiderOnboardingSteps() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   return (
-    <section className="py-16 sm:py-24 bg-[#fafbfc] border-b border-border">
+    <section id="onboarding-steps" className="py-16 sm:py-24 bg-[#fafbfc] border-b border-border">
       <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">

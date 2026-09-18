@@ -101,6 +101,8 @@ export function RiderExperience() {
             <div className="mt-6 flex flex-col sm:flex-row gap-3">
               <Button
                 href={APP_LINKS.rider.playStore}
+                target="_blank"
+                rel="noopener noreferrer"
                 variant="white"
                 size="lg"
                 className="font-bold text-blue-700"
@@ -110,12 +112,12 @@ export function RiderExperience() {
                 <ArrowUpRight className="h-4 w-4 ml-1" />
               </Button>
               <Button
-                href="#waitlist"
+                href="#onboarding-steps"
                 variant="outline"
                 size="lg"
                 className="border-white/20 text-white hover:bg-white/10"
               >
-                Apply via Form
+                Onboarding Steps
               </Button>
             </div>
             <p className="mt-3 text-xs text-white/50">

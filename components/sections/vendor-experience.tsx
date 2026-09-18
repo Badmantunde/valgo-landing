@@ -15,6 +15,7 @@ import { Button } from "@/components/ui/button";
 import { StaggerContainer, StaggerItem } from "@/components/ui/motion";
 import { PARTNER_IMAGES } from "@/data/partner-images";
 import { APP_LINKS } from "@/lib/constants";
+import { GooglePlayIcon } from "@/components/ui/app-store-badges";
 
 const vendorBenefits = [
   {
@@ -145,15 +146,18 @@ export function VendorExperience() {
                   size="md"
                   className="font-bold"
                 >
-                  Open Vendor Portal
+                  Open Vendor Portal (Web)
                   <ArrowUpRight className="h-4 w-4" />
                 </Button>
                 <Button
-                  href="#register-vendor"
+                  href={APP_LINKS.vendor.playStore}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   variant="outline"
                   size="md"
                 >
-                  Register Kitchen
+                  <GooglePlayIcon className="h-4 w-4 mr-1.5" />
+                  Vendor App (Play)
                 </Button>
               </div>
             </div>
@@ -183,9 +187,23 @@ export function VendorExperience() {
 
         <p className="mt-6 text-sm text-muted">
           Already serving students near campus?{" "}
-          <Link href="#waitlist" className="text-blue-600 font-medium hover:underline">
-            Join the vendor waitlist
-          </Link>
+          <a
+            href={APP_LINKS.vendor.web}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-600 font-medium hover:underline"
+          >
+            Open the ValGo Vendor Portal (Web)
+          </a>{" "}
+          or download the{" "}
+          <a
+            href={APP_LINKS.vendor.playStore}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-600 font-medium hover:underline"
+          >
+            Vendor App on Google Play
+          </a>
           . Onboarding takes less than 48 hours.
         </p>
       </div>

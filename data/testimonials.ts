@@ -14,7 +14,7 @@ export const testimonials: Testimonial[] = [
   {
     id: "1",
     quote:
-      "I've already joined the waitlist. If ValGo launches before exams, ordering jollof without leaving Oloko would honestly make my entire semester. Seeing the live prototype gave me so much confidence.",
+      "Ordering jollof without leaving Oloko would honestly make my entire semester. Being able to order directly on the web or download the app on Google Play gives me so much confidence.",
     author: "Adaeze O.",
     role: "Computer Science • 300L",
     faculty: "Faculty of Science",

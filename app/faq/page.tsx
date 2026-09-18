@@ -1,7 +1,7 @@
 import { FAQHero } from "@/components/sections/faq-hero";
 import { CheckeredStrip } from "@/components/ui/checkered-strip";
 import { CategorizedFAQ } from "@/components/sections/categorized-faq";
-import { Waitlist } from "@/components/sections/waitlist";
+import { AppAccessCta } from "@/components/sections/app-access-cta";
 import { JsonLd } from "@/components/seo/json-ld";
 import { categorizedFaqItems } from "@/data/faq";
 import { createPageMetadata, getFAQSchema } from "@/lib/metadata";
@@ -29,7 +29,7 @@ export default function FAQPage() {
       <div id="faq-content">
         <CategorizedFAQ />
       </div>
-      <Waitlist showHeader={false} />
+      <AppAccessCta showHeader={false} />
       <CheckeredStrip size="md" variant="dark-blue" />
     </>
   );

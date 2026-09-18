@@ -5,7 +5,7 @@ import { VendorFoodShowcase } from "@/components/sections/vendor-food-showcase";
 import { VendorOnboardingSteps } from "@/components/sections/vendor-onboarding-steps";
 import { VendorExperience } from "@/components/sections/vendor-experience";
 import { VendorGrowthMatrix } from "@/components/sections/vendor-growth-matrix";
-import { Waitlist } from "@/components/sections/waitlist";
+import { VendorAccessCta } from "@/components/sections/vendor-access-cta";
 import { createPageMetadata } from "@/lib/metadata";
 
 export const metadata = createPageMetadata({
@@ -31,9 +31,7 @@ export default function VendorsPage() {
       <VendorOnboardingSteps />
       <VendorExperience />
       <VendorGrowthMatrix />
-      <div id="register-vendor">
-        <Waitlist defaultRole="restaurant" />
-      </div>
+      <VendorAccessCta />
       <CheckeredStrip size="md" variant="dark-blue" />
     </>
   );

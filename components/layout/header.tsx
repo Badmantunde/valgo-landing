@@ -17,7 +17,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Logo } from "@/components/ui/logo";
 import { MenuToggleIcon } from "@/components/ui/menu-toggle-icon";
-import { AppStoreBadges } from "@/components/ui/app-store-badges";
+import { AppStoreBadges, GooglePlayIcon } from "@/components/ui/app-store-badges";
 import { NAV_LINKS, APP_LINKS } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
@@ -281,7 +281,9 @@ export function Header() {
           {/* Desktop Right CTAs */}
           <div className="hidden lg:flex items-center gap-3">
             <Button
-              href="/#waitlist"
+              href={APP_LINKS.customer.playStore}
+              target="_blank"
+              rel="noopener noreferrer"
               variant={useLightNav ? "secondary" : "outline"}
               size="sm"
               className={cn(
@@ -289,7 +291,8 @@ export function Header() {
                 !useLightNav && "border-white/25 text-white hover:bg-white/10"
               )}
             >
-              Join Waitlist
+              <GooglePlayIcon className="h-3.5 w-3.5 mr-1.5" />
+              Google Play
             </Button>
             <Button
               href={APP_LINKS.customer.web}
@@ -433,16 +436,19 @@ export function Header() {
                     onClick={() => setMobileOpen(false)}
                   >
                     <ShoppingBag className="h-4 w-4 mr-2" />
-                    Order on Web
+                    Order on Web (Web Access)
                   </Button>
 
                   <Button
-                    href="/#waitlist"
+                    href={APP_LINKS.customer.playStore}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     variant="secondary"
                     className="w-full justify-center font-semibold py-3 text-sm"
                     onClick={() => setMobileOpen(false)}
                   >
-                    Join Waitlist
+                    <GooglePlayIcon className="h-4 w-4 mr-2" />
+                    Download on Google Play
                   </Button>
 
                   <div className="pt-2">
@@ -455,6 +461,17 @@ export function Header() {
                       className="justify-center w-full"
                       onItemClick={() => setMobileOpen(false)}
                     />
+                  </div>
+
+                  <div className="pt-1 text-center">
+                    <Link
+                      href="/ambassadors#apply"
+                      onClick={() => setMobileOpen(false)}
+                      className="inline-flex items-center gap-1 text-xs font-semibold text-blue-600 hover:underline"
+                    >
+                      <Sparkles className="h-3.5 w-3.5 text-amber-500" />
+                      Join Student Ambassador Waitlist &rarr;
+                    </Link>
                   </div>
                 </motion.div>
               </nav>

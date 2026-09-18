@@ -3,7 +3,7 @@ import { CheckeredStrip } from "@/components/ui/checkered-strip";
 import { PartnersFlow } from "@/components/sections/partners-flow";
 import { VendorExperience } from "@/components/sections/vendor-experience";
 import { RiderExperience } from "@/components/sections/rider-experience";
-import { Waitlist } from "@/components/sections/waitlist";
+import { PartnersAccessCta } from "@/components/sections/partners-access-cta";
 import { createPageMetadata } from "@/lib/metadata";
 
 export const metadata = createPageMetadata({
@@ -27,7 +27,7 @@ export default function PartnersPage() {
       <PartnersFlow />
       <VendorExperience />
       <RiderExperience />
-      <Waitlist defaultRole="restaurant" />
+      <PartnersAccessCta />
       <CheckeredStrip size="sm" variant="dark-blue" />
     </>
   );

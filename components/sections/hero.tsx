@@ -15,7 +15,7 @@ import {
   MapPin,
 } from "lucide-react";
 import { APP_LINKS } from "@/lib/constants";
-import { AppStoreBadges } from "@/components/ui/app-store-badges";
+import { AppStoreBadges, GooglePlayIcon } from "@/components/ui/app-store-badges";
 
 export function Hero() {
   const heroRef = useRef<HTMLElement>(null);
@@ -173,10 +173,13 @@ export function Hero() {
           </Link>
 
           <Link
-            href="#waitlist"
-            className="group relative overflow-hidden shrink-0 inline-flex items-center justify-center rounded-full bg-white/25 px-4 xs:px-6 sm:px-8 py-3 sm:py-4 text-[11px] xs:text-xs sm:text-sm font-bold tracking-wider text-white uppercase backdrop-blur-md border border-white/50 shadow-lg hover:bg-white/45 hover:border-white/80 hover:shadow-[0_8px_28px_rgba(255,255,255,0.25)] hover:scale-105 active:scale-95 transition-all duration-300 whitespace-nowrap before:absolute before:inset-0 before:-translate-x-full before:bg-gradient-to-r before:from-transparent before:via-white/20 before:to-transparent hover:before:translate-x-full before:transition-transform before:duration-500 before:ease-in-out"
+            href={APP_LINKS.customer.playStore}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group relative overflow-hidden shrink-0 inline-flex items-center justify-center gap-1.5 sm:gap-2 rounded-full bg-white/25 px-4 xs:px-6 sm:px-8 py-3 sm:py-4 text-[11px] xs:text-xs sm:text-sm font-bold tracking-wider text-white uppercase backdrop-blur-md border border-white/50 shadow-lg hover:bg-white/45 hover:border-white/80 hover:shadow-[0_8px_28px_rgba(255,255,255,0.25)] hover:scale-105 active:scale-95 transition-all duration-300 whitespace-nowrap before:absolute before:inset-0 before:-translate-x-full before:bg-gradient-to-r before:from-transparent before:via-white/20 before:to-transparent hover:before:translate-x-full before:transition-transform before:duration-500 before:ease-in-out"
           >
-            <span className="relative z-10 whitespace-nowrap">JOIN WAITLIST</span>
+            <GooglePlayIcon className="relative z-10 h-3.5 w-3.5 sm:h-4 sm:w-4 shrink-0" />
+            <span className="relative z-10 whitespace-nowrap">GET ON GOOGLE PLAY</span>
           </Link>
         </motion.div>
 

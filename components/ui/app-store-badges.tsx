@@ -111,9 +111,11 @@ export function AppStoreBadges({
         </div>
       </a>
 
-      {/* App Store (Coming Soon - Waitlist link) */}
-      <Link
-        href="/#waitlist"
+      {/* App Store (Coming Soon - Links to Web Access) */}
+      <a
+        href={"web" in roleConfig ? roleConfig.web : APP_LINKS.customer.web}
+        target="_blank"
+        rel="noopener noreferrer"
         onClick={onItemClick}
         className={cn(
           "group relative inline-flex items-center gap-2.5 rounded-xl border px-3.5 py-2.5 min-w-[146px] xs:min-w-[152px] sm:min-w-[160px] transition-all duration-200 hover:-translate-y-0.5 active:scale-98 cursor-pointer",
@@ -123,7 +125,7 @@ export function AppStoreBadges({
               ? "border-white/20 bg-white/60 text-slate-900 hover:bg-white/80 backdrop-blur-md"
               : "border-slate-200/80 bg-slate-50 text-slate-900 hover:bg-slate-100 hover:border-slate-300 shadow-xs"
         )}
-        aria-label="App Store version coming soon - Join waitlist"
+        aria-label="App Store version coming soon - Use Web Access"
       >
         <AppleIcon
           className={cn(
@@ -161,7 +163,7 @@ export function AppStoreBadges({
             App Store
           </p>
         </div>
-      </Link>
+      </a>
     </div>
   );
 }
