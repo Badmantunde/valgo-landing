@@ -21,7 +21,7 @@ const items: AccordionItem[] = [
   },
   {
     id: "2",
-    url: "/images/team/CTO.jpg",
+    url: "/images/team/cto.jpg",
     title: "ABIOLA BABATUNDE",
     description: "CTO & CO-FOUNDER",
     tags: ["Engineering", "Architecture", "Cloud Infra"],
