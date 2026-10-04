@@ -14,21 +14,21 @@ export interface AccordionItem {
 const items: AccordionItem[] = [
   {
     id: "1",
-    url: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=960&q=80",
+    url: "/images/team/ceo.jpg",
     title: "IDOWU DAMILARE",
     description: "CEO & CO-FOUNDER",
     tags: ["Leadership", "Product Strategy", "Vision"],
   },
   {
     id: "2",
-    url: "/images/team/abiola-babatunde.jpg",
+    url: "/images/team/CTO.jpg",
     title: "ABIOLA BABATUNDE",
     description: "CTO & CO-FOUNDER",
     tags: ["Engineering", "Architecture", "Cloud Infra"],
   },
   {
     id: "3",
-    url: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=960&q=80",
+    url: "/images/team/head-of-growth.jpg",
     title: "ISAJOBI QUADRI",
     description: "HEAD OF GROWTH AND MARKETING & CO-FOUNDER",
     tags: ["Campus Growth", "Brand", "Marketing"],
@@ -83,7 +83,7 @@ export function TailwindImageAccordion({
                 )}
               </div>
               <Image
-                className="object-cover h-80 md:h-[460px] w-full"
+                className="object-cover object-top h-80 md:h-[460px] w-full"
                 src={item?.url}
                 width={960}
                 height={480}

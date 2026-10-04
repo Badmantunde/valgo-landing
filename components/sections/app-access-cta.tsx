@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { Globe, ArrowUpRight, ShoppingBag, Sparkles, CheckCircle2 } from "lucide-react";
 import { SectionHeader } from "@/components/ui/section-header";
 import { Button } from "@/components/ui/button";
-import { GooglePlayIcon } from "@/components/ui/app-store-badges";
+import { GooglePlayIcon, AppleIcon } from "@/components/ui/app-store-badges";
 import { APP_LINKS, LAUNCH } from "@/lib/constants";
 
 interface AppAccessCtaProps {
@@ -95,7 +95,7 @@ export function AppAccessCta({
             </div>
           </motion.div>
 
-          {/* Card 2: Google Play Store App Download */}
+          {/* Card 2: Native Mobile App Download (iOS & Android) */}
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -106,20 +106,20 @@ export function AppAccessCta({
             <div>
               <div className="flex items-center justify-between gap-3 mb-5">
                 <span className="inline-flex items-center gap-1.5 rounded-full bg-slate-900 text-white px-3 py-1 text-xs font-bold uppercase tracking-wider">
-                  <GooglePlayIcon className="h-3.5 w-3.5" />
-                  Google Play Store
+                  <AppleIcon className="h-3.5 w-3.5" />
+                  iOS &amp; Android
                 </span>
-                <span className="text-[11px] font-semibold text-blue-600 bg-blue-50 border border-blue-200/60 rounded-full px-2.5 py-0.5">
-                  Native Mobile App
+                <span className="text-[11px] font-semibold text-emerald-600 bg-emerald-50 border border-emerald-200/60 rounded-full px-2.5 py-0.5">
+                  Now Live on App Store
                 </span>
               </div>
 
               <h3 className="text-xl sm:text-2xl font-bold text-foreground tracking-tight">
-                Download for Android
+                Download for iPhone &amp; Android
               </h3>
 
               <p className="mt-3 text-sm text-muted leading-relaxed">
-                Install the official ValGo Customer app from Google Play. Get instant push notifications, real-time rider tracking, and 1-tap reordering straight to your hostel.
+                Install the official ValGo Customer app on your smartphone. Get instant push notifications, real-time rider tracking, and 1-tap reordering straight to your hostel.
               </p>
 
               <ul className="mt-6 space-y-2.5 text-xs sm:text-sm text-foreground/80 font-medium">
@@ -133,26 +133,40 @@ export function AppAccessCta({
                 </li>
                 <li className="flex items-center gap-2">
                   <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0" />
-                  <span>Saved hostel delivery pins &amp; 1-click reordering</span>
+                  <span>Available on Apple App Store &amp; Google Play Store</span>
                 </li>
               </ul>
             </div>
 
             <div className="mt-8 pt-6 border-t border-border/80">
-              <Button
-                href={APP_LINKS.customer.playStore}
-                target="_blank"
-                rel="noopener noreferrer"
-                variant="secondary"
-                size="lg"
-                className="w-full justify-center font-bold text-sm bg-slate-900 text-white hover:bg-slate-800 shadow-sm"
-              >
-                <GooglePlayIcon className="h-4 w-4 mr-2" />
-                Get it on Google Play
-                <ArrowUpRight className="h-4 w-4 ml-1.5" />
-              </Button>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                <Button
+                  href={APP_LINKS.customer.appStore}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  variant="secondary"
+                  size="lg"
+                  className="w-full justify-center font-bold text-xs sm:text-sm bg-slate-950 text-white hover:bg-slate-800 shadow-sm"
+                >
+                  <AppleIcon className="h-4 w-4 mr-1.5" />
+                  Apple App Store
+                  <ArrowUpRight className="h-3.5 w-3.5 ml-1" />
+                </Button>
+                <Button
+                  href={APP_LINKS.customer.playStore}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  variant="outline"
+                  size="lg"
+                  className="w-full justify-center font-bold text-xs sm:text-sm border-slate-300 text-slate-800 hover:bg-slate-100 shadow-sm"
+                >
+                  <GooglePlayIcon className="h-4 w-4 mr-1.5" />
+                  Google Play
+                  <ArrowUpRight className="h-3.5 w-3.5 ml-1" />
+                </Button>
+              </div>
               <p className="mt-2.5 text-center text-[11px] text-muted font-medium">
-                Android 8.0+ • iOS native app coming soon (iOS users use Web Access)
+                Official releases on iOS (App Store) &amp; Android (Google Play)
               </p>
             </div>
           </motion.div>

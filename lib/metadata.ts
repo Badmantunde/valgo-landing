@@ -303,7 +303,7 @@ export function getSiteSchemaGraph() {
         name: "ValGo Campus App",
         operatingSystem: "Android, iOS, Web",
         applicationCategory: "FoodEstablishment",
-        installUrl: APP_LINKS.customer.playStore,
+        installUrl: [APP_LINKS.customer.appStore, APP_LINKS.customer.playStore],
         offers: {
           "@type": "Offer",
           price: "0",

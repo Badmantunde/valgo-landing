@@ -94,12 +94,12 @@ export function AmbassadorsHero() {
           >
             {/* Primary Hero Feature Image */}
             <div className="relative rounded-2xl overflow-hidden border border-white/20 shadow-2xl bg-[#0a1628]">
-              <div className="relative h-72 sm:h-80 w-full">
+              <div className="relative h-80 sm:h-96 lg:h-[440px] w-full">
                 <Image
                   src={AMBASSADOR_IMAGES.ambassadorTrio}
-                  alt="ValGo student ambassadors in royal blue hoodies on Nigerian university campus"
+                  alt="ValGo student ambassadors and campus leaders in royal blue ValGo tees on campus"
                   fill
-                  className="object-cover object-top"
+                  className="object-cover object-[center_12%]"
                   priority
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0a1628] via-transparent to-black/20" />

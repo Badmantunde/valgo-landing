@@ -68,6 +68,12 @@ export function AppStoreBadges({
 }: AppStoreBadgesProps) {
   const roleConfig = APP_LINKS[role];
   const playStoreUrl = roleConfig.playStore;
+  const isAppStoreLive = "appStore" in roleConfig && Boolean(roleConfig.appStore);
+  const appStoreUrl = isAppStoreLive
+    ? roleConfig.appStore
+    : "web" in roleConfig
+      ? roleConfig.web
+      : APP_LINKS.customer.web;
 
   const isDark = variant === "dark";
   const isGlass = variant === "glass";
@@ -111,21 +117,31 @@ export function AppStoreBadges({
         </div>
       </a>
 
-      {/* App Store (Coming Soon - Links to Web Access) */}
+      {/* App Store (Live Link when available, or Coming Soon) */}
       <a
-        href={"web" in roleConfig ? roleConfig.web : APP_LINKS.customer.web}
+        href={appStoreUrl}
         target="_blank"
         rel="noopener noreferrer"
         onClick={onItemClick}
         className={cn(
           "group relative inline-flex items-center gap-2.5 rounded-xl border px-3.5 py-2.5 min-w-[146px] xs:min-w-[152px] sm:min-w-[160px] transition-all duration-200 hover:-translate-y-0.5 active:scale-98 cursor-pointer",
-          isDark
-            ? "border-white/15 bg-white/5 text-white hover:bg-white/10 hover:border-white/25 backdrop-blur-sm"
-            : isGlass
-              ? "border-white/20 bg-white/60 text-slate-900 hover:bg-white/80 backdrop-blur-md"
-              : "border-slate-200/80 bg-slate-50 text-slate-900 hover:bg-slate-100 hover:border-slate-300 shadow-xs"
+          isAppStoreLive
+            ? isDark
+              ? "border-white/15 bg-white/10 text-white hover:bg-white/20 hover:border-white/30 backdrop-blur-sm shadow-sm"
+              : isGlass
+                ? "border-white/25 bg-white/80 text-foreground hover:bg-white shadow-sm backdrop-blur-md"
+                : "border-slate-200 bg-white text-slate-900 hover:border-blue-500/50 hover:bg-blue-50/40 shadow-xs"
+            : isDark
+              ? "border-white/15 bg-white/5 text-white hover:bg-white/10 hover:border-white/25 backdrop-blur-sm"
+              : isGlass
+                ? "border-white/20 bg-white/60 text-slate-900 hover:bg-white/80 backdrop-blur-md"
+                : "border-slate-200/80 bg-slate-50 text-slate-900 hover:bg-slate-100 hover:border-slate-300 shadow-xs"
         )}
-        aria-label="App Store version coming soon - Use Web Access"
+        aria-label={
+          isAppStoreLive
+            ? `Download ${roleConfig.name} on the App Store`
+            : "App Store version coming soon - Use Web Access"
+        }
       >
         <AppleIcon
           className={cn(
@@ -143,16 +159,18 @@ export function AppStoreBadges({
             >
               DOWNLOAD ON
             </p>
-            <span
-              className={cn(
-                "rounded px-1 py-0.2 text-[8px] font-extrabold uppercase tracking-wider",
-                isDark
-                  ? "bg-blue-400/25 text-blue-300"
-                  : "bg-blue-600/10 text-blue-700"
-              )}
-            >
-              SOON
-            </span>
+            {!isAppStoreLive && (
+              <span
+                className={cn(
+                  "rounded px-1 py-0.2 text-[8px] font-extrabold uppercase tracking-wider",
+                  isDark
+                    ? "bg-blue-400/25 text-blue-300"
+                    : "bg-blue-600/10 text-blue-700"
+                )}
+              >
+                SOON
+              </span>
+            )}
           </div>
           <p
             className={cn(

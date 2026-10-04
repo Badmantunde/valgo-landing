@@ -2,18 +2,21 @@ export const APP_LINKS = {
   customer: {
     name: "ValGo Food & Campus Delivery",
     playStore: "https://play.google.com/store/apps/details?id=com.valgo.customer",
-    appStoreComingSoon: true,
+    appStore: "https://apps.apple.com/app/valgo/id6813619549",
+    appStoreComingSoon: false,
     web: "https://usevalgo.com/store",
     webDisplay: "usevalgo.com/store",
   },
   rider: {
     name: "ValGo Rider",
     playStore: "https://play.google.com/store/apps/details?id=com.valgo.rider",
+    appStore: "",
     appStoreComingSoon: true,
   },
   vendor: {
     name: "ValGo Vendor",
     playStore: "https://play.google.com/store/apps/details?id=com.valgo.vendor",
+    appStore: "",
     appStoreComingSoon: true,
     web: "https://vendor.usevalgo.com",
     webDisplay: "vendor.usevalgo.com",
