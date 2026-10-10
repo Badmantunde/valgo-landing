@@ -1,9 +1,9 @@
-import TailwindImageAccordion from "@/components/ui/tailwind-image-accordion";
+import { CloudShader } from "@/components/ui/cloud-shader";
 
-export default function Default() {
+export default function CloudShaderDemo() {
   return (
-    <div className="w-full py-10">
-      <TailwindImageAccordion />
+    <div className="w-full h-screen">
+      <CloudShader className="h-full w-full" />
     </div>
   );
 }

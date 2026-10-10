@@ -16,6 +16,7 @@ import {
 } from "lucide-react";
 import { APP_LINKS } from "@/lib/constants";
 import { AppStoreBadges, GooglePlayIcon } from "@/components/ui/app-store-badges";
+import { CloudShader } from "@/components/ui/cloud-shader";
 
 export function Hero() {
   const heroRef = useRef<HTMLElement>(null);
@@ -47,23 +48,23 @@ export function Hero() {
       ref={heroRef}
       className="relative min-h-[105svh] lg:min-h-[115svh] overflow-hidden flex flex-col justify-between pt-32 sm:pt-36 lg:pt-40"
     >
-      {/* Background: Radiant Sunny Sky with Soft Natural Clouds (Parallax) */}
+      {/* Background: Radiant Procedural Sky with Dynamic Cloud Shader (Parallax) */}
       <motion.div style={{ y: skyY, scale: skyScale }} className="absolute inset-0 z-0">
-        <Image
-          src="/images/hero/valgo-sky-clouds.jpg"
-          alt="ValGo Bright Sunny Sky with Soft Drifting Clouds"
-          fill
-          priority
-          className="object-cover object-top select-none"
-          sizes="100vw"
+        <CloudShader
+          className="absolute inset-0 h-full w-full"
+          speed={0.8}
+          count={6}
+          cloudColor="#fbf8f2"
+          skyTopColor="#1e5ec8"
+          skyBottomColor="#8cbfe8"
         />
-        {/* Sky Ambient Tint & Sun Flare Overlay */}
+        {/* Soft Contrast & Depth Overlays */}
         <div
-          className="absolute inset-0 bg-gradient-to-b from-[#1b5ecd]/55 via-[#2b72e3]/30 to-[#4d97f2]/50 mix-blend-multiply pointer-events-none"
+          className="absolute inset-0 bg-gradient-to-b from-[#1b5ecd]/25 via-transparent to-[#4d97f2]/20 mix-blend-multiply pointer-events-none"
           aria-hidden="true"
         />
         <div
-          className="absolute inset-0 bg-gradient-to-b from-black/25 via-transparent to-transparent pointer-events-none"
+          className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-transparent pointer-events-none"
           aria-hidden="true"
         />
       </motion.div>
