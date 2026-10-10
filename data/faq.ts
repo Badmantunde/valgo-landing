@@ -161,19 +161,19 @@ export const categorizedFaqItems: FAQItem[] = [
 export const faqItems = categorizedFaqItems;
 
 // Curated Top 5 FAQs for the high-converting homepage
-export const homeFaqItems: FAQItem[] = [
-  categorizedFaqItems.find((item) => item.id === "cust-delivery-time")!,
-  categorizedFaqItems.find((item) => item.id === "cust-web-order")!,
-  categorizedFaqItems.find((item) => item.id === "cust-coverage")!,
-  categorizedFaqItems.find((item) => item.id === "cust-payment")!,
+export const homeFaqItems: FAQItem[] = ([
+  categorizedFaqItems.find((item) => item.id === "cust-delivery-time"),
+  categorizedFaqItems.find((item) => item.id === "cust-mobile-apps"),
+  categorizedFaqItems.find((item) => item.id === "cust-coverage"),
+  categorizedFaqItems.find((item) => item.id === "cust-payment"),
   {
     id: "home-partner-opportunities",
     category: "customer",
     question: "How can I partner with ValGo as a kitchen, rider, or campus ambassador?",
     answer:
-      "Joining ValGo is fast and free. Food vendors and bukasa can register at /vendors with zero upfront fees. Students with bikes or foot couriers can earn daily at /riders with flexible shifts. Active students can apply to become Campus Ambassadors at /ambassadors for free meal perks, referral rewards, and executive mentorship.",
+      "Joining ValGo is fast and free. Food vendors and bukas can register at /vendors with zero upfront fees. Students with bikes or foot couriers can earn daily at /riders with flexible shifts. Active students can apply to become Campus Ambassadors at /ambassadors for free meal perks, referral rewards, and executive mentorship.",
   },
-];
+].filter(Boolean) as FAQItem[]);
 
 export type WaitlistRole = "customer" | "restaurant" | "rider";
 
