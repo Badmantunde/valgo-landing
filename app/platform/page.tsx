@@ -7,7 +7,7 @@ import { createPageMetadata } from "@/lib/metadata";
 
 export const metadata = createPageMetadata({
   title: "The ValGo Platform | Apps & Tools for Campus Life",
-  description: `Explore the complete ValGo platform: customer web store & app, vendor dashboard, rider navigation, and campus ambassadors. Built for Nigerian university commerce.`,
+  description: `Explore the complete ValGo platform: customer iOS & Android apps, vendor dashboard, rider navigation, and campus ambassadors. Built for Nigerian university commerce.`,
   path: "/platform",
   keywords: [
     "ValGo platform",

@@ -9,7 +9,8 @@ import { SITE, SOCIAL_LINKS, VISION, APP_LINKS } from "@/lib/constants";
 
 const footerLinks = {
   Order: [
-    { label: "Order on Web", href: APP_LINKS.customer.web, external: true },
+    { label: "Download on iOS (App Store)", href: APP_LINKS.customer.appStore, external: true },
+    { label: "Download on Android (Google Play)", href: APP_LINKS.customer.playStore, external: true },
     { label: "Vendors & Menus", href: "/vendors" },
     { label: "Campus Services", href: "/services" },
     { label: "Platform Overview", href: "/platform" },

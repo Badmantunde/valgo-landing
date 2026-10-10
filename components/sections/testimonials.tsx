@@ -19,7 +19,7 @@ import {
 import { testimonials, type Testimonial } from "@/data/testimonials";
 import { ScrollReveal } from "@/components/ui/motion";
 import { APP_LINKS } from "@/lib/constants";
-import { GooglePlayIcon } from "@/components/ui/app-store-badges";
+import { GooglePlayIcon, AppleIcon } from "@/components/ui/app-store-badges";
 import { cn } from "@/lib/utils";
 
 function getInitial(name: string) {
@@ -305,18 +305,18 @@ export function Testimonials() {
                 Craving your favorite campus meals right now?
               </p>
               <p className="text-xs text-muted mt-0.5">
-                Order via instant Web Access or download the Android app on Google Play.
+                Download the ValGo app on Apple App Store or Google Play.
               </p>
             </div>
             <div className="flex flex-wrap items-center justify-center lg:justify-end gap-2.5 shrink-0 w-full sm:w-auto">
               <a
-                href={APP_LINKS.customer.web}
+                href={APP_LINKS.customer.appStore}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-1.5 rounded-lg bg-blue-600 px-4 py-2 text-xs sm:text-sm font-bold text-white shadow-sm hover:bg-blue-700 transition-colors"
+                className="inline-flex items-center justify-center gap-1.5 rounded-lg bg-slate-900 px-4 py-2 text-xs sm:text-sm font-bold text-white shadow-sm hover:bg-slate-800 transition-colors"
               >
-                <ShoppingBag className="h-3.5 w-3.5" />
-                <span>Order on Web</span>
+                <AppleIcon className="h-3.5 w-3.5" />
+                <span>Apple App Store</span>
               </a>
               <a
                 href={APP_LINKS.customer.playStore}

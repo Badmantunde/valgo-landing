@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
-import { NAV_LINKS } from "@/lib/constants";
+import { NAV_LINKS, APP_LINKS } from "@/lib/constants";
 import { FadeUp, StaggerContainer, StaggerItem } from "@/components/ui/motion";
 
 export function ExplorePages() {
@@ -22,17 +22,17 @@ export function ExplorePages() {
         <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-border border border-border rounded-xl overflow-hidden shadow-sm">
           <StaggerItem>
             <a
-              href="https://usevalgo.com/store"
+              href={APP_LINKS.customer.appStore}
               target="_blank"
               rel="noopener noreferrer"
               className="group flex items-center justify-between bg-blue-50/50 p-5 hover:bg-blue-600 hover:text-white transition-all duration-300"
             >
               <div>
                 <span className="block text-sm font-bold text-foreground group-hover:text-white transition-colors">
-                  Order Food on Web
+                  Download ValGo Customer App
                 </span>
                 <span className="block text-xs text-blue-600 group-hover:text-blue-100 transition-colors">
-                  usevalgo.com/store &bull; Live Now
+                  iOS &amp; Android &bull; Live Now
                 </span>
               </div>
               <ArrowUpRight className="h-4 w-4 text-blue-600 group-hover:text-white transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />

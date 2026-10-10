@@ -1,7 +1,8 @@
 import Image from "next/image";
 import { SectionHeader } from "@/components/ui/section-header";
 import { FadeUp } from "@/components/ui/motion";
-import { GooglePlayIcon } from "@/components/ui/app-store-badges";
+import { GooglePlayIcon, AppleIcon } from "@/components/ui/app-store-badges";
+import { APP_LINKS } from "@/lib/constants";
 
 export function RestaurantPreview() {
   return (
@@ -84,21 +85,22 @@ export function RestaurantPreview() {
 
                 <div className="flex flex-col gap-2">
                   <a
-                    href="https://usevalgo.com/store"
+                    href={APP_LINKS.customer.appStore}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 rounded-lg bg-blue-600 px-4 py-2.5 text-xs font-bold text-white shadow-sm hover:bg-blue-700 transition-colors"
+                    className="inline-flex items-center justify-center gap-2 rounded-lg bg-slate-900 px-4 py-2.5 text-xs font-bold text-white shadow-sm hover:bg-slate-800 transition-colors"
                   >
-                    Order from Campus Spots &rarr;
+                    <AppleIcon className="h-4 w-4" />
+                    <span>Download on App Store</span>
                   </a>
                   <a
-                    href="https://play.google.com/store/apps/details?id=com.valgo.customer"
+                    href={APP_LINKS.customer.playStore}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 text-xs text-muted hover:text-blue-600 font-medium"
+                    className="inline-flex items-center justify-center gap-1.5 rounded-lg border border-border bg-white px-4 py-2 text-xs font-semibold text-foreground hover:bg-blue-50 hover:text-blue-600 transition-colors"
                   >
                     <GooglePlayIcon className="h-3.5 w-3.5" />
-                    <span>Or get the Android App on Google Play</span>
+                    <span>Get on Google Play</span>
                   </a>
                 </div>
               </div>

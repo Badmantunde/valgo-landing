@@ -5,7 +5,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion, useScroll, useTransform } from "framer-motion";
 import {
-  ArrowUpRight,
   Sparkles,
   Clock,
   ShieldCheck,
@@ -15,7 +14,7 @@ import {
   MapPin,
 } from "lucide-react";
 import { APP_LINKS } from "@/lib/constants";
-import { AppStoreBadges, GooglePlayIcon } from "@/components/ui/app-store-badges";
+import { GooglePlayIcon, AppleIcon } from "@/components/ui/app-store-badges";
 import { CloudShader } from "@/components/ui/cloud-shader";
 
 export function Hero() {
@@ -156,45 +155,48 @@ export function Hero() {
           Skip long cafeteria queues and WhatsApp delays. From steaming party jollof and double smash burgers to spicy wings and cold drinks, ValGo delivers your favorite campus spots straight to your hostel in 15 to 20 minutes.
         </motion.p>
 
-        {/* Dual Conversion Buttons: Both on a Single Line */}
+        {/* Sole Hero CTA: Apple App Store & Google Play (Android) */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
+          initial={{ opacity: 0, scale: 0.94, y: 12 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.25, type: "spring", stiffness: 300 }}
-          className="mt-6 sm:mt-8 flex flex-row items-center justify-center gap-2 sm:gap-3.5 w-auto max-w-full mx-auto"
+          className="mt-6 sm:mt-8 flex flex-row items-center justify-center gap-3 sm:gap-4 w-auto max-w-full mx-auto"
         >
-          <Link
-            href={APP_LINKS.customer.web}
+          <a
+            href={APP_LINKS.customer.appStore}
             target="_blank"
             rel="noopener noreferrer"
-            className="group relative overflow-hidden shrink-0 inline-flex items-center justify-center gap-1.5 sm:gap-2.5 rounded-full bg-[#0c0c0e] px-3.5 xs:px-5 sm:px-8 py-3 sm:py-4 text-[11px] xs:text-xs sm:text-sm font-black tracking-wider sm:tracking-widest text-white uppercase shadow-[0_12px_32px_rgba(0,0,0,0.35)] hover:bg-[#1a1a1e] hover:shadow-[0_12px_40px_rgba(0,0,0,0.55)] hover:scale-105 active:scale-95 transition-all duration-300 cursor-pointer border border-white/10 whitespace-nowrap before:absolute before:inset-0 before:-translate-x-full before:bg-gradient-to-r before:from-transparent before:via-white/15 before:to-transparent hover:before:translate-x-full before:transition-transform before:duration-500 before:ease-in-out"
+            className="group relative overflow-hidden shrink-0 inline-flex items-center justify-center gap-2.5 sm:gap-3 rounded-2xl bg-[#0c0c0e] px-4 xs:px-5 sm:px-7 py-3 sm:py-3.5 text-white shadow-[0_12px_32px_rgba(0,0,0,0.35)] hover:bg-[#1a1a1e] hover:shadow-[0_12px_40px_rgba(0,0,0,0.55)] hover:scale-105 active:scale-95 transition-all duration-300 border border-white/15 cursor-pointer whitespace-nowrap before:absolute before:inset-0 before:-translate-x-full before:bg-gradient-to-r before:from-transparent before:via-white/15 before:to-transparent hover:before:translate-x-full before:transition-transform before:duration-500 before:ease-in-out"
+            aria-label="Download ValGo on the Apple App Store"
           >
-            <span className="relative z-10 whitespace-nowrap">START ORDERING NOW</span>
-            <ArrowUpRight className="relative z-10 h-3.5 w-3.5 sm:h-4 sm:w-4 shrink-0 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-          </Link>
+            <AppleIcon className="h-6 w-6 sm:h-7 sm:w-7 text-white shrink-0 transition-transform group-hover:scale-110" />
+            <div className="text-left leading-tight">
+              <span className="block text-[9px] sm:text-[10px] font-semibold text-white/70 uppercase tracking-wider">
+                Download on the
+              </span>
+              <span className="block text-xs sm:text-base font-extrabold text-white tracking-tight">
+                App Store
+              </span>
+            </div>
+          </a>
 
-          <Link
+          <a
             href={APP_LINKS.customer.playStore}
             target="_blank"
             rel="noopener noreferrer"
-            className="group relative overflow-hidden shrink-0 inline-flex items-center justify-center gap-1.5 sm:gap-2 rounded-full bg-white/25 px-4 xs:px-6 sm:px-8 py-3 sm:py-4 text-[11px] xs:text-xs sm:text-sm font-bold tracking-wider text-white uppercase backdrop-blur-md border border-white/50 shadow-lg hover:bg-white/45 hover:border-white/80 hover:shadow-[0_8px_28px_rgba(255,255,255,0.25)] hover:scale-105 active:scale-95 transition-all duration-300 whitespace-nowrap before:absolute before:inset-0 before:-translate-x-full before:bg-gradient-to-r before:from-transparent before:via-white/20 before:to-transparent hover:before:translate-x-full before:transition-transform before:duration-500 before:ease-in-out"
+            className="group relative overflow-hidden shrink-0 inline-flex items-center justify-center gap-2.5 sm:gap-3 rounded-2xl bg-white/25 px-4 xs:px-5 sm:px-7 py-3 sm:py-3.5 text-white uppercase backdrop-blur-md border border-white/50 shadow-lg hover:bg-white/40 hover:border-white/80 hover:shadow-[0_8px_28px_rgba(255,255,255,0.25)] hover:scale-105 active:scale-95 transition-all duration-300 cursor-pointer whitespace-nowrap before:absolute before:inset-0 before:-translate-x-full before:bg-gradient-to-r before:from-transparent before:via-white/20 before:to-transparent hover:before:translate-x-full before:transition-transform before:duration-500 before:ease-in-out"
+            aria-label="Get ValGo on Google Play"
           >
-            <GooglePlayIcon className="relative z-10 h-3.5 w-3.5 sm:h-4 sm:w-4 shrink-0" />
-            <span className="relative z-10 whitespace-nowrap">GET ON GOOGLE PLAY</span>
-          </Link>
-        </motion.div>
-
-        {/* App Store Download Badges with Logos */}
-        <motion.div
-          initial={{ opacity: 0, y: 15 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="mt-5 sm:mt-6 flex flex-col items-center gap-1.5"
-        >
-          <p className="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-white/70">
-            Available On iOS &amp; Android
-          </p>
-          <AppStoreBadges role="customer" variant="dark" className="justify-center" />
+            <GooglePlayIcon className="h-6 w-6 sm:h-7 sm:w-7 shrink-0 transition-transform group-hover:scale-110" />
+            <div className="text-left leading-tight">
+              <span className="block text-[9px] sm:text-[10px] font-semibold text-white/80 tracking-wider">
+                GET IT ON
+              </span>
+              <span className="block text-xs sm:text-base font-extrabold text-white tracking-tight">
+                Google Play
+              </span>
+            </div>
+          </a>
         </motion.div>
 
         {/* Micro Trust Pills */}

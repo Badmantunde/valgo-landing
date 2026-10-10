@@ -252,7 +252,7 @@ export function getSiteSchemaGraph() {
           "@type": "SearchAction",
           target: {
             "@type": "EntryPoint",
-            urlTemplate: "https://usevalgo.com/store?q={search_term_string}",
+            urlTemplate: `${SITE.url}/?q={search_term_string}`,
           },
           "query-input": "required name=search_term_string",
         },

@@ -17,11 +17,11 @@ export const categorizedFaqItems: FAQItem[] = [
       "Most campus orders arrive within 15–25 minutes! Our smart campus dispatch groups orders by hostel clusters, ensuring meals leave kitchens piping hot and get delivered directly to your hostel gate or room door.",
   },
   {
-    id: "cust-web-order",
+    id: "cust-mobile-apps",
     category: "customer",
-    question: "Can I order food on the web without downloading an app?",
+    question: "Where can I download the ValGo app?",
     answer:
-      "Yes! You can browse campus menus, customize portions, and place orders directly at usevalgo.com/store from any mobile or laptop browser with zero app installation needed.",
+      "ValGo is available to download for free on both the Apple App Store for iPhone & iPad and Google Play Store for Android devices. You can browse live campus menus, track your delivery rider in real time, and enjoy 15–20 minute delivery straight to your hostel.",
   },
   {
     id: "cust-coverage",

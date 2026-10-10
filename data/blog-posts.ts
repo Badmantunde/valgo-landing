@@ -10,6 +10,57 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    slug: "student-life-guide-oou-ago-iwoye",
+    category: "Student Life",
+    date: "August 2026",
+    title: "The Ultimate Guide to Student Life at OOU Ago Iwoye: Surviving & Thriving at Olabisi Onabanjo University",
+    excerpt:
+      "From hostel hunting in Ita-Merin to acing marathon exams and ordering late-night meals with ValGo, here is the complete insider survival guide to student life at OOU Ago Iwoye.",
+    readTime: "6 min read",
+    content: [
+      "Student life at Olabisi Onabanjo University (OOU) in Ago Iwoye is vibrant, fast-paced, and full of character. Whether you are a fresh 100-level student stepping onto the Main Campus (Permanent Site) for the first time or a final-year student balancing project deadlines with night classes, navigating Ago Iwoye comes with its own unique playbook.",
+      "Ago Iwoye is fundamentally a university town shaped by the energy of OOU students. Unlike universities situated in dense metropolitan centers, the majority of Olabisi Onabanjo University undergraduates live off-campus in popular student residential areas like Ita-Merin, Oloko, Mini Campus axis, Ayegbami, and along the Ago Iwoye Stadium Road. Finding the right hostel is your first major milestone: you want proximity to transport routes, steady water supply, and reliable security so you can focus on your academics.",
+      "Academics at Olabisi Onabanjo University demand stamina. Lecture schedules can start as early as 8:00 AM at the PS Lecture Theatres and stretch until late afternoon, especially for faculties like Basic Medical Sciences, Science, Law, and Social Sciences. When test weeks and semester examinations arrive, 'TDB' (Till Daybreak) night study sessions become the campus heartbeat. Groups of students gather across campus halls and library study rooms with notebooks, past questions, and flashlights.",
+      "Yet, one universal challenge unites every student at OOU Ago Iwoye: feeding during hectic academic days. When you return to your hostel at 7:30 PM after back-to-back lectures and a tiring keke ride, the last thing anyone wants to do is stand over a hot stove cooking or trek through dark unpaved roads to find an open buka. This is where ValGo has become an indispensable part of student life at Olabisi Onabanjo University.",
+      "With the ValGo app on your Apple iOS or Android device, students in Ago Iwoye can browse verified campus food vendors, local bukas, bakeries, and student favorite joints with transparent pricing and zero hidden fees. Whether you're craving hot smoky party jollof with fried plantain, spicy peppered chicken wings, loaded shawarma, or fresh amala and gbegiri, ValGo dispatches a dedicated campus rider who delivers piping hot food straight to your hostel gate in 15 to 20 minutes.",
+      "Beyond food delivery, thriving at OOU Ago Iwoye means building strong networks. Join departmental associations, participate in campus sports and creative hubs, connect with course mates for study circles, and take advantage of student earning opportunities like becoming a ValGo Campus Ambassador. Embracing the hustle and spirit of Olabisi Onabanjo University will make your university years in Ago Iwoye truly unforgettable.",
+    ],
+  },
+  {
+    slug: "conquering-late-night-hunger-oou-ago-iwoye-valgo",
+    category: "Campus Dining",
+    date: "July 2026",
+    title: "Conquering Late-Night Hunger at OOU Ago Iwoye: How ValGo Solved the Campus Midnight Craving",
+    excerpt:
+      "Every Olabisi Onabanjo University student knows the 10 PM hostel hunger pangs. Discover how ValGo brings midnight jollof, shawarma, and grills straight to your lodge in Ago Iwoye.",
+    readTime: "5 min read",
+    content: [
+      "Picture this: It is 10:15 PM in Ago Iwoye. You just wrapped up an intense four-hour study session preparing for an upcoming GST or faculty test at Olabisi Onabanjo University. Your brain is exhausted, your stomach is growling loudly, and your hostel provision cupboard has nothing left except an empty tin of milk and dry crackers. What do you do?",
+      "Historically for students at OOU Ago Iwoye, late-night hunger meant choosing between two bad options: risk walking through dimly lit streets to search for an open roadside food vendor that might already be sold out, or manage soaked garri and sleep on an empty stomach. Because most restaurants and bukas around Olabisi Onabanjo University close their physical doors early or cater exclusively to foot traffic along major junctions, off-campus hostel students often felt completely stranded.",
+      "ValGo changed that reality across Ago Iwoye. Built specifically by and for the Nigerian campus ecosystem, ValGo connects students directly with the best night kitchens, grills, bakeries, and food vendors in and around OOU Ago Iwoye through seamless mobile apps available on both the Apple App Store and Google Play Store.",
+      "Craving a double smash cheeseburger, smoky firewood jollof rice, peppered beef, spicy suya chicken, or loaded double-sausage shawarma? Instead of bargaining over WhatsApp or waiting endlessly for untracked deliveries, OOU students simply open ValGo on their iPhone or Android smartphone, place an order with instant payment, and watch their rider's GPS route in real-time.",
+      "Because ValGo riders operate within dedicated hostel clusters around Olabisi Onabanjo University — covering Ita-Merin, Oloko, Stadium Road, and Mini Campus — average delivery times remain under 20 minutes. Food arrives hot, neatly packaged in tamper-evident containers, and hand-delivered directly to your hostel entrance.",
+      "No matter how rigorous the semester gets at OOU Ago Iwoye, hungry students no longer have to sacrifice their health, safety, or academic performance for a decent meal. ValGo keeps the midnight fuel burning so you can focus on making good grades at Olabisi Onabanjo University.",
+    ],
+  },
+  {
+    slug: "how-to-budget-save-money-oou-student-ago-iwoye",
+    category: "Student Hacks",
+    date: "July 2026",
+    title: "How to Budget and Save Money as an OOU Student in Ago Iwoye",
+    excerpt:
+      "Smart financial habits for undergraduates at Olabisi Onabanjo University. Master your monthly allowance, reduce hostel expenses, and leverage ValGo for student-friendly meal savings.",
+    readTime: "5 min read",
+    content: [
+      "Managing personal finances is one of the biggest learning curves for any student entering Olabisi Onabanjo University (OOU). Between paying off-campus hostel rent in Ago Iwoye, covering departmental dues, buying textbooks, paying for daily transport, and feeding yourself three times a day, your monthly allowance can disappear alarmingly fast if you don't have a solid financial strategy.",
+      "Living off-campus in Ago Iwoye has many advantages, but it requires disciplined budgeting. The first rule for any OOU student is tracking recurring fixed expenses: electricity contributions, water bills, gas refills, and campus shuttle fares from your lodge to the Permanent Site (PS) lecture halls. Setting aside these non-negotiable costs the moment your allowance arrives prevents end-of-month panic.",
+      "The second major budget drain is impulsive food spending. Many Olabisi Onabanjo University students either overpay for unorganized delivery runners or end up wasting uncooked perishables in their rooms when unexpected power outages hit their hostels. The solution is finding cost-efficient dining routines that don't compromise your nutrition.",
+      "Here is where smart OOU students leverage ValGo to cut down daily food expenses. On the ValGo mobile app (available on Apple App Store and Google Play), food prices are listed transparently without inflated hidden fees. Furthermore, ValGo regularly features exclusive student combo deals, budget-friendly meal boxes starting under ₦1,500, and group ordering features.",
+      "By teaming up with your hostel roommates or lodge neighbors in Ago Iwoye, you can combine multiple orders on ValGo into a single delivery dispatch, effectively splitting delivery charges down to pocket change. You get freshly prepared, hearty dishes from top Ago Iwoye kitchens delivered to your door for less than the cost of trekking and impulse buying at campus markets.",
+      "Finally, OOU students can also turn their campus presence into income through the ValGo Campus Ambassador Program. Undergraduates at Olabisi Onabanjo University earn cash referral bonuses, weekly free meal credits, and invaluable tech startup experience simply by introducing fellow students and favorite campus food spots to the platform. Financial freedom at OOU Ago Iwoye starts with smart choices — and ValGo is here to support you every step of the way.",
+    ],
+  },
+  {
     slug: "why-we-are-starting-at-oou",
     category: "Launch",
     date: "June 2026",

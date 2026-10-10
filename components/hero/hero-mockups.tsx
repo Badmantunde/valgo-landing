@@ -50,7 +50,7 @@ export function HeroMockups() {
           transition={{ duration: 3.8, repeat: Infinity, ease: "easeInOut" }}
         >
           <Link
-            href={APP_LINKS.customer.web}
+            href={APP_LINKS.customer.playStore}
             target="_blank"
             rel="noopener noreferrer"
             className="group relative flex h-20 w-20 sm:h-24 sm:w-24 flex-col items-center justify-center rounded-full bg-gradient-to-br from-blue-400 via-blue-600 to-blue-800 text-white shadow-[0_10px_25px_rgba(41,102,233,0.5)] border-2 border-white/40 transition-transform duration-300 hover:scale-110 active:scale-95"

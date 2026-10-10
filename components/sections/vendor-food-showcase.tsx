@@ -193,12 +193,12 @@ export function VendorFoodShowcase() {
                   </span>
 
                   <a
-                    href={APP_LINKS.customer.web}
+                    href={APP_LINKS.customer.playStore}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-1 text-xs font-bold text-blue-600 hover:text-blue-700 transition-colors"
                   >
-                    Order Now
+                    Get on App
                     <ArrowUpRight className="h-3.5 w-3.5" />
                   </a>
                 </div>

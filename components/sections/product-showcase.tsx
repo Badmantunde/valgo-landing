@@ -22,6 +22,7 @@ import {
 } from "lucide-react";
 import { showcaseSteps, type ShowcaseStep } from "@/data/product-screens";
 import { APP_LINKS } from "@/lib/constants";
+import { GooglePlayIcon, AppleIcon } from "@/components/ui/app-store-badges";
 import { ScrollReveal } from "@/components/ui/motion";
 import { cn } from "@/lib/utils";
 
@@ -273,16 +274,26 @@ export function ProductShowcase() {
                 <span className="flex h-2 w-2 rounded-full bg-emerald-500" />
                 <span>Live in Ago Iwoye &amp; OOU campus network</span>
               </div>
-              <Link
-                href={APP_LINKS.customer.web}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 rounded-lg bg-blue-600 px-5 py-2.5 text-xs sm:text-sm font-bold text-white shadow-sm hover:bg-blue-700 transition-colors w-full sm:w-auto"
-              >
-                <ShoppingBag className="h-4 w-4" />
-                <span>Try It Now: Order on Web</span>
-                <ArrowUpRight className="h-4 w-4" />
-              </Link>
+              <div className="flex items-center gap-2 w-full sm:w-auto">
+                <a
+                  href={APP_LINKS.customer.appStore}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-1.5 rounded-lg bg-slate-900 px-3.5 py-2 text-xs sm:text-sm font-bold text-white shadow-sm hover:bg-slate-800 transition-colors"
+                >
+                  <AppleIcon className="h-3.5 w-3.5" />
+                  <span>App Store</span>
+                </a>
+                <a
+                  href={APP_LINKS.customer.playStore}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-1.5 rounded-lg bg-blue-600 px-3.5 py-2 text-xs sm:text-sm font-bold text-white shadow-sm hover:bg-blue-700 transition-colors"
+                >
+                  <GooglePlayIcon className="h-3.5 w-3.5" />
+                  <span>Google Play</span>
+                </a>
+              </div>
             </div>
           </div>
 

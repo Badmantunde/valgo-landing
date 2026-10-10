@@ -73,7 +73,7 @@ export function AppStoreBadges({
     ? roleConfig.appStore
     : "web" in roleConfig
       ? roleConfig.web
-      : APP_LINKS.customer.web;
+      : APP_LINKS.customer.appStore;
 
   const isDark = variant === "dark";
   const isGlass = variant === "glass";

@@ -6,7 +6,6 @@ import { usePathname } from "next/navigation";
 import { motion, AnimatePresence, type Variants } from "framer-motion";
 import {
   ChevronDown,
-  ShoppingBag,
   Sparkles,
   Users,
   HelpCircle,
@@ -17,7 +16,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Logo } from "@/components/ui/logo";
 import { MenuToggleIcon } from "@/components/ui/menu-toggle-icon";
-import { AppStoreBadges, GooglePlayIcon } from "@/components/ui/app-store-badges";
+import { AppStoreBadges, GooglePlayIcon, AppleIcon } from "@/components/ui/app-store-badges";
 import { NAV_LINKS, APP_LINKS } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
@@ -278,8 +277,19 @@ export function Header() {
             })}
           </nav>
 
-          {/* Desktop Right CTAs */}
-          <div className="hidden lg:flex items-center gap-3">
+          {/* Desktop Right CTAs: Apple & Android */}
+          <div className="hidden lg:flex items-center gap-2.5">
+            <Button
+              href={APP_LINKS.customer.appStore}
+              target="_blank"
+              rel="noopener noreferrer"
+              variant={useLightNav ? "primary" : "white"}
+              size="sm"
+              className="font-bold shadow-sm"
+            >
+              <AppleIcon className="h-3.5 w-3.5 mr-1.5" />
+              App Store
+            </Button>
             <Button
               href={APP_LINKS.customer.playStore}
               target="_blank"
@@ -293,17 +303,6 @@ export function Header() {
             >
               <GooglePlayIcon className="h-3.5 w-3.5 mr-1.5" />
               Google Play
-            </Button>
-            <Button
-              href={APP_LINKS.customer.web}
-              target="_blank"
-              rel="noopener noreferrer"
-              variant={useLightNav ? "primary" : "white"}
-              size="sm"
-              className="font-bold shadow-sm"
-            >
-              <ShoppingBag className="h-3.5 w-3.5 mr-1 text-inherit" />
-              Order on Web
             </Button>
           </div>
 
@@ -428,15 +427,15 @@ export function Header() {
                   className="flex flex-col gap-3 mt-6 pt-5 border-t border-border/80"
                 >
                   <Button
-                    href={APP_LINKS.customer.web}
+                    href={APP_LINKS.customer.appStore}
                     target="_blank"
                     rel="noopener noreferrer"
                     variant="primary"
                     className="w-full justify-center font-bold shadow-sm py-3 text-sm"
                     onClick={() => setMobileOpen(false)}
                   >
-                    <ShoppingBag className="h-4 w-4 mr-2" />
-                    Order on Web (Web Access)
+                    <AppleIcon className="h-4 w-4 mr-2" />
+                    Download on App Store
                   </Button>
 
                   <Button

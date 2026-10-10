@@ -29,21 +29,21 @@ export interface PlatformEcosystem {
 export const platforms: PlatformEcosystem[] = [
   {
     id: "customer",
-    title: "Customer App & Web",
+    title: "Customer Mobile Apps",
     subtitle: "Order food & essentials in seconds",
     description:
-      "Browse 40+ campus eateries, customize your meals, and order with ease on web or Android. Doorstep delivery right to your hostel.",
+      "Browse 40+ campus eateries, customize your meals, and order with ease on iOS or Android. Doorstep delivery right to your hostel.",
     features: [
-      "Instant web ordering at usevalgo.com/store",
-      "Live rider GPS tracking",
+      "Official Apple App Store & Google Play releases",
+      "Live rider GPS tracking to your hostel",
       "Student budget deals & combos",
       "Group orders & split pay",
     ],
     icon: ShoppingBag,
     accent: "from-blue-500 to-blue-600",
     primaryLink: {
-      label: "Order on Web",
-      href: APP_LINKS.customer.web,
+      label: "Download on App Store",
+      href: APP_LINKS.customer.appStore,
       external: true,
     },
     secondaryLink: {
@@ -51,7 +51,7 @@ export const platforms: PlatformEcosystem[] = [
       href: APP_LINKS.customer.playStore,
       external: true,
     },
-    comingSoonApple: true,
+    comingSoonApple: false,
   },
   {
     id: "vendor",

@@ -7,7 +7,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Flame, Clock, ShoppingBag, Sparkles, ArrowUpRight } from "lucide-react";
 import { featuredMenuItems } from "@/data/restaurants";
 import { APP_LINKS } from "@/lib/constants";
-import { AppStoreBadges } from "@/components/ui/app-store-badges";
+import { AppStoreBadges, GooglePlayIcon, AppleIcon } from "@/components/ui/app-store-badges";
 import { ScrollReveal } from "@/components/ui/motion";
 import { cn } from "@/lib/utils";
 
@@ -54,17 +54,25 @@ export function CraveShowcase() {
               </p>
             </div>
 
-            <div className="shrink-0 flex items-center gap-3">
-              <Link
-                href={APP_LINKS.customer.web}
+            <div className="shrink-0 flex items-center gap-2">
+              <a
+                href={APP_LINKS.customer.appStore}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-lg bg-blue-600 px-5 py-3 text-sm font-bold text-white shadow-md transition-all duration-200 hover:bg-blue-700 hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0"
+                className="inline-flex items-center gap-1.5 rounded-lg bg-slate-900 px-3.5 py-2.5 text-xs sm:text-sm font-bold text-white shadow-sm hover:bg-slate-800 transition-colors"
               >
-                <ShoppingBag className="h-4 w-4" />
-                Explore Full Menu on Web
-                <ArrowUpRight className="h-4 w-4" />
-              </Link>
+                <AppleIcon className="h-3.5 w-3.5" />
+                App Store
+              </a>
+              <a
+                href={APP_LINKS.customer.playStore}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 rounded-lg bg-blue-600 px-3.5 py-2.5 text-xs sm:text-sm font-bold text-white shadow-sm hover:bg-blue-700 transition-colors"
+              >
+                <GooglePlayIcon className="h-3.5 w-3.5" />
+                Google Play
+              </a>
             </div>
           </div>
         </ScrollReveal>
@@ -159,15 +167,15 @@ export function CraveShowcase() {
                       <span>#VG-{1000 + index * 37}</span>
                     </div>
 
-                    <Link
-                      href={APP_LINKS.customer.web}
+                    <a
+                      href={APP_LINKS.customer.playStore}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-1.5 rounded-md bg-blue-50 px-3 py-1.5 text-xs font-bold text-blue-700 transition-all hover:bg-blue-600 hover:text-white"
                     >
-                      Order Now
+                      Get on App
                       <ArrowUpRight className="h-3.5 w-3.5" />
-                    </Link>
+                    </a>
                   </div>
                 </div>
               </motion.div>
@@ -175,7 +183,7 @@ export function CraveShowcase() {
           </AnimatePresence>
         </motion.div>
 
-        {/* Bottom Banner with App Links and Web Order */}
+        {/* Bottom Banner with App Links */}
         <div className="mt-12 rounded-xl bg-gradient-to-r from-blue-900 via-blue-800 to-[#0a1628] p-6 sm:p-8 text-white flex flex-col md:flex-row items-center justify-between gap-6 shadow-xl border border-white/10">
           <div className="max-w-xl text-center md:text-left">
             <span className="inline-flex items-center gap-1.5 rounded-md bg-white/10 px-2.5 py-0.5 text-xs font-bold text-amber-300 mb-2 border border-white/15">
@@ -183,7 +191,7 @@ export function CraveShowcase() {
               Ordering for your hostel or lodge?
             </span>
             <h3 className="text-xl sm:text-2xl font-black tracking-tight">
-              Order directly on web or get the ValGo app
+              Get the ValGo app on iOS &amp; Android
             </h3>
             <p className="text-sm text-blue-100/70 mt-1">
               Browse live menus, customize your portions, and pay with ease. Instant rider dispatch.
@@ -191,15 +199,6 @@ export function CraveShowcase() {
           </div>
 
           <div className="flex flex-col lg:flex-row items-center gap-3.5 w-full md:w-auto">
-            <Link
-              href={APP_LINKS.customer.web}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl bg-white px-5 py-3 text-sm font-black text-blue-700 hover:bg-blue-50 transition-colors shadow-md shrink-0"
-            >
-              <ShoppingBag className="h-4 w-4" />
-              Order on Web
-            </Link>
             <AppStoreBadges
               role="customer"
               variant="dark"

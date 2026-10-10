@@ -4,7 +4,7 @@ import { motion, type Variants } from "framer-motion";
 import { ArrowRight, Sparkles, ShoppingBag } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { AppStoreBadges, GooglePlayIcon } from "@/components/ui/app-store-badges";
+import { AppStoreBadges, GooglePlayIcon, AppleIcon } from "@/components/ui/app-store-badges";
 import { PulseDot } from "@/components/ui/motion";
 import { VISION, APP_LINKS } from "@/lib/constants";
 
@@ -75,15 +75,15 @@ export function HeroContent() {
           className="w-full sm:w-auto"
         >
           <Button
-            href={APP_LINKS.customer.web}
+            href={APP_LINKS.customer.appStore}
             target="_blank"
             rel="noopener noreferrer"
             variant="white"
             size="lg"
             className="w-full sm:w-auto font-extrabold text-blue-700 shadow-xl hover:bg-blue-50 px-7 py-3.5 text-sm sm:text-base tracking-wide"
           >
-            <ShoppingBag className="h-4 w-4 mr-2 text-blue-600" />
-            Order on Web
+            <AppleIcon className="h-4 w-4 mr-2 text-blue-600" />
+            App Store
             <ArrowRight className="h-4 w-4 ml-1.5 text-blue-600 transition-transform group-hover:translate-x-1" />
           </Button>
         </motion.div>

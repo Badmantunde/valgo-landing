@@ -29,8 +29,8 @@ function GalleryCard({
   tag: string;
 }) {
   return (
-    <Link
-      href={APP_LINKS.customer.web}
+    <a
+      href={APP_LINKS.customer.playStore}
       target="_blank"
       rel="noopener noreferrer"
       className="block"
@@ -66,7 +66,7 @@ function GalleryCard({
           </div>
         </div>
       </motion.div>
-    </Link>
+    </a>
   );
 }
 

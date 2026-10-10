@@ -1,8 +1,9 @@
-import { ArrowUpRight, Home, ShoppingBag, UtensilsCrossed, Flame } from "lucide-react";
+import { Home, UtensilsCrossed, Flame } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { AbstractHeroBg } from "@/components/ui/abstract-hero-bg";
 import { CheckeredStrip } from "@/components/ui/checkered-strip";
 import { APP_LINKS } from "@/lib/constants";
+import { AppleIcon, GooglePlayIcon } from "@/components/ui/app-store-badges";
 
 export default function NotFound() {
   return (
@@ -29,14 +30,27 @@ export default function NotFound() {
         {/* Quick Actions */}
         <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
           <Button
-            href={APP_LINKS.customer.web}
+            href={APP_LINKS.customer.appStore}
+            target="_blank"
+            rel="noopener noreferrer"
             variant="white"
             size="lg"
             className="w-full sm:w-auto font-bold text-blue-700 shadow-lg"
           >
-            <ShoppingBag className="h-4 w-4 mr-1.5 text-blue-600" />
-            Order on Web
-            <ArrowUpRight className="h-4 w-4 ml-1" />
+            <AppleIcon className="h-4 w-4 mr-1.5" />
+            App Store
+          </Button>
+
+          <Button
+            href={APP_LINKS.customer.playStore}
+            target="_blank"
+            rel="noopener noreferrer"
+            variant="outline"
+            size="lg"
+            className="w-full sm:w-auto border-white/25 text-white hover:bg-white/10"
+          >
+            <GooglePlayIcon className="h-4 w-4 mr-1.5" />
+            Google Play
           </Button>
 
           <Button
